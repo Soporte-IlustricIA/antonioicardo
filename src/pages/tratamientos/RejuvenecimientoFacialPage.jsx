@@ -1,0 +1,238 @@
+import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
+import { tratamientos } from '../../data/tratamientos'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
+import {
+  TratStatsBar, TratBenefits, TratSteps, TratGallery,
+  TratForWho, TratFAQ, TratRelated, TratFinalCTA
+} from './shared/TratSections'
+
+const t = tratamientos.find(tr => tr.slug === 'rejuvenecimiento-facial')
+
+const TECNICAS_TABS = [
+  {
+    id: 'laser',
+    label: 'Láser CO2',
+    titulo: 'Láser CO2 Fraccionado',
+    desc: 'La tecnología más avanzada para rejuvenecer la piel en profundidad. Estimula la producción de colágeno y elastina, mejorando textura, manchas y arrugas finas con resultados duraderos.',
+    beneficios: ['Resultados desde la 1ª sesión', 'Piel más firme y luminosa', '3-7 días de recuperación', 'Efecto progresivo durante 3 meses'],
+  },
+  {
+    id: 'meso',
+    label: 'Mesoterapia',
+    titulo: 'Mesoterapia Facial',
+    desc: 'Inyecciones superficiales de vitaminas, ácido hialurónico y antioxidantes directamente en la dermis. Hidratación profunda e instantánea con efecto lifting suave.',
+    beneficios: ['Hidratación profunda e inmediata', 'Sin tiempo de recuperación', 'Protocolo personalizable', 'Resultados acumulativos'],
+  },
+  {
+    id: 'peeling',
+    label: 'Peelings',
+    titulo: 'Peelings Químicos',
+    desc: 'Exfoliación médica controlada con ácidos de distintas profundidades. Unifica el tono, elimina manchas y renueva la superficie cutánea.',
+    beneficios: ['Elimina manchas y tono irregular', 'Piel más lisa y uniforme', 'Diferentes profundidades disponibles', 'Compatible con otras técnicas'],
+  },
+  {
+    id: 'sculptra',
+    label: 'Sculptra',
+    titulo: 'Sculptra & Radiesse',
+    desc: 'Bioestimuladores de colágeno que actúan desde dentro. Recuperan el volumen perdido y mejoran la firmeza de forma natural y progresiva.',
+    beneficios: ['Efecto natural progresivo', 'Duración hasta 2 años', 'Sin expresión artificial', 'Remodelación facial completa'],
+  },
+]
+
+const GALLERY_EXTRA = [
+  'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80',
+  'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80',
+  'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80',
+  'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80',
+  'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80',
+  'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80',
+]
+
+function TypewriterHero({ phrases }) {
+  const [text, setText] = useState('')
+  const [phraseIdx, setPhraseIdx] = useState(0)
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setText(phrases[0])
+      return
+    }
+    const current = phrases[phraseIdx]
+    let timeout
+
+    if (!deleting && text.length < current.length) {
+      timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 65)
+    } else if (!deleting && text.length === current.length) {
+      timeout = setTimeout(() => setDeleting(true), 2200)
+    } else if (deleting && text.length > 0) {
+      timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 32)
+    } else if (deleting && text.length === 0) {
+      setDeleting(false)
+      setPhraseIdx(i => (i + 1) % phrases.length)
+    }
+    return () => clearTimeout(timeout)
+  }, [text, deleting, phraseIdx, phrases])
+
+  return (
+    <span className="typewriter-text">
+      {text}
+      <span className="typewriter-cursor" />
+    </span>
+  )
+}
+
+export default function RejuvenecimientoFacialPage() {
+  useScrollReveal()
+  const [activeTab, setActiveTab] = useState('laser')
+  const [lightbox, setLightbox] = useState(null)
+
+  const tab = TECNICAS_TABS.find(tb => tb.id === activeTab)
+
+  return (
+    <>
+      <Navbar />
+
+      {/* HERO — typewriter */}
+      <section className="trat-hero rejuv-hero" style={{ backgroundImage: `url(${t.imagenHero})` }}>
+        <div className="trat-hero-overlay" />
+        <div className="trat-hero-inner">
+          <Link to="/tratamientos" className="trat-breadcrumb">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 5l-7 7 7 7" /></svg>
+            Todos los tratamientos
+          </Link>
+          <div className="trat-hero-text">
+            <span className="trat-eyebrow">Clínicas Icardo · Desde 1992</span>
+            <h1>
+              {t.nombre}
+              <span className="rejuv-typewriter-line">
+                <TypewriterHero phrases={t.tecnicas} />
+              </span>
+            </h1>
+            <p>{t.descripcionCorta}</p>
+            <div className="trat-hero-ctas">
+              <a className="btn btn-light" href="tel:+34966308811">
+                Pedir cita
+                <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+              </a>
+              <a className="btn trat-btn-ghost" href="https://wa.me/34680637247" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <TratStatsBar t={t} />
+
+      {/* INTRO */}
+      <section className="trat-intro">
+        <div className="container">
+          <div className="trat-intro-grid">
+            <div className="trat-intro-img-wrap" data-reveal>
+              <img src={t.imagenes[0]} alt={t.nombre} className="trat-intro-img" loading="lazy" />
+              <div className="trat-intro-badge">
+                <b>+40 años</b>
+                <span>de experiencia clínica</span>
+              </div>
+            </div>
+            <div className="trat-intro-body" data-reveal data-delay="2">
+              <span className="eyebrow">· En qué consiste</span>
+              <h2>Conoce el tratamiento</h2>
+              <p>{t.descripcionLarga}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TABS DE TÉCNICAS */}
+      <section className="tecnicas-tabs-section">
+        <div className="container">
+          <div className="trat-sec-head" data-reveal>
+            <span className="eyebrow">· Técnicas disponibles</span>
+            <h2>Elige tu protocolo</h2>
+          </div>
+          <div className="tecnicas-tabs" data-reveal>
+            <div className="tecnicas-tab-bar">
+              {TECNICAS_TABS.map(tb => (
+                <button
+                  key={tb.id}
+                  className={`tecnica-tab${activeTab === tb.id ? ' active' : ''}`}
+                  onClick={() => setActiveTab(tb.id)}
+                >
+                  {tb.label}
+                </button>
+              ))}
+            </div>
+            <div className="tecnica-panel">
+              <div className="tecnica-panel-body">
+                <h3>{tab.titulo}</h3>
+                <p>{tab.desc}</p>
+                <ul className="tecnica-bens">
+                  {tab.beneficios.map((b, i) => (
+                    <li key={i}>
+                      <span className="tecnica-ben-dot" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <TratBenefits t={t} />
+      <TratSteps t={t} />
+
+      {/* MASONRY GALLERY con lightbox */}
+      <section className="masonry-section">
+        <div className="container">
+          <div className="trat-sec-head" data-reveal>
+            <span className="eyebrow">· Galería</span>
+            <h2>Nuestras instalaciones</h2>
+          </div>
+          <div className="masonry-grid" data-reveal>
+            {GALLERY_EXTRA.map((src, i) => (
+              <button
+                key={i}
+                className={`masonry-item masonry-item-${(i % 3 === 0) ? 'tall' : 'normal'}`}
+                onClick={() => setLightbox(i)}
+                aria-label={`Ver imagen ${i + 1}`}
+              >
+                <img src={src} alt={`Rejuvenecimiento ${i + 1}`} loading="lazy" />
+                <div className="masonry-hover">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
+                  </svg>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {lightbox !== null && (
+        <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
+          <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Cerrar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
+          </button>
+          <button className="lightbox-prev" onClick={e => { e.stopPropagation(); setLightbox(v => (v - 1 + GALLERY_EXTRA.length) % GALLERY_EXTRA.length) }} aria-label="Anterior">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
+          </button>
+          <img src={GALLERY_EXTRA[lightbox]} alt="" className="lightbox-img" onClick={e => e.stopPropagation()} />
+          <button className="lightbox-next" onClick={e => { e.stopPropagation(); setLightbox(v => (v + 1) % GALLERY_EXTRA.length) }} aria-label="Siguiente">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
+          </button>
+        </div>
+      )}
+
+      <TratForWho t={t} />
+      <TratFAQ t={t} />
+      <TratRelated slug={t.slug} />
+      <TratFinalCTA />
+      <Footer />
+    </>
+  )
+}
