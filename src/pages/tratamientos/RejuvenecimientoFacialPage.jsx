@@ -132,10 +132,6 @@ export default function RejuvenecimientoFacialPage() {
           <div className="trat-intro-grid">
             <div className="trat-intro-img-wrap" data-reveal>
               <img src={t.imagenes[0]} alt={t.nombre} className="trat-intro-img" loading="lazy" />
-              <div className="trat-intro-badge">
-                <b>+40 años</b>
-                <span>de experiencia clínica</span>
-              </div>
             </div>
             <div className="trat-intro-body" data-reveal data-delay="2">
               <span className="eyebrow">· En qué consiste</span>

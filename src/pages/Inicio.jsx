@@ -563,15 +563,15 @@ export default function Inicio() {
             <h2 className="testi-vibe-title">
               Promoviendo tu salud{' '}
               <span className="testi-pill">
-                <img src="https://images.unsplash.com/photo-1594824497964-58615b41637b?w=120&q=80" alt="Doctora Icardo" />
+                <img src="/assets/salud.webp" alt="Doctora Icardo" />
               </span>{' '}
               y bienestar a través de{' '}
               <span className="testi-pill">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=120&q=80" alt="Tratamiento Facial" />
+                <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=120&q=80" alt="Cuidado Profesional" />
               </span>{' '}
               técnicas avanzadas y procedimientos{' '}
               <span className="testi-pill">
-                <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=120&q=80" alt="Cuidado Profesional" />
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=120&q=80" alt="Tratamiento Facial" />
               </span>{' '}
               personalizados
             </h2>

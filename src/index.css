@@ -1858,7 +1858,8 @@ section{padding:96px 0}
 
 /* ─── FAQ ───────────────────────────────────────────────── */
 .trat-faq{padding:104px 0;background:var(--cream-2)}
-.trat-faq-list{max-width:820px}
+.trat-faq .trat-sec-head{text-align:center}
+.trat-faq-list{max-width:820px;margin:0 auto}
 .trat-faq-item{border-bottom:1px solid var(--line)}
 .trat-faq-item:last-child{border-bottom:0}
 .trat-faq-q{
