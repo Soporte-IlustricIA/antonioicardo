@@ -25,7 +25,7 @@ export default function Contacto() {
     <>
       <Navbar />
 
-      <section className="page-hero">
+      <section className="page-hero contact-hero">
         <div className="container" data-reveal>
           <span className="eyebrow">· Clínicas Icardo</span>
           <h1>Contacta con <span className="it">nosotros</span></h1>

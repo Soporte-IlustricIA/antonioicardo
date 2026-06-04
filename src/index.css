@@ -1,3 +1,27 @@
+@import "tailwindcss";
+
+/* Safelist of dynamic Tailwind classes used in Treatments object:
+  bg-teal-50/15 hover:bg-teal-50/30 bg-teal-50/80
+  border-teal-100/40 border-teal-500
+  shadow-teal-900/5 ring-teal-500/10
+  bg-teal-100 text-teal-700 text-teal-950 text-teal-900/70
+
+  bg-sky-50/15 hover:bg-sky-50/30 bg-sky-50/80
+  border-sky-100/40 border-sky-400
+  shadow-sky-900/5 ring-sky-400/10
+  bg-sky-100 text-sky-700 text-sky-950 text-sky-900/70 text-sky-600
+
+  bg-orange-50/15 hover:bg-orange-50/30 bg-orange-50/70
+  border-orange-100/40 border-orange-400
+  shadow-orange-900/5 ring-orange-400/10
+  bg-orange-100 text-orange-700 text-orange-950 text-orange-900/70 text-orange-600
+
+  bg-purple-50/15 hover:bg-purple-50/30 bg-purple-50/80
+  border-purple-100/40 border-purple-400
+  shadow-purple-900/5 ring-purple-400/10
+  bg-purple-100 text-purple-700 text-purple-950 text-purple-900/70 text-purple-600
+*/
+
 /* ═══════════════════════════════════════════════════════════
    CSS EXTRAÍDO DEL INDEX.HTML ORIGINAL — NO MODIFICAR
    ═══════════════════════════════════════════════════════════ */
@@ -23,8 +47,9 @@ img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .serif{font-family:"Cormorant Garamond", "Times New Roman", serif;font-weight:500;letter-spacing:-.005em}
-.it{font-style:italic;color:var(--terra)}
+.it{font-style:italic;color:#A73E3E}
 .container{width:100%;max-width:1240px;margin:0 auto;padding:0 24px}
+.container-wide{width:100%;max-width:1600px;margin:0 auto;padding:0 24px}
 .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:500;font-size:15px;transition:transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease}
 .btn:hover{transform:translateY(-1px)}
@@ -967,7 +992,7 @@ section{padding:96px 0}
 .tcard .pic{aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--cream-2);margin-bottom:16px}
 .tcard .pic img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .tcard h4{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:24px;margin:0 0 4px;letter-spacing:-.005em}
-.tcard .role{color:var(--terra);font-size:13px;letter-spacing:.04em;margin-bottom:10px}
+.tcard .role{color:#A73E3E;font-size:13px;letter-spacing:.04em;margin-bottom:10px}
 .tcard p{color:var(--muted);font-size:14px;line-height:1.55;margin:0}
 /* Team carousel (Inicio only) */
 .team-carousel-wrap{max-width:400px;margin:0 auto;overflow:hidden}
@@ -1008,20 +1033,13 @@ section{padding:96px 0}
 /* ─── FOOTER ────────────────────────────────────────── */
 .footer{background:var(--cream-2);padding:80px 0 36px;border-top:1px solid var(--line)}
 .foot-top{display:grid;grid-template-columns:1fr;gap:40px;margin-bottom:60px}
-@media(min-width:900px){.foot-top{grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:30px}}
+@media(min-width:900px){.foot-top{grid-template-columns:1.5fr 1fr 1fr;gap:60px}}
 .foot-brand img{height:42px;margin-bottom:18px}
 .foot-brand p{color:var(--muted);font-size:14px;line-height:1.55;max-width:300px;margin:0}
 .foot-col h5{font-size:13px;font-weight:600;margin:0 0 16px;letter-spacing:.04em}
 .foot-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
 .foot-col a{font-size:14px;color:var(--ink-soft)}
 .foot-col a:hover{color:var(--terra)}
-.foot-news h5{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:500;line-height:1.2;margin:0 0 14px}
-.foot-news h5 em{color:var(--terra)}
-.foot-news p{color:var(--muted);font-size:13px;margin:0 0 16px}
-.foot-form{display:flex;gap:8px;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:5px 5px 5px 18px}
-.foot-form input{flex:1;border:0;background:none;outline:none;font:inherit;font-size:14px;color:var(--ink)}
-.foot-form input::placeholder{color:var(--muted)}
-.foot-form button{background:var(--terra);color:#fff;border-radius:999px;padding:10px 18px;font-size:13px;font-weight:500}
 .foot-locations{display:grid;grid-template-columns:1fr;gap:20px;padding:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
 @media(min-width:700px){.foot-locations{grid-template-columns:1fr 1fr 1fr}}
 .loc h6{font-family:"Cormorant Garamond",serif;font-size:22px;margin:0 0 6px;font-weight:500}
@@ -1141,6 +1159,43 @@ section{padding:96px 0}
   margin:0;
 }
 .page-hero .eyebrow{margin-bottom:16px}
+.nc-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/assets/nuestrasclinicas.webp');
+  background-size: cover;
+  background-position: center;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.contact-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/assets/contacta.webp');
+  background-size: cover;
+  background-position: center 35%;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.nc-hero h1, 
+.nc-hero p, 
+.nc-hero .eyebrow,
+.contact-hero h1, 
+.contact-hero p, 
+.contact-hero .eyebrow {
+  color: #ffffff !important;
+}
+
+.nc-hero .it,
+.contact-hero .it {
+  color: #A73E3E;
+}
 
 /* ─── QUIZ CTA ──────────────────────────────────────── */
 .quiz-section{
@@ -1309,7 +1364,7 @@ section{padding:96px 0}
 .vs-sub{color:var(--muted);font-size:16px;line-height:1.65;margin:0 0 36px;max-width:360px}
 .vs-dots{display:flex;gap:10px;align-items:center}
 .vs-dot{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .35s ease,width .35s ease,border-radius .35s ease}
-.vs-dot.on{background:var(--terra);width:26px;border-radius:4px}
+.vs-dot.on{background:#A73E3E;width:26px;border-radius:4px}
 .vs-right{position:relative}
 .vs-stack{position:relative;height:290px}
 .vs-card{
@@ -1325,7 +1380,7 @@ section{padding:96px 0}
 .vs-card[data-state="past1"]{transform:translateY(-14px) scale(.97);opacity:.72;z-index:9}
 .vs-card[data-state="past2"]{transform:translateY(-25px) scale(.94);opacity:.44;z-index:8}
 .vs-card[data-state="past3"]{transform:translateY(-34px) scale(.91);opacity:.2;z-index:7}
-.vs-card-icon{width:48px;height:48px;border-radius:14px;background:var(--cream);border:1px solid var(--line);display:grid;place-items:center;color:var(--terra);font-size:22px;margin-bottom:20px;flex-shrink:0}
+.vs-card-icon{width:48px;height:48px;border-radius:14px;background:var(--cream);border:1px solid var(--line);display:grid;place-items:center;color:#A73E3E;font-size:22px;margin-bottom:20px;flex-shrink:0}
 .vs-card h4{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:500;margin:0 0 10px;color:var(--ink)}
 .vs-card p{color:var(--muted);font-size:15px;line-height:1.6;margin:0}
 .vs-card-num{position:absolute;top:28px;right:32px;font-family:"Cormorant Garamond",serif;font-size:13px;color:var(--muted);letter-spacing:.08em}
@@ -1500,7 +1555,7 @@ section{padding:96px 0}
 .maps-head .eyebrow{display:block;margin-bottom:8px}
 .maps-head h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(32px,4vw,52px);line-height:1.05;margin:0}
 .maps-grid{display:grid;grid-template-columns:1fr;gap:32px}
-@media(min-width:768px){.maps-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:768px){.maps-grid{grid-template-columns:1fr 1fr;gap:20px}}
 .map-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(22,32,44,.07);display:flex;flex-direction:column}
 .map-label{display:flex;align-items:flex-start;gap:12px;padding:20px 22px 16px;border-bottom:1px solid var(--line)}
 .map-label svg{color:var(--terra);flex-shrink:0;margin-top:3px}
@@ -1952,37 +2007,59 @@ section{padding:96px 0}
 .trat-btn-wa:hover{background:#1eb956;transform:translateY(-1px)}
 
 /* ─── LEGAL PAGES ───────────────────────────────────── */
-.legal-page{padding-bottom:80px}
+.legal-page{padding-bottom:80px;background:var(--cream)}
 .legal-hero{
-  background:var(--dark);
-  padding:120px 0 64px;
+  background:var(--cream-2);
+  padding:140px 0 80px;
   text-align:center;
+  border-bottom:1px solid var(--line);
 }
-.legal-hero .eyebrow{color:var(--terra);opacity:1}
-.legal-hero h1{color:#fff;font-size:clamp(2rem,5vw,3.2rem);margin:.5rem 0 0}
+.legal-hero .eyebrow{color:var(--terra);opacity:1;margin-bottom:1rem}
+.legal-hero h1{
+  color:var(--ink);
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(2.5rem, 6vw, 4rem);
+  font-weight:500;
+  margin:0;
+  letter-spacing:-0.02em;
+}
 .legal-content{
-  max-width:800px;
-  margin:64px auto 0;
-  font-size:1rem;
-  line-height:1.8;
-  color:var(--text);
+  max-width:850px;
+  margin:80px auto 0;
+  font-size:1.05rem;
+  line-height:1.85;
+  color:var(--ink-soft);
 }
 .legal-content h2{
-  font-size:1.2rem;
-  font-weight:700;
-  color:var(--dark);
-  margin:2.5rem 0 .75rem;
-  padding-bottom:.5rem;
-  border-bottom:2px solid var(--line);
+  font-family:"Cormorant Garamond", serif;
+  font-size:1.8rem;
+  font-weight:500;
+  color:var(--ink);
+  margin:3.5rem 0 1.25rem;
+  padding-bottom:.75rem;
+  border-bottom:1px solid var(--line);
+  letter-spacing:-0.01em;
 }
-.legal-content p{margin:0 0 1rem}
+.legal-content p{margin:0 0 1.5rem}
 .legal-content ul{
-  margin:0 0 1rem;
+  margin:0 0 2rem;
   padding-left:1.5rem;
+  list-style: none;
 }
-.legal-content ul li{margin-bottom:.5rem}
-.legal-content a{color:var(--terra);text-decoration:underline}
-.legal-content a:hover{color:var(--dark)}
+.legal-content ul li{
+  position: relative;
+  margin-bottom:.75rem;
+  padding-left: 1.5rem;
+}
+.legal-content ul li::before{
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--terra);
+  font-weight: bold;
+}
+.legal-content a{color:var(--terra);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s}
+.legal-content a:hover{border-bottom-color:var(--terra)}
 .cookies-table{
   width:100%;border-collapse:collapse;
   margin:1rem 0 1.5rem;font-size:.9rem;
@@ -2045,7 +2122,7 @@ html{scroll-behavior:smooth}
 @media(min-width:700px){.trat-counters-grid{grid-template-columns:repeat(4,1fr)}}
 .trat-counter-item{padding:48px 32px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
 .trat-counter-item:last-child{border-right:0}
-.trat-counter-num{font-family:"Cormorant Garamond",serif;font-size:clamp(44px,6vw,72px);font-weight:500;line-height:1;color:#E8B89D;margin-bottom:10px}
+.trat-counter-num{font-family:"Cormorant Garamond",serif;font-size:clamp(36px,5vw,56px);font-weight:500;line-height:1;color:#E8B89D;margin-bottom:10px;white-space:nowrap}
 .trat-counter-label{font-size:13px;color:rgba(244,236,221,.55);letter-spacing:.06em}
 
 /* ─── BEFORE / AFTER SLIDER (arrugas) ──────────────────── */
@@ -2069,7 +2146,7 @@ html{scroll-behavior:smooth}
 
 /* ─── VARICES: VERTICAL STEPS ───────────────────────────── */
 .trat-vsteps-section{padding:104px 0;background:var(--cream)}
-.vsteps-list{max-width:680px;display:flex;flex-direction:column;gap:0}
+.vsteps-list{max-width:680px;display:flex;flex-direction:column;gap:0;margin:0 auto}
 .vstep{display:flex;gap:28px;opacity:0;transform:translateX(-20px);transition:opacity .6s ease,transform .6s ease}
 .vstep.vstep-visible{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.vstep{opacity:1;transform:none}}
@@ -2439,16 +2516,17 @@ html{scroll-behavior:smooth}
 .qs-split-hero {
   display: flex;
   flex-direction: column;
-  min-height: 580px;
-  background: var(--terra); /* Color de Clinics Icardo */
+  background: #A73E3E; /* Color brand de Clínicas Icardo */
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 !important; 
+  margin: 0 !important;
 }
 
 @media (min-width: 992px) {
   .qs-split-hero {
     flex-direction: row;
-    min-height: clamp(550px, 75vh, 670px);
+    align-items: stretch;
   }
 }
 
@@ -2456,6 +2534,7 @@ html{scroll-behavior:smooth}
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 60px 24px;
 }
 
@@ -2468,12 +2547,6 @@ html{scroll-behavior:smooth}
 .qs-split-content {
   max-width: 580px;
   margin: 0 auto;
-}
-
-@media (min-width: 992px) {
-  .qs-split-content {
-    margin: 0;
-  }
 }
 
 .qs-split-title {
@@ -2510,7 +2583,7 @@ html{scroll-behavior:smooth}
 .qs-split-btn {
   display: inline-block;
   background: #ffffff;
-  color: var(--terra);
+  color: #A73E3E;
   border-radius: 9999px;
   padding: 12px 36px;
   font-size: 14px;
@@ -2531,24 +2604,23 @@ html{scroll-behavior:smooth}
 
 .qs-split-right {
   flex: 1;
-  position: relative;
-  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
 }
 
-@media (min-width: 992px) {
-  .qs-split-right {
-    min-height: auto;
-  }
-}
-
-.qs-split-right img {
-  position: absolute;
-  top: 0;
-  left: 0;
+.image-wrapper {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  display: flex;
+  flex: 1;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 /* ─── NOUVEAU RÉPLICA HISTORY TIMELINE ─────────────────── */
@@ -2577,7 +2649,7 @@ html{scroll-behavior:smooth}
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.01em;
-  color: var(--terra); /* Borgoña oscuro de Clinics Icardo */
+  color: #A73E3E; /* Brand Red */
   margin: 0;
 }
 
@@ -2585,7 +2657,7 @@ html{scroll-behavior:smooth}
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  color: var(--terra);
+  color: #A73E3E;
 }
 
 .qs-timeline-track {
@@ -2619,7 +2691,7 @@ html{scroll-behavior:smooth}
   font-style: italic;
   font-weight: 300;
   line-height: 1;
-  color: var(--terra);
+  color: #A73E3E;
   margin: 0 0 16px 0;
   user-select: none;
 }
@@ -2659,7 +2731,7 @@ html{scroll-behavior:smooth}
   left: 0;
   top: -1px;
   height: 3px;
-  background: var(--terra);
+  background: #A73E3E;
   transition: width 0.15s ease-out;
 }
 
@@ -2683,14 +2755,94 @@ html{scroll-behavior:smooth}
 }
 
 .qs-timeline-btn:hover {
-  border-color: var(--terra);
+  border-color: #A73E3E;
   background: rgba(167, 62, 62, 0.05);
-  color: var(--terra);
+  color: #A73E3E;
   transform: scale(1.05);
 }
 
 .qs-timeline-btn:active {
   transform: scale(0.95);
+}
+
+/* ─── FILOSOFÍA DETALLADA (QUIÉNES SOMOS) ─────────── */
+.qs-philosophy-sec {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.qs-philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .qs-philosophy-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.qs-philosophy-text h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(32px, 4vw, 48px);
+  color: #1a1a1a;
+  margin: 12px 0 32px;
+  line-height: 1.1;
+}
+
+.qs-ph-p p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #554440;
+  margin-bottom: 24px;
+}
+
+.qs-philosophy-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.qs-ph-card {
+  background: #fbf9f6;
+  border: 1px solid #f2ece8;
+  padding: 48px 40px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 360px;
+  transition: transform 0.3s ease;
+}
+
+.qs-ph-card:hover {
+  transform: translateY(-8px);
+}
+
+.qs-ph-card-icon {
+  width: 64px;
+  height: 64px;
+  background: #ffffff;
+  border: 1px solid #f2ece8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: #A73E3E;
+}
+
+.qs-ph-card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 24px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.qs-ph-card p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #554440;
+  margin: 0;
 }
 
 /* ─── QUIÉNES SOMOS CLOSING SECTION ───────────────────── */
@@ -2706,7 +2858,7 @@ html{scroll-behavior:smooth}
 .qs-closing-card {
   width: 100%;
   max-width: 960px;
-  background: var(--terra); /* Clinics Icardo vibrant red */
+  background: #A73E3E; /* Clinics Icardo vibrant red */
   border-radius: 24px;
   padding: 64px 48px;
   text-align: center;
@@ -2777,7 +2929,7 @@ html{scroll-behavior:smooth}
   align-items: center;
   gap: 10px;
   background: #ffffff;
-  color: var(--terra);
+  color: #A73E3E;
   font-weight: 500;
   font-size: 14.5px;
   letter-spacing: 0.01em;

@@ -122,7 +122,7 @@ export default function ArrugarPage() {
         </div>
       </section>
 
-      <TratIntro t={t} />
+      <TratIntro t={t} customImage="/assets/arrugas2.webp" />
 
       {/* BEFORE / AFTER SLIDER */}
       <section className="trat-ba-section">
@@ -185,7 +185,6 @@ export default function ArrugarPage() {
         </div>
       </section>
 
-      <TratGallery t={t} />
       <TratForWho t={t} />
       <TratFAQ t={t} />
       <TratRelated slug={t.slug} />

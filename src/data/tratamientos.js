@@ -179,7 +179,7 @@ export const tratamientos = [
   {
     slug: "adelgazamiento",
     categoria: "nutricion",
-    nombre: "Clínica de Adelgazamiento",
+    nombre: "Adelgazamiento",
     descripcionCorta: "Alcanza tu peso ideal de forma segura y con seguimiento médico.",
     descripcionLarga: "Programa de adelgazamiento médico personalizado. Combinación de dieta, tratamientos médicos y seguimiento profesional para una pérdida de peso segura, efectiva y sostenible a largo plazo.",
     tecnicas: ["Plan nutricional personalizado", "Mesoterapia lipolítica", "Tratamientos complementarios", "Seguimiento médico continuo"],

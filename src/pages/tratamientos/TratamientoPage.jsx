@@ -160,50 +160,6 @@ export default function TratamientoPage() {
         </div>
       </section>
 
-      {/* 6 · GALLERY CAROUSEL */}
-      <section className="trat-gallery">
-        <div className="trat-gallery-viewport">
-          <div
-            className="trat-gallery-track"
-            style={{ transform: `translateX(-${galleryIdx * 100}%)` }}
-          >
-            {t.imagenes.map((img, i) => (
-              <div key={i} className="trat-gallery-slide">
-                <img src={img} alt={`${t.nombre} ${i + 1}`} loading="lazy" />
-              </div>
-            ))}
-          </div>
-          <button
-            className="trat-gallery-btn prev"
-            onClick={() => setGalleryIdx(idx => (idx - 1 + t.imagenes.length) % t.imagenes.length)}
-            aria-label="Imagen anterior"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-          <button
-            className="trat-gallery-btn next"
-            onClick={() => setGalleryIdx(idx => (idx + 1) % t.imagenes.length)}
-            aria-label="Imagen siguiente"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-          <div className="trat-gallery-dots">
-            {t.imagenes.map((_, i) => (
-              <button
-                key={i}
-                className={`trat-gallery-dot${i === galleryIdx ? ' active' : ''}`}
-                onClick={() => setGalleryIdx(i)}
-                aria-label={`Ir a imagen ${i + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 7 · FOR WHOM */}
       <section className="trat-forwho">
         <div className="container">

@@ -100,7 +100,7 @@ export default function CelulitisPage() {
       </section>
 
       <TratStatsBar t={t} />
-      <TratIntro t={t} />
+      <TratIntro t={t} customImage="/assets/celulitis3.webp" />
 
       {/* FLIP CARDS de técnicas */}
       <section className="flip-section">
@@ -150,7 +150,7 @@ export default function CelulitisPage() {
               </div>
             </div>
             <div className="cel-progress-img" data-reveal data-delay="2">
-              <img src={t.imagenes[0]} alt="Resultados" loading="lazy" />
+              <img src="/assets/celulitis2.webp" alt="Resultados" loading="lazy" />
             </div>
           </div>
         </div>
@@ -173,8 +173,7 @@ export default function CelulitisPage() {
         </div>
       </section>
 
-      <TratGallery t={t} />
-      <TratForWho t={t} />
+      <TratForWho t={t} customImage="/assets/celulitis.webp" />
       <TratFAQ t={t} />
       <TratRelated slug={t.slug} />
       <TratFinalCTA />

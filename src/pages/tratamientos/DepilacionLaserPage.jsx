@@ -36,12 +36,9 @@ export default function DepilacionLaserPage() {
     <>
       <Navbar />
 
-      {/* HERO — dark con efecto de luz láser */}
-      <section className="trat-hero laser-hero" style={{ backgroundImage: `url(${t.imagenHero})` }}>
-        <div className="laser-overlay" />
-        <div className="laser-beam laser-beam-1" />
-        <div className="laser-beam laser-beam-2" />
-        <div className="laser-beam laser-beam-3" />
+      {/* HERO */}
+      <section className="trat-hero" style={{ backgroundImage: `url(${t.imagenHero})` }}>
+        <div className="trat-hero-overlay" />
         <div className="trat-hero-inner">
           <Link to="/tratamientos" className="trat-breadcrumb">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 5l-7 7 7 7" /></svg>
@@ -123,8 +120,7 @@ export default function DepilacionLaserPage() {
         </div>
       </section>
 
-      <TratGallery t={t} />
-      <TratForWho t={t} />
+      <TratForWho t={t} customImage="/assets/laser.webp" />
       <TratFAQ t={t} />
       <TratRelated slug={t.slug} />
       <TratFinalCTA />

@@ -7,46 +7,46 @@ import Footer from '../components/Footer'
 const TIMELINE_MILESTONES = [
   {
     year: '1992',
-    title: 'Fundación de la clínica',
-    desc: 'El Dr. Antonio J. Icardo inicia el proyecto familiar en Alicante, estableciendo los valores indiscutibles de honestidad, rigurosidad científica y criterio médico en cada tratamiento.'
+    title: 'El Origen de un Legado',
+    desc: 'El Dr. Antonio J. Icardo funda la clínica con una premisa innegociable: la medicina estética debe ser, ante todo, medicina de calidad. Se establecen los pilares de honestidad y rigor científico que hoy definen nuestra identidad.'
   },
   {
     year: '2005',
-    title: 'Apertura en Elche',
-    desc: 'Llevamos la experiencia y el saber hacer clínico a nuestra segunda ubicación en Elche, uniendo al mismo equipo médico para cuidar de más personas en el Levante con el máximo confort.'
+    title: 'Expansión con Alma',
+    desc: 'La apertura en Elche consolida nuestra presencia en el Levante. Bajo una misma dirección médica, replicamos un modelo de atención íntima y sofisticada, diseñada para pacientes que buscan resultados superiores en un entorno de máxima discreción.'
   },
   {
     year: '2015',
-    title: 'Vanguardia Tecnológica',
-    desc: 'Incorporación de aparatología médica avanzada de última generación con efectividad clínicamente demostrada, reforzando la seguridad y los excelentes resultados naturales.'
+    title: 'Excelencia Tecnológica',
+    desc: 'Actualizamos nuestra infraestructura con la aparatología más prestigiosa del mercado. Cada nueva técnica incorporada es sometida a un riguroso análisis de efectividad, garantizando que el lujo y la seguridad caminen siempre de la mano.'
   },
   {
     year: '2024',
-    title: 'Consolidación regional',
-    desc: 'Con más de 40 años de trayectoria impecable, adaptándonos constantemente e innovando para mantenernos como el referente indiscutible de naturalidad en medicina estética.'
+    title: 'El Referente de Naturalidad',
+    desc: 'Tras más de cuatro décadas, Clínicas Icardo se erige como el baluarte de la armonía facial y corporal en la región. Seguimos innovando, no para seguir modas, sino para perfeccionar el arte de envejecer con elegancia y distinción.'
   }
 ]
 
 const VALUES = [
   {
     icon: Sparkles,
-    title: 'Personalización',
-    desc: 'Cada paciente es único. Diseñamos cada tratamiento adaptado a tu anatomía, objetivos y estilo de vida.',
+    title: 'Personalización Absoluta',
+    desc: 'Entendemos la medicina estética como un arte hecho a medida. No existen protocolos estándar en Clínicas Icardo, solo diagnósticos profundos que consideran su estructura ósea, la calidad de su piel y sus aspiraciones personales para crear una hoja de ruta clínica única.',
   },
   {
     icon: Leaf,
-    title: 'Naturalidad',
-    desc: 'Resultados que no se notan, solo se sienten. El mejor tratamiento es el que parece que no te has hecho nada.',
+    title: 'La Elegancia de la Naturalidad',
+    desc: 'Nuestra obsesión por el detalle nos permite lograr resultados imperceptibles para el ojo inexperto pero transformadores para su seguridad personal. El verdadero éxito clínico es aquel que restaura la frescura sin sacrificar la expresión ni la identidad.',
   },
   {
     icon: ShieldCheck,
-    title: 'Seguridad',
-    desc: 'Solo técnicas con efectividad demostrada. Material certificado y supervisión médica en cada sesión.',
+    title: 'Seguridad y Rigor Científico',
+    desc: 'Como médicos, la prioridad absoluta es su integridad. Implementamos exclusivamente tecnologías con marcado CE médico y productos de laboratorios líderes a nivel mundial, respaldados por estudios clínicos que garantizan eficacia y, sobre todo, tranquilidad a largo plazo.',
   },
   {
     icon: Heart,
-    title: 'Cercanía',
-    desc: 'Atención real, sin listas de espera. Te conocemos por tu nombre y seguimos tu evolución de cerca.',
+    title: 'Cercanía y Acompañamiento',
+    desc: 'Entendemos el valor de la confianza y la calma. Nuestro equipo médico le acompaña personalmente en cada fase del proceso, asegurando una experiencia íntima, profesional y libre de presiones, donde cada duda es resuelta con transparencia absoluta.',
   },
 ]
 
@@ -136,23 +136,23 @@ export default function QuienesSomos() {
               Líder en el Levante, naturalidad y criterio médico.
             </h1>
             <p className="qs-split-desc">
-              Clínicas Icardo es un grupo médico familiar especializado en el diseño y la aplicación de soluciones estéticas a medida, comprometido con la excelencia y la salud de las personas desde 1992.
+              Clínicas Icardo no es solo un centro de estética; es el legado de una familia dedicada a la excelencia médica. Desde 1992, bajo la dirección del Dr. Antonio Icardo, hemos cultivado un espacio donde la salud y la belleza convergen en perfecta armonía. Nuestro compromiso trasciende los resultados visibles: buscamos el bienestar integral de cada persona que confía en nosotros.
             </p>
             <p className="qs-split-desc">
-              Con más de 40 años de experiencia, ofrecemos una atención premium en el Levante que combina rigurosidad científica, técnicas innovadoras demostradas y resultados con la máxima naturalidad posible.
+              Con más de 40 años de experiencia acumulada, ofrecemos una atención premium en Alicante y Elche que combina la rigurosidad científica más estricta con las técnicas de vanguardia más sofisticadas del panorama internacional. Creemos en una medicina que respeta el paso del tiempo, realzando la mejor versión de nuestros pacientes sin alterar su esencia.
             </p>
-            <div className="qs-split-btn-wrap">
-              <Link to="/contacto" className="qs-split-btn">
-                Contáctanos
-              </Link>
-            </div>
+            <p className="qs-split-desc">
+              Nuestra filosofía se basa en el "Criterio Icardo": una visión donde la naturalidad es el único objetivo aceptable. El lujo en Clínicas Icardo se manifiesta en la calma de nuestras instalaciones, en la seguridad de nuestros procesos y en la honestidad de nuestros diagnósticos. Aquí, usted no es un paciente más, es parte de nuestra historia.
+            </p>
           </div>
         </div>
         <div className="qs-split-right" data-reveal data-delay="2">
-          <img
-            src="https://images.unsplash.com/photo-1538108149393-f159e148c95a?w=1200&q=80"
-            alt="Clínicas Icardo"
-          />
+          <div className="image-wrapper">
+            <img
+              src="/assets/quienesomos.webp"
+              alt="Clínicas Icardo"
+            />
+          </div>
         </div>
       </section>
 
@@ -160,8 +160,8 @@ export default function QuienesSomos() {
       <section className="qs-timeline-sec">
         <div className="qs-timeline-container">
           <div className="qs-timeline-head" data-reveal>
-            <h2 className="qs-timeline-heading">
-              Más de 40 años de <span className="it">pasión</span> al servicio de la medicina estética
+            <h2 className="qs-timeline-heading" style={{ color: '#1C1A18' }}>
+              Más de 40 años de <span className="it" style={{ color: '#1C1A18' }}>pasión</span> al servicio de la medicina estética
             </h2>
           </div>
 
@@ -211,6 +211,8 @@ export default function QuienesSomos() {
           </div>
         </div>
       </section>
+
+
 
       {/* ─── VALORES — Sticky scroll ──────────────────────── */}
       <section className="vs-outer" ref={outerRef}>

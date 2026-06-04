@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 
 const InstagramIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -14,13 +13,6 @@ const FacebookIcon = ({ size = 20 }) => (
 )
 
 export default function Footer() {
-  const [subscribed, setSubscribed] = useState(false)
-
-  function handleSubscribe(e) {
-    e.preventDefault()
-    setSubscribed(true)
-  }
-
   return (
     <footer className="footer">
       <div className="container">
@@ -49,17 +41,9 @@ export default function Footer() {
               <li><Link to="/tratamientos/nutricion">Nutrición</Link></li>
             </ul>
           </div>
-          <div className="foot-news">
-            <h5>Recibe consejos para <em>cuidarte mejor</em></h5>
-            <p>Guías mensuales escritas por nuestro equipo médico.</p>
-            <form className="foot-form" onSubmit={handleSubscribe}>
-              <input type="email" placeholder="Tu email" required />
-              <button type="submit">{subscribed ? '✓ Enviado' : 'Suscribirme'}</button>
-            </form>
-          </div>
         </div>
 
-        <div className="foot-locations">
+        <div className="foot-locations text-center">
           <div className="loc">
             <h6>Alicante</h6>
             <p>Av. Maisonnave 27, 7º Izq.<br /><a href="tel:+34966308811">+34 966 308 811</a></p>

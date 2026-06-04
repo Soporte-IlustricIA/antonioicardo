@@ -85,13 +85,13 @@ export default function VaricesPage() {
       </section>
 
       <TratStatsBar t={t} />
-      <TratIntro t={t} />
+      <TratIntro t={t} customImage="/assets/varices2.webp" />
       <TratBenefits t={t} />
 
       {/* VERTICAL PROGRESS STEPS */}
       <section className="trat-vsteps-section">
         <div className="container">
-          <div className="trat-sec-head" data-reveal>
+          <div className="trat-sec-head" style={{ textAlign: 'center' }} data-reveal>
             <span className="eyebrow">· El proceso</span>
             <h2>Así es el tratamiento</h2>
           </div>
@@ -99,8 +99,7 @@ export default function VaricesPage() {
         </div>
       </section>
 
-      <TratGallery t={t} />
-      <TratForWho t={t} />
+      <TratForWho t={t} customImage="/assets/varices.webp" />
 
       {/* FAQ con animación smooth */}
       <TratFAQ t={t} />

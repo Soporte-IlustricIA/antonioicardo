@@ -5,7 +5,7 @@ import Footer from '../../components/Footer'
 import { tratamientos } from '../../data/tratamientos'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import {
-  TratStatsBar, TratBenefits, TratSteps, TratGallery,
+  TratIntro, TratStatsBar, TratBenefits, TratSteps, TratGallery,
   TratForWho, TratFAQ, TratRelated, TratFinalCTA
 } from './shared/TratSections'
 
@@ -126,21 +126,7 @@ export default function RejuvenecimientoFacialPage() {
 
       <TratStatsBar t={t} />
 
-      {/* INTRO */}
-      <section className="trat-intro">
-        <div className="container">
-          <div className="trat-intro-grid">
-            <div className="trat-intro-img-wrap" data-reveal>
-              <img src={t.imagenes[0]} alt={t.nombre} className="trat-intro-img" loading="lazy" />
-            </div>
-            <div className="trat-intro-body" data-reveal data-delay="2">
-              <span className="eyebrow">· En qué consiste</span>
-              <h2>Conoce el tratamiento</h2>
-              <p>{t.descripcionLarga}</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TratIntro t={t} customImage="/assets/rejuvenecer.webp" imgStyle={{ objectPosition: 'top' }} />
 
       {/* TABS DE TÉCNICAS */}
       <section className="tecnicas-tabs-section">
@@ -181,48 +167,6 @@ export default function RejuvenecimientoFacialPage() {
 
       <TratBenefits t={t} />
       <TratSteps t={t} />
-
-      {/* MASONRY GALLERY con lightbox */}
-      <section className="masonry-section">
-        <div className="container">
-          <div className="trat-sec-head" data-reveal>
-            <span className="eyebrow">· Galería</span>
-            <h2>Nuestras instalaciones</h2>
-          </div>
-          <div className="masonry-grid" data-reveal>
-            {GALLERY_EXTRA.map((src, i) => (
-              <button
-                key={i}
-                className={`masonry-item masonry-item-${(i % 3 === 0) ? 'tall' : 'normal'}`}
-                onClick={() => setLightbox(i)}
-                aria-label={`Ver imagen ${i + 1}`}
-              >
-                <img src={src} alt={`Rejuvenecimiento ${i + 1}`} loading="lazy" />
-                <div className="masonry-hover">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
-                  </svg>
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {lightbox !== null && (
-        <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
-          <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Cerrar">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
-          </button>
-          <button className="lightbox-prev" onClick={e => { e.stopPropagation(); setLightbox(v => (v - 1 + GALLERY_EXTRA.length) % GALLERY_EXTRA.length) }} aria-label="Anterior">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
-          </button>
-          <img src={GALLERY_EXTRA[lightbox]} alt="" className="lightbox-img" onClick={e => e.stopPropagation()} />
-          <button className="lightbox-next" onClick={e => { e.stopPropagation(); setLightbox(v => (v + 1) % GALLERY_EXTRA.length) }} aria-label="Siguiente">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
-          </button>
-        </div>
-      )}
 
       <TratForWho t={t} />
       <TratFAQ t={t} />

@@ -10,33 +10,6 @@ import {
 
 const t = tratamientos.find(tr => tr.slug === 'nutricion')
 
-const PLANES = [
-  {
-    nombre: 'Plan Básico',
-    desc: 'Consulta inicial + plan semanal personalizado. Ideal para iniciarte.',
-    incluye: ['Consulta inicial 60 min', 'Plan semanal', 'Recetas incluidas'],
-  },
-  {
-    nombre: 'Plan Seguimiento',
-    desc: 'Para quienes quieren cambiar hábitos con apoyo continuo.',
-    incluye: ['4 consultas mensuales', 'Plan adaptativo', 'Soporte por WhatsApp'],
-    destacado: true,
-  },
-  {
-    nombre: 'Plan Deportivo',
-    desc: 'Nutrición específica para optimizar el rendimiento y la recuperación.',
-    incluye: ['Evaluación rendimiento', 'Plan periodizado', 'Suplementación guiada'],
-  },
-]
-
-const COMIDAS = [
-  { hora: '8:00', nombre: 'Desayuno', icono: '☀️', ejemplo: 'Porridge de avena con fruta fresca y nueces' },
-  { hora: '11:00', nombre: 'Media mañana', icono: '🍎', ejemplo: 'Fruta de temporada + puñado de almendras' },
-  { hora: '14:00', nombre: 'Comida', icono: '🥗', ejemplo: 'Proteína + verduras + hidratos de calidad' },
-  { hora: '17:30', nombre: 'Merienda', icono: '🥛', ejemplo: 'Yogur natural con semillas de chía' },
-  { hora: '20:30', nombre: 'Cena', icono: '🌙', ejemplo: 'Cena ligera: pescado o huevo + vegetales' },
-]
-
 export default function NutricionPage() {
   useScrollReveal()
 
@@ -69,92 +42,41 @@ export default function NutricionPage() {
 
       <TratStatsBar t={t} />
 
-      {/* PERFIL DEL ESPECIALISTA */}
-      <section className="nutri-specialist-section">
-        <div className="container">
-          <div className="nutri-specialist-grid">
-            <div className="nutri-specialist-img" data-reveal>
-              <img src="/assets/sergio.webp" alt="Sergio Icardo" loading="lazy" />
-              <div className="nutri-specialist-badge">
-                <span>Máster en</span>
-                <strong>Nutrición y Dietética</strong>
-              </div>
-            </div>
-            <div className="nutri-specialist-body" data-reveal data-delay="2">
-              <span className="eyebrow">· Tu especialista</span>
-              <h2>Sergio Icardo Belmonte</h2>
-              <p className="nutri-bio">
-                Graduado en Nutrición Humana y Dietética con Máster Universitario en Nutrición y Dietética. Formación continuada en nutrición deportiva, clínica y de precisión.
-              </p>
-              <p className="nutri-bio">
-                Su filosofía: sin dietas milagro, sin restricciones absurdas. Planes personalizados que encajan con tu vida real y que puedes mantener a largo plazo.
-              </p>
-              <div className="nutri-spec-pills">
-                <span>Nutrición deportiva</span>
-                <span>Pérdida de peso</span>
-                <span>Nutrición clínica</span>
-                <span>Cambio de hábitos</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* UN DÍA EN TU PLAN */}
-      <section className="meal-day-section">
-        <div className="container">
-          <div className="trat-sec-head" data-reveal>
-            <span className="eyebrow">· Ejemplo real</span>
-            <h2>Un día en tu plan</h2>
-          </div>
-          <div className="meal-day-list">
-            {COMIDAS.map((c, i) => (
-              <div key={i} className="meal-item" data-reveal data-delay={String((i % 3) + 1)}>
-                <div className="meal-time">{c.hora}</div>
-                <div className="meal-icon">{c.icono}</div>
-                <div className="meal-body">
-                  <strong>{c.nombre}</strong>
-                  <span>{c.ejemplo}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PLANES con hover lift */}
-      <section className="nutri-planes-section">
-        <div className="container">
-          <div className="trat-sec-head" data-reveal>
-            <span className="eyebrow">· Modalidades</span>
-            <h2>Elige tu plan</h2>
-          </div>
-          <div className="nutri-planes-grid">
-            {PLANES.map((p, i) => (
-              <div key={i} className={`nutri-plan-card${p.destacado ? ' nutri-plan-featured' : ''}`} data-reveal data-delay={String(i + 1)}>
-                {p.destacado && <span className="nutri-plan-badge">Más elegido</span>}
-                <h3>{p.nombre}</h3>
-                <p>{p.desc}</p>
-                <ul className="nutri-plan-list">
-                  {p.incluye.map((item, j) => (
-                    <li key={j}>
-                      <span className="nutri-plan-check">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <a className="btn btn-primary" href="tel:+34966308811" style={{ marginTop: 'auto', display: 'inline-flex' }}>
-                  Consultar
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TratForWho t={t} />
 
       <TratBenefits t={t} />
       <TratSteps t={t} />
-      <TratForWho t={t} />
+ 
+       {/* PERFIL DEL ESPECIALISTA */}
+       <section className="nutri-specialist-section">
+         <div className="container">
+           <div className="nutri-specialist-grid">
+             <div className="nutri-specialist-img" data-reveal>
+               <img src="/assets/sergio.webp" alt="Sergio Icardo" loading="lazy" />
+               <div className="nutri-specialist-badge">
+                 <span>Máster en</span>
+                 <strong>Nutrición y Dietética</strong>
+               </div>
+             </div>
+             <div className="nutri-specialist-body" data-reveal data-delay="2">
+               <span className="eyebrow">· Tu especialista</span>
+               <h2>Sergio Icardo Belmonte</h2>
+               <p className="nutri-bio">
+                 Graduado en Nutrición Humana y Dietética con Máster Universitario en Nutrición y Dietética. Formación continuada en nutrición deportiva, clínica y de precisión.
+               </p>
+               <p className="nutri-bio">
+                 Su filosofía: sin dietas milagro, sin restricciones absurdas. Planes personalizados que encajan con tu vida real y que puedes mantener a largo plazo.
+               </p>
+               <div className="nutri-spec-pills">
+                 <span>Nutrición deportiva</span>
+                 <span>Pérdida de peso</span>
+                 <span>Nutrición clínica</span>
+                 <span>Cambio de hábitos</span>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
       <TratFAQ t={t} />
       <TratRelated slug={t.slug} />
       <TratFinalCTA />

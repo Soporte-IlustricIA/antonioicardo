@@ -45,13 +45,14 @@ export function TratStatsBar({ t }) {
   )
 }
 
-export function TratIntro({ t }) {
+export function TratIntro({ t, customImage, imgStyle }) {
+  const imgSrc = customImage || (t.imagenes && t.imagenes.length > 0 ? t.imagenes[0] : t.imagenHero)
   return (
     <section className="trat-intro">
       <div className="container">
         <div className="trat-intro-grid">
           <div className="trat-intro-img-wrap" data-reveal>
-            <img src={t.imagenes[0]} alt={t.nombre} className="trat-intro-img" loading="lazy" />
+            <img src={imgSrc} alt={t.nombre} className="trat-intro-img" loading="lazy" style={imgStyle} />
           </div>
           <div className="trat-intro-body" data-reveal data-delay="2">
             <span className="eyebrow">· En qué consiste</span>
@@ -140,13 +141,14 @@ export function TratGallery({ t }) {
   )
 }
 
-export function TratForWho({ t }) {
+export function TratForWho({ t, customImage }) {
+  const imgSrc = customImage || (t.imagenes && t.imagenes.length > 1 ? t.imagenes[1] : (t.imagenes && t.imagenes.length > 0 ? t.imagenes[0] : t.imagenHero))
   return (
     <section className="trat-forwho">
       <div className="container">
         <div className="trat-forwho-grid">
           <div className="trat-forwho-img-wrap" data-reveal>
-            <img src={t.imagenes[1] ?? t.imagenes[0]} alt="Para quién" loading="lazy" />
+            <img src={imgSrc} alt="Para quién" loading="lazy" />
           </div>
           <div className="trat-forwho-body" data-reveal data-delay="2">
             <span className="eyebrow">· ¿Es para mí?</span>
@@ -193,7 +195,17 @@ export function TratFAQ({ t }) {
 }
 
 export function TratRelated({ slug }) {
-  const related = tratamientos.filter(tr => tr.slug !== slug).slice(0, 3)
+  const currentIndex = tratamientos.findIndex(tr => tr.slug === slug)
+  const otherTrats = tratamientos.filter(tr => tr.slug !== slug)
+  
+  // Rotate the list so it feels different for each treatment
+  // We offset based on currentIndex
+  const offset = currentIndex === -1 ? 0 : currentIndex
+  const related = []
+  for (let i = 0; i < 3; i++) {
+    related.push(otherTrats[(offset + i) % otherTrats.length])
+  }
+
   return (
     <section className="trat-related">
       <div className="container">
@@ -226,7 +238,7 @@ export function TratFinalCTA() {
       <div className="container">
         <div className="trat-final-cta-inner">
           <span className="eyebrow" style={{ color: '#A89378' }}>· Reserva tu cita</span>
-          <h2>¿Listo para empezar?</h2>
+          <h2>¿Empezamos?</h2>
           <p>Nuestro equipo médico te asesorará sin compromiso. Primera consulta gratuita.</p>
           <div className="trat-final-cta-btns">
             <a className="btn btn-light" href="tel:+34966308811">Alicante · 966 308 811</a>

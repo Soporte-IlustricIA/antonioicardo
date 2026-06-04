@@ -11,14 +11,6 @@ import {
 
 const t = tratamientos.find(tr => tr.slug === 'adelgazamiento')
 
-const SEMANAS = [
-  { week: 'Semana 1–2', title: 'Evaluación inicial', desc: 'Analítica completa, composición corporal y diseño de tu plan personalizado.' },
-  { week: 'Semana 3–4', title: 'Inicio del programa', desc: 'Comienzas el plan nutricional + 1ª sesión de mesoterapia lipolítica.' },
-  { week: 'Semana 5–8', title: 'Programa activo', desc: 'Sesiones semanales, seguimiento nutricional y ajustes de plan.' },
-  { week: 'Semana 9–10', title: 'Evaluación intermedia', desc: 'Revisión de resultados, ajuste de técnicas y motivación.' },
-  { week: 'Semana 11–12', title: 'Cierre y mantenimiento', desc: 'Alcanzas el objetivo. Plan de mantenimiento para evitar el efecto rebote.' },
-]
-
 export default function AdelgazamientoPage() {
   useScrollReveal()
 
@@ -70,31 +62,6 @@ export default function AdelgazamientoPage() {
       <TratStatsBar t={t} />
       <TratIntro t={t} />
       <TratBenefits t={t} />
-
-      {/* VERTICAL TIMELINE */}
-      <section className="adelg-timeline-section">
-        <div className="container">
-          <div className="trat-sec-head" data-reveal>
-            <span className="eyebrow">· Tu programa</span>
-            <h2>Semana a semana</h2>
-          </div>
-          <div className="adelg-timeline">
-            {SEMANAS.map((s, i) => (
-              <div key={i} className="adelg-week" data-reveal data-delay={String((i % 3) + 1)}>
-                <div className="adelg-week-marker">
-                  <div className="adelg-week-dot" />
-                  {i < SEMANAS.length - 1 && <div className="adelg-week-line" />}
-                </div>
-                <div className="adelg-week-body">
-                  <span className="adelg-week-label">{s.week}</span>
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CALCULADORA */}
       <section className="calc-section">
