@@ -122,6 +122,8 @@ export const tratamientos = [
       "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&q=80",
       "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=900&q=80",
     ],
+    antesImg: "/assets/antesdespues6_antes.webp",
+    despuesImg: "/assets/antesdespues6_despues.webp",
     beneficios: [
       "Piel más luminosa, firme y uniforme",
       "Sin cirugía ni tiempos de recuperación prolongados",

@@ -8,6 +8,7 @@ import {
   TratIntro, TratStatsBar, TratBenefits, TratSteps, TratGallery,
   TratForWho, TratFAQ, TratRelated, TratFinalCTA
 } from './shared/TratSections'
+import BeforeAfterSlider from '../../components/BeforeAfterSlider'
 
 const t = tratamientos.find(tr => tr.slug === 'rejuvenecimiento-facial')
 
@@ -167,6 +168,18 @@ export default function RejuvenecimientoFacialPage() {
 
       <TratBenefits t={t} />
       <TratSteps t={t} />
+
+      {/* BEFORE / AFTER SLIDER */}
+      <section className="trat-ba-section">
+        <div className="container">
+          <BeforeAfterSlider
+            antesImg={t.antesImg}
+            despuesImg={t.despuesImg}
+            title="Antes y después"
+            subtitle="Arrastra el control para comparar"
+          />
+        </div>
+      </section>
 
       <TratForWho t={t} />
       <TratFAQ t={t} />

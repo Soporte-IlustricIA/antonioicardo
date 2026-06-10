@@ -353,7 +353,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 @media(max-width:768px) {
   .hero{height:100vh;height:100dvh;overflow:hidden}
-  .hero-inner{padding:80px 20px 84px;margin-top:auto}
+  .hero-inner{padding:80px 20px 116px;margin-top:auto}
   .hero h1{margin-bottom:12px}
   .hero-pill{margin-bottom:14px;padding:6px 12px;font-size:12px}
   .hero-sub{font-size:14px;margin-bottom:18px;max-width:440px}
