@@ -139,7 +139,6 @@ export default function ArrugarPage() {
             onPointerMove={e => dragging.current && moveSlider(e.clientX)}
             onPointerUp={() => dragging.current = false}
             onPointerCancel={() => dragging.current = false}
-            data-reveal
           >
             <img src={t.imagenes[0]} alt="Después" className="ba-img-after" draggable={false} />
             <img

@@ -1,13 +1,6 @@
 import { useState, useRef } from 'react';
 
-export default function BeforeAfterSlider({ 
-  antesImg, 
-  despuesImg, 
-  title = "Antes y después", 
-  subtitle = "Arrastra el control para comparar",
-  aspectRatio = "16/9",
-  maxWidth = "900px"
-}) {
+export default function BeforeAfterSlider({ antesImg, despuesImg, title = "Antes y después", subtitle = "Arrastra el control para comparar" }) {
   const sliderRef = useRef(null);
   const [sliderPos, setSliderPos] = useState(50);
   const dragging = useRef(false);
@@ -30,7 +23,6 @@ export default function BeforeAfterSlider({
       <div
         className="ba-slider"
         ref={sliderRef}
-        style={{ aspectRatio, maxWidth }}
         onPointerDown={e => {
           dragging.current = true;
           sliderRef.current.setPointerCapture(e.pointerId);

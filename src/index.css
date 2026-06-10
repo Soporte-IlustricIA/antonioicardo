@@ -353,12 +353,12 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 @media(max-width:768px) {
   .hero{height:100vh;height:100dvh;overflow:hidden}
-  .hero-inner{padding:80px 20px 124px;margin-top:auto}
+  .hero-inner{padding:80px 20px 84px;margin-top:auto}
   .hero h1{margin-bottom:12px}
   .hero-pill{margin-bottom:14px;padding:6px 12px;font-size:12px}
   .hero-sub{font-size:14px;margin-bottom:18px;max-width:440px}
   .hero-cta{gap:10px;margin-bottom:12px}
-  .hero-stats-wrap{flex-direction:row;align-items:center;gap:16px;width:100%;margin-bottom:6px}
+  .hero-stats-wrap{flex-direction:row;align-items:center;gap:16px;width:100%}
   .hero-stats{flex-direction:row;align-items:flex-start;gap:12px;border-top:1px solid rgba(255,255,255,.18);padding-top:16px;width:100%}
   .hero-stats .s{padding:0 4px!important;border:none!important}
   .hero-stats .s+.s{border-left:1px solid rgba(255,255,255,.15)!important;padding-left:12px!important}
@@ -1755,21 +1755,7 @@ section{padding:96px 0}
 .trat-intro-grid{
   display:grid;grid-template-columns:1fr;gap:60px;align-items:center;
 }
-.trat-intro-grid .trat-intro-body {
-  order: 1;
-}
-.trat-intro-grid .trat-intro-img-wrap {
-  order: 2;
-}
-@media(min-width:900px){
-  .trat-intro-grid{grid-template-columns:1fr 1fr}
-  .trat-intro-grid .trat-intro-img-wrap {
-    order: 1;
-  }
-  .trat-intro-grid .trat-intro-body {
-    order: 2;
-  }
-}
+@media(min-width:900px){.trat-intro-grid{grid-template-columns:1fr 1fr}}
 .trat-intro-img-wrap{
   position:relative;
   border-radius:22px;overflow:hidden;

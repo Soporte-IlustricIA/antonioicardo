@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(npx playwright *)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"require\\('playwright'\\)\")",
+      "Read(//tmp/**)",
+      "Read(//c/tmp/**)",
+      "Bash(node -e \"require\\('playwright'\\)\" --require \"c:/Users/Javier/Desktop/Clínicas Icardo/antonio-icardo \\(1\\)/node_modules/playwright\")",
+      "Bash(node -e \"const p = require\\('c:/Users/Javier/Desktop/Clínicas Icardo/antonio-icardo \\(1\\)/node_modules/playwright'\\); console.log\\('ok'\\)\")",
+      "Bash(npm root *)",
+      "Bash(ls \"C:/Users/Javier/AppData/Roaming/npm/node_modules/\" | grep -i play 2>&1 || echo \"not found\")",
+      "Read(//c/Users/Javier/AppData/Roaming/npm/node_modules/**)",
+      "Read(//c/Users/Javier/AppData/Local/Temp/**)"
+    ]
+  }
+}
