@@ -112,6 +112,8 @@ export const tratamientos = [
     descripcionCorta: "Recupera la luminosidad y firmeza de tu piel.",
     descripcionLarga: "Protocolos avanzados de regeneración cutánea combinando tecnología de vanguardia y medicina regenerativa. Desde la fotorejuvenecimiento con IPL y radiofrecuencia hasta la innovación con exosomas y polinucleótidos para una piel radiante, firme y saludable.",
     tecnicas: ["IPL", "Ultrasonidos focalizados", "Radiofrecuencia", "Hidrafacial", "Exosomas", "Polinucleótidos", "CO2 fraccionado", "Mesoterapia facial", "Peeling químico"],
+    antesImg: "/assets/rejuvenecimiento_antes.webp",
+    despuesImg: "/assets/rejuvenecimiento_despues.webp",
     paraQuien: "Personas que quieren mejorar textura, luminosidad o firmeza sin recurrir a la cirugía.",
     duracion: "45–90 min",
     recuperacion: "1–7 días",
@@ -122,8 +124,6 @@ export const tratamientos = [
       "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&q=80",
       "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=900&q=80",
     ],
-    antesImg: "/assets/rejuvenecimiento_antes.webp",
-    despuesImg: "/assets/rejuvenecimiento_despues.webp",
     beneficios: [
       "Piel más luminosa, firme y uniforme",
       "Sin cirugía ni tiempos de recuperación prolongados",

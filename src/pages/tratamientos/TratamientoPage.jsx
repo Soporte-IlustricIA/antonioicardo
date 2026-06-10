@@ -127,21 +127,19 @@ export default function TratamientoPage() {
 
       {/* BEFORE / AFTER SLIDER */}
       {t.antesImg && t.despuesImg && (
-        <section className="trat-ba-section">
+        <section className="trat-ba-section" data-reveal>
           <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
             <BeforeAfterSlider 
               antesImg={t.antesImg} 
               despuesImg={t.despuesImg} 
-              aspectRatio="3/2"
-              title={t.slug === "remodelacion" ? "Caso 1: Diseño y volumen de labios" : "Antes y después"}
+              title={t.slug === "remodelacion" ? "Caso 1: Contorno facial" : "Antes y después"}
               subtitle="Arrastra el control para comparar"
             />
             {t.antesImg2 && t.despuesImg2 && (
               <BeforeAfterSlider 
                 antesImg={t.antesImg2} 
                 despuesImg={t.despuesImg2} 
-                aspectRatio="3/2"
-                title={t.slug === "remodelacion" ? "Caso 2: Remodelación y perfilado labial" : "Caso 2"}
+                title={t.slug === "remodelacion" ? "Caso 2: Reducción y remodelación corporal" : "Caso 2"}
                 subtitle="Arrastra el control para comparar"
               />
             )}

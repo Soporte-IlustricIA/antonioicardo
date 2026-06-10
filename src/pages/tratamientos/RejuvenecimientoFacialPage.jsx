@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import BeforeAfterSlider from '../../components/BeforeAfterSlider'
 import { tratamientos } from '../../data/tratamientos'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
-import BeforeAfterSlider from '../../components/BeforeAfterSlider'
 import {
   TratIntro, TratStatsBar, TratBenefits, TratSteps, TratGallery,
   TratForWho, TratFAQ, TratRelated, TratFinalCTA
@@ -171,14 +171,15 @@ export default function RejuvenecimientoFacialPage() {
 
       {/* BEFORE / AFTER SLIDER */}
       {t.antesImg && t.despuesImg && (
-        <section className="trat-ba-section">
-          <div className="container" style={{ maxWidth: '650px' }}>
+        <section className="trat-ba-section" data-reveal style={{ padding: '60px 0', background: 'var(--bg-light)' }}>
+          <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
             <BeforeAfterSlider 
               antesImg={t.antesImg} 
               despuesImg={t.despuesImg} 
-              aspectRatio="1/1"
-              title="Antes y después del Tratamiento"
-              subtitle="Arrastra el control para comparar"
+              title="Resultados Reales: Rejuvenecimiento Facial"
+              subtitle="Arrastra el control deslizante para comparar el antes y el después"
+              aspectRatio="528/1413"
+              maxWidth="420px"
             />
           </div>
         </section>

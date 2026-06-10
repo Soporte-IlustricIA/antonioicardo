@@ -1,6 +1,13 @@
 import { useState, useRef } from 'react';
 
-export default function BeforeAfterSlider({ antesImg, despuesImg, title = "Antes y después", subtitle = "Arrastra el control para comparar", aspectRatio = "16/9" }) {
+export default function BeforeAfterSlider({ 
+  antesImg, 
+  despuesImg, 
+  title = "Antes y después", 
+  subtitle = "Arrastra el control para comparar",
+  aspectRatio = "16/9",
+  maxWidth = "900px"
+}) {
   const sliderRef = useRef(null);
   const [sliderPos, setSliderPos] = useState(50);
   const dragging = useRef(false);
@@ -23,7 +30,7 @@ export default function BeforeAfterSlider({ antesImg, despuesImg, title = "Antes
       <div
         className="ba-slider"
         ref={sliderRef}
-        style={{ aspectRatio }}
+        style={{ aspectRatio, maxWidth }}
         onPointerDown={e => {
           dragging.current = true;
           sliderRef.current.setPointerCapture(e.pointerId);
@@ -33,16 +40,12 @@ export default function BeforeAfterSlider({ antesImg, despuesImg, title = "Antes
         onPointerUp={() => dragging.current = false}
         onPointerCancel={() => dragging.current = false}
       >
-         {/* Force browser to bust its cache of previously corrupt/blank assets */}
-        <img src={despuesImg ? `${despuesImg}?v=2` : ''} alt="Después" className="ba-img-after" draggable={false} />
+        <img src={despuesImg} alt="Después" className="ba-img-after" draggable={false} />
         <img
-          src={antesImg ? `${antesImg}?v=2` : ''}
+          src={antesImg}
           alt="Antes"
           className="ba-img-before"
-          style={{ 
-            clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)`,
-            WebkitClipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)`
-          }}
+          style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
           draggable={false}
         />
         <div className="ba-handle" style={{ left: `${sliderPos}%` }}>
