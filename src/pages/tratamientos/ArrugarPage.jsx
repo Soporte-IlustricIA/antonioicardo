@@ -106,22 +106,6 @@ export default function ArrugarPage() {
 
       <TratStatsBar t={t} />
 
-      {/* ANIMATED COUNTERS */}
-      <section className="trat-counters-section">
-        <div className="container">
-          <div className="trat-counters-grid">
-            {COUNTERS.map((c, i) => (
-              <div key={i} className="trat-counter-item" data-reveal data-delay={String(i + 1)}>
-                <div className="trat-counter-num">
-                  <AnimCounter end={c.end} prefix={c.prefix} suffix={c.suffix} />
-                </div>
-                <div className="trat-counter-label">{c.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <TratIntro t={t} customImage="/assets/arrugas2.webp" />
 
       {/* BEFORE / AFTER SLIDER */}

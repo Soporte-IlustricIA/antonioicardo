@@ -1755,6 +1755,7 @@ section{padding:96px 0}
 .trat-intro-grid{
   display:grid;grid-template-columns:1fr;gap:60px;align-items:center;
 }
+@media(max-width:899px){.trat-intro-img-wrap{order:1}}
 @media(min-width:900px){.trat-intro-grid{grid-template-columns:1fr 1fr}}
 .trat-intro-img-wrap{
   position:relative;

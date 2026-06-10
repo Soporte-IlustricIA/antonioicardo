@@ -13,7 +13,9 @@
       "Bash(npm root *)",
       "Bash(ls \"C:/Users/Javier/AppData/Roaming/npm/node_modules/\" | grep -i play 2>&1 || echo \"not found\")",
       "Read(//c/Users/Javier/AppData/Roaming/npm/node_modules/**)",
-      "Read(//c/Users/Javier/AppData/Local/Temp/**)"
+      "Read(//c/Users/Javier/AppData/Local/Temp/**)",
+      "Bash(npx vite *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)"
     ]
   }
 }
