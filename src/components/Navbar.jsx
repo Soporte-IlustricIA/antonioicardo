@@ -10,17 +10,22 @@ const InstagramIcon = ({ size = 18 }) => (
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [mobileTratamientosOpen, setMobileTratamientosOpen] = useState(false)
+  const [mobileMedicinaOpen, setMobileMedicinaOpen] = useState(false)
+  const [mobileNutricionOpen, setMobileNutricionOpen] = useState(false)
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
-    // Cierra el submenu de tratamientos al cerrar/abrir menu general
-    if (mobileMenuOpen) setMobileTratamientosOpen(false)
+    // Cierra los submenus al cerrar/abrir menu general
+    if (mobileMenuOpen) {
+      setMobileMedicinaOpen(false)
+      setMobileNutricionOpen(false)
+    }
   }
 
   const handleLinkClick = () => {
     setMobileMenuOpen(false)
-    setMobileTratamientosOpen(false)
+    setMobileMedicinaOpen(false)
+    setMobileNutricionOpen(false)
   }
 
   return (
@@ -32,21 +37,40 @@ export default function Navbar() {
           </Link>
           <nav className="nav-links">
             <NavLink to="/">Inicio</NavLink>
+            
+            {/* Medicina Estética Dropdown */}
             <div className="nav-drop-wrap">
-              <NavLink to="/tratamientos">
-                Tratamientos
+              <span className="nav-drop-trigger">
+                Medicina Estética
                 <svg className="drop-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M6 9l6 6 6-6" />
                 </svg>
-              </NavLink>
+              </span>
               <div className="nav-dropdown">
-                {tratamientos.map(t => (
-                  <Link key={t.slug} to={`/tratamientos/${t.slug}`}>
-                    {t.nombre}
-                  </Link>
-                ))}
+                <Link to="/tratamientos/arrugas" onClick={handleLinkClick}>Tratamiento de arrugas</Link>
+                <Link to="/tratamientos/rejuvenecimiento-facial" onClick={handleLinkClick}>Rejuvenecimiento facial</Link>
+                <Link to="/tratamientos/dermoestetica" onClick={handleLinkClick}>Dermoestética</Link>
+                <Link to="/tratamientos/remodelacion" onClick={handleLinkClick}>Remodelación</Link>
+                <Link to="/tratamientos/rejuvenecimiento-corporal" onClick={handleLinkClick}>Rejuvenecimiento corporal</Link>
               </div>
             </div>
+
+            {/* Dietética Dropdown */}
+            <div className="nav-drop-wrap">
+              <span className="nav-drop-trigger">
+                Nutrición y Dietética
+                <svg className="drop-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+              <div className="nav-dropdown">
+                <Link to="/tratamientos/nutricion" onClick={handleLinkClick}>Dietética</Link>
+                <Link to="/tratamientos/celulitis" onClick={handleLinkClick}>Tratamiento de celulitis/flacidez</Link>
+              </div>
+            </div>
+
+            <NavLink id="nav-link-aparatologia" to="/tratamientos/aparatologia">Aparatología</NavLink>
+
             <NavLink to="/nuestras-clinicas">Nuestras Clínicas</NavLink>
             <NavLink to="/quienes-somos">Quiénes Somos</NavLink>
             <NavLink to="/contacto">Contacto</NavLink>
@@ -95,28 +119,46 @@ export default function Navbar() {
           <div className="nav-mobile-links">
             <NavLink to="/" onClick={handleLinkClick}>Inicio</NavLink>
             
+            {/* Medicina Estética Mobile Accordion */}
             <div className="nav-mobile-accordion">
               <button 
-                className={`nav-mobile-accordion-btn ${mobileTratamientosOpen ? 'is-active' : ''}`}
-                onClick={() => setMobileTratamientosOpen(!mobileTratamientosOpen)}
+                className={`nav-mobile-accordion-btn ${mobileMedicinaOpen ? 'is-active' : ''}`}
+                onClick={() => setMobileMedicinaOpen(!mobileMedicinaOpen)}
               >
-                Tratamientos
+                Medicina Estética
                 <svg className="drop-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </button>
               
-              <div className={`nav-mobile-accordion-content ${mobileTratamientosOpen ? 'is-open' : ''}`}>
-                <Link to="/tratamientos" onClick={handleLinkClick} className="view-all-link">
-                  Ver todos los tratamientos →
-                </Link>
-                {tratamientos.map(t => (
-                  <Link key={t.slug} to={`/tratamientos/${t.slug}`} onClick={handleLinkClick}>
-                    {t.nombre}
-                  </Link>
-                ))}
+              <div className={`nav-mobile-accordion-content ${mobileMedicinaOpen ? 'is-open' : ''}`}>
+                <Link to="/tratamientos/arrugas" onClick={handleLinkClick}>Tratamiento de arrugas</Link>
+                <Link to="/tratamientos/rejuvenecimiento-facial" onClick={handleLinkClick}>Rejuvenecimiento facial</Link>
+                <Link to="/tratamientos/dermoestetica" onClick={handleLinkClick}>Dermoestética</Link>
+                <Link to="/tratamientos/remodelacion" onClick={handleLinkClick}>Remodelación</Link>
+                <Link to="/tratamientos/rejuvenecimiento-corporal" onClick={handleLinkClick}>Rejuvenecimiento corporal</Link>
               </div>
             </div>
+
+            {/* Dietética Mobile Accordion */}
+            <div className="nav-mobile-accordion">
+              <button 
+                className={`nav-mobile-accordion-btn ${mobileNutricionOpen ? 'is-active' : ''}`}
+                onClick={() => setMobileNutricionOpen(!mobileNutricionOpen)}
+              >
+                Nutrición y Dietética
+                <svg className="drop-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              
+              <div className={`nav-mobile-accordion-content ${mobileNutricionOpen ? 'is-open' : ''}`}>
+                <Link to="/tratamientos/nutricion" onClick={handleLinkClick}>Dietética</Link>
+                <Link to="/tratamientos/celulitis" onClick={handleLinkClick}>Tratamiento de celulitis/flacidez</Link>
+              </div>
+            </div>
+
+            <NavLink id="nav-mobile-aparatologia" to="/tratamientos/aparatologia" onClick={handleLinkClick}>Aparatología</NavLink>
 
             <NavLink to="/nuestras-clinicas" onClick={handleLinkClick}>Nuestras Clínicas</NavLink>
             <NavLink to="/quienes-somos" onClick={handleLinkClick}>Quiénes Somos</NavLink>

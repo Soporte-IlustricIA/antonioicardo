@@ -113,7 +113,7 @@ export default function NuestrasClinicas() {
           <div className="contact-quick">
             <h3>Contacto directo</h3>
             <div className="contact-quick-items">
-              <div>Email: <a href="mailto:info@antonio-icardo.com">info@antonio-icardo.com</a></div>
+              <div>Email: <a href="mailto:antonioicardogarcia@hotmail.com">antonioicardogarcia@hotmail.com</a></div>
               <div>Móvil / WhatsApp: <a href="tel:+34680637247">+34 680 637 247</a></div>
             </div>
             <Link to="/contacto" className="btn btn-primary">

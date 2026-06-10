@@ -6,10 +6,8 @@ import Tratamientos from './pages/Tratamientos'
 import TratamientoPage from './pages/tratamientos/TratamientoPage'
 import ArrugarPage from './pages/tratamientos/ArrugarPage'
 import VaricesPage from './pages/tratamientos/VaricesPage'
-import DepilacionLaserPage from './pages/tratamientos/DepilacionLaserPage'
 import RejuvenecimientoFacialPage from './pages/tratamientos/RejuvenecimientoFacialPage'
 import CelulitisPage from './pages/tratamientos/CelulitisPage'
-import AdelgazamientoPage from './pages/tratamientos/AdelgazamientoPage'
 import NutricionPage from './pages/tratamientos/NutricionPage'
 import NuestrasClinicas from './pages/NuestrasClinicas'
 import QuienesSomos from './pages/QuienesSomos'
@@ -29,10 +27,8 @@ export default function App() {
         <Route path="/tratamientos" element={<Tratamientos />} />
         <Route path="/tratamientos/arrugas" element={<ArrugarPage />} />
         <Route path="/tratamientos/varices" element={<VaricesPage />} />
-        <Route path="/tratamientos/depilacion-laser" element={<DepilacionLaserPage />} />
         <Route path="/tratamientos/rejuvenecimiento-facial" element={<RejuvenecimientoFacialPage />} />
         <Route path="/tratamientos/celulitis" element={<CelulitisPage />} />
-        <Route path="/tratamientos/adelgazamiento" element={<AdelgazamientoPage />} />
         <Route path="/tratamientos/nutricion" element={<NutricionPage />} />
         <Route path="/tratamientos/:slug" element={<TratamientoPage />} />
         <Route path="/nuestras-clinicas" element={<NuestrasClinicas />} />

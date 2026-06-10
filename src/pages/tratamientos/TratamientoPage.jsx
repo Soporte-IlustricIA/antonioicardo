@@ -1,15 +1,27 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { tratamientos } from '../../data/tratamientos'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import NotFound from '../NotFound'
+import BeforeAfterSlider from '../../components/BeforeAfterSlider'
 
 export default function TratamientoPage() {
   const { slug } = useParams()
   const t = tratamientos.find(tr => tr.slug === slug)
   const [faqOpen, setFaqOpen] = useState(null)
   const [galleryIdx, setGalleryIdx] = useState(0)
+
+  // Before/After slider
+  const sliderRef = useRef(null)
+  const [sliderPos, setSliderPos] = useState(50)
+  const dragging = useRef(false)
+
+  function moveSlider(clientX) {
+    if (!sliderRef.current) return
+    const r = sliderRef.current.getBoundingClientRect()
+    setSliderPos(Math.max(5, Math.min(95, ((clientX - r.left) / r.width) * 100)))
+  }
 
   useEffect(() => {
     setFaqOpen(null)
@@ -27,7 +39,7 @@ export default function TratamientoPage() {
 
       {/* 1 · HERO */}
       <section
-        className="trat-hero"
+        className={`trat-hero ${t.slug === 'rejuvenecimiento-corporal' ? 'hero-rejcorporal' : ''} ${t.slug === 'dermoestetica' ? 'hero-dermoestetica' : ''}`}
         style={{ backgroundImage: `url(${t.imagenHero})` }}
       >
         <div className="trat-hero-overlay" />
@@ -66,16 +78,6 @@ export default function TratamientoPage() {
       <div className="trat-stats-bar">
         <div className="container">
           <div className="trat-stats-inner">
-            <div className="trat-stat-item">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-              </svg>
-              <div>
-                <div className="trat-stat-label">Duración</div>
-                <div className="trat-stat-val">{t.duracion}</div>
-              </div>
-            </div>
-            <div className="trat-stat-div" />
             <div className="trat-stat-item">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -122,6 +124,30 @@ export default function TratamientoPage() {
           </div>
         </div>
       </section>
+
+      {/* BEFORE / AFTER SLIDER */}
+      {t.antesImg && t.despuesImg && (
+        <section className="trat-ba-section">
+          <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
+            <BeforeAfterSlider 
+              antesImg={t.antesImg} 
+              despuesImg={t.despuesImg} 
+              aspectRatio="3/2"
+              title={t.slug === "remodelacion" ? "Caso 1: Diseño y volumen de labios" : "Antes y después"}
+              subtitle="Arrastra el control para comparar"
+            />
+            {t.antesImg2 && t.despuesImg2 && (
+              <BeforeAfterSlider 
+                antesImg={t.antesImg2} 
+                despuesImg={t.despuesImg2} 
+                aspectRatio="3/2"
+                title={t.slug === "remodelacion" ? "Caso 2: Remodelación y perfilado labial" : "Caso 2"}
+                subtitle="Arrastra el control para comparar"
+              />
+            )}
+          </div>
+        </section>
+      )}
 
       {/* 4 · BENEFITS */}
       <section className="trat-benefits">

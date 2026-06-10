@@ -8,7 +8,7 @@ const resultMap = {
   'A-B-A': 'rejuvenecimiento-facial',
   'A-B-B': 'arrugas',
   'A-C':   'rejuvenecimiento-facial',
-  'B-A':   'adelgazamiento',
+  'B-A':   'nutricion',
   'B-B':   'celulitis',
   'B-C':   'nutricion',
   'C-A':   'depilacion-laser',

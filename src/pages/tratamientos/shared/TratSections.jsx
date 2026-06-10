@@ -9,16 +9,6 @@ export function TratStatsBar({ t }) {
         <div className="trat-stats-inner">
           <div className="trat-stat-item">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-              <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-            </svg>
-            <div>
-              <div className="trat-stat-label">Duración</div>
-              <div className="trat-stat-val">{t.duracion}</div>
-            </div>
-          </div>
-          <div className="trat-stat-div" />
-          <div className="trat-stat-item">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
             </svg>
             <div>

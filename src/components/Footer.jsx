@@ -34,10 +34,9 @@ export default function Footer() {
             <h5>EXPLORA</h5>
             <ul>
               <li><Link to="/tratamientos/arrugas">Arrugas</Link></li>
-              <li><Link to="/tratamientos/depilacion-laser">Depilación láser</Link></li>
+              <li><Link to="/tratamientos/aparatologia">Aparatología</Link></li>
               <li><Link to="/tratamientos/rejuvenecimiento-facial">Rejuvenecimiento facial</Link></li>
               <li><Link to="/tratamientos/celulitis">Celulitis</Link></li>
-              <li><Link to="/tratamientos/adelgazamiento">Adelgazamiento</Link></li>
               <li><Link to="/tratamientos/nutricion">Nutrición</Link></li>
             </ul>
           </div>
@@ -54,7 +53,7 @@ export default function Footer() {
           </div>
           <div className="loc">
             <h6>Contacto directo</h6>
-            <p><a href="mailto:info@antonio-icardo.com">info@antonio-icardo.com</a><br /><a href="tel:+34680637247">+34 680 637 247</a></p>
+            <p><a href="mailto:antonioicardogarcia@hotmail.com">antonioicardogarcia@hotmail.com</a><br /><a href="tel:+34680637247">+34 680 637 247</a></p>
           </div>
         </div>
 

@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import { tratamientos } from '../../data/tratamientos'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import BeforeAfterSlider from '../../components/BeforeAfterSlider'
 import {
   TratIntro, TratStatsBar, TratBenefits, TratSteps, TratGallery,
   TratForWho, TratFAQ, TratRelated, TratFinalCTA
@@ -13,32 +14,32 @@ const t = tratamientos.find(tr => tr.slug === 'rejuvenecimiento-facial')
 
 const TECNICAS_TABS = [
   {
-    id: 'laser',
-    label: 'Láser CO2',
-    titulo: 'Láser CO2 Fraccionado',
-    desc: 'La tecnología más avanzada para rejuvenecer la piel en profundidad. Estimula la producción de colágeno y elastina, mejorando textura, manchas y arrugas finas con resultados duraderos.',
-    beneficios: ['Resultados desde la 1ª sesión', 'Piel más firme y luminosa', '3-7 días de recuperación', 'Efecto progresivo durante 3 meses'],
+    id: 'laser-ipl',
+    label: 'Láser & IPL',
+    titulo: 'Láser CO2 Fraccionado e IPL',
+    desc: 'Combinamos el poder regenerador del Láser CO2 para textura y arrugas profundas con la Luz Pulsada Intensa (IPL) para eliminar manchas y rojeces, logrando un tono uniforme y rejuvenecido.',
+    beneficios: ['Elimina manchas y pigmentación', 'Mejora drástica de la textura', 'Trata poros abiertos', 'Estimulación profunda de colágeno'],
   },
   {
-    id: 'meso',
-    label: 'Mesoterapia',
-    titulo: 'Mesoterapia Facial',
-    desc: 'Inyecciones superficiales de vitaminas, ácido hialurónico y antioxidantes directamente en la dermis. Hidratación profunda e instantánea con efecto lifting suave.',
-    beneficios: ['Hidratación profunda e inmediata', 'Sin tiempo de recuperación', 'Protocolo personalizable', 'Resultados acumulativos'],
+    id: 'lifting',
+    label: 'Lifting sin Cirugía',
+    titulo: 'Ultrasonidos (HIFU) & Radiofrecuencia',
+    desc: 'Tecnología de última generación para tensar la piel y redefinir el óvalo facial. Los ultrasonidos focalizados y la radiofrecuencia actúan en las capas profundas para combatir la flacidez de forma no invasiva.',
+    beneficios: ['Efecto tensor inmediato', 'Redefinición del arco mandibular', 'Sin cirugía ni agujas', 'Resultados duraderos'],
   },
   {
-    id: 'peeling',
-    label: 'Peelings',
-    titulo: 'Peelings Químicos',
-    desc: 'Exfoliación médica controlada con ácidos de distintas profundidades. Unifica el tono, elimina manchas y renueva la superficie cutánea.',
-    beneficios: ['Elimina manchas y tono irregular', 'Piel más lisa y uniforme', 'Diferentes profundidades disponibles', 'Compatible con otras técnicas'],
+    id: 'regenerativa',
+    label: 'Medicina Regenerativa',
+    titulo: 'Exosomas & Polinucleótidos',
+    desc: 'La vanguardia en rejuvenecimiento celular. Utilizamos exosomas y polinucleótidos para reparar el daño celular, potenciar la regeneración de los tejidos y mejorar la calidad de la piel desde el interior.',
+    beneficios: ['Potente regeneración celular', 'Mejora la elasticidad y densidad', 'Efecto antiinflamatorio', 'Resultados de alta precisión'],
   },
   {
-    id: 'sculptra',
-    label: 'Sculptra',
-    titulo: 'Sculptra & Radiesse',
-    desc: 'Bioestimuladores de colágeno que actúan desde dentro. Recuperan el volumen perdido y mejoran la firmeza de forma natural y progresiva.',
-    beneficios: ['Efecto natural progresivo', 'Duración hasta 2 años', 'Sin expresión artificial', 'Remodelación facial completa'],
+    id: 'nutricion',
+    label: 'Nutrición & Brillo',
+    titulo: 'Hidrafacial, Mesoterapia & Peelings',
+    desc: 'Protocolos de limpieza profunda, hidratación y renovación celular. Combinamos la tecnología Hidrafacial con mesoterapia de vitaminas y peelings químicos para una piel radiante y vital.',
+    beneficios: ['Limpieza y detoxificación profunda', 'Luminosidad instantánea', 'Hidratación multicapa', 'Renovación de la superficie cutánea'],
   },
 ]
 
@@ -87,7 +88,7 @@ function TypewriterHero({ phrases }) {
 
 export default function RejuvenecimientoFacialPage() {
   useScrollReveal()
-  const [activeTab, setActiveTab] = useState('laser')
+  const [activeTab, setActiveTab] = useState('laser-ipl')
   const [lightbox, setLightbox] = useState(null)
 
   const tab = TECNICAS_TABS.find(tb => tb.id === activeTab)
@@ -167,6 +168,21 @@ export default function RejuvenecimientoFacialPage() {
 
       <TratBenefits t={t} />
       <TratSteps t={t} />
+
+      {/* BEFORE / AFTER SLIDER */}
+      {t.antesImg && t.despuesImg && (
+        <section className="trat-ba-section">
+          <div className="container" style={{ maxWidth: '650px' }}>
+            <BeforeAfterSlider 
+              antesImg={t.antesImg} 
+              despuesImg={t.despuesImg} 
+              aspectRatio="1/1"
+              title="Antes y después del Tratamiento"
+              subtitle="Arrastra el control para comparar"
+            />
+          </div>
+        </section>
+      )}
 
       <TratForWho t={t} />
       <TratFAQ t={t} />

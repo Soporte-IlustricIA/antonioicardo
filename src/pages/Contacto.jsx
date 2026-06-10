@@ -60,7 +60,7 @@ export default function Contacto() {
                 <div className="contact-info-icon">✉</div>
                 <div>
                   <div style={{ fontWeight: 600, marginBottom: '4px' }}>Email</div>
-                  <a href="mailto:info@antonio-icardo.com">info@antonio-icardo.com</a>
+                  <a href="mailto:antonioicardogarcia@hotmail.com">antonioicardogarcia@hotmail.com</a>
                 </div>
               </div>
 

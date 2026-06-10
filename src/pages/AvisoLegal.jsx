@@ -26,7 +26,7 @@ export default function AvisoLegal() {
               <li><strong>C.I.F.:</strong> B53784369</li>
               <li><strong>Dirección:</strong> Avenida Maisonnave, 27 7º Izq. – 03003 Alicante / C/ Ángel, 7 – 03203 Elche (Alicante)</li>
               <li><strong>Teléfono:</strong> 966 308 811</li>
-              <li><strong>E-mail:</strong> <a href="mailto:info@antonio-icardo.com">info@antonio-icardo.com</a></li>
+              <li><strong>E-mail:</strong> <a href="mailto:antonioicardogarcia@hotmail.com">antonioicardogarcia@hotmail.com</a></li>
               <li><strong>Sitio web:</strong> <a href="http://www.antonio-icardo.com" target="_blank" rel="noopener noreferrer">www.antonio-icardo.com</a></li>
             </ul>
             <p>

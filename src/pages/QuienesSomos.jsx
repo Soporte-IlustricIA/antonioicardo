@@ -271,44 +271,32 @@ export default function QuienesSomos() {
             <article className="tcard" data-reveal data-delay="2">
               <div className="pic"><img src="/assets/sergio.webp" alt="Dr. Sergio Icardo" /></div>
               <h4>Dr. Sergio Icardo</h4>
-              <div className="role">Nutrición and Dietética</div>
+              <div className="role">Nutrición y Dietética</div>
               <p>Planes nutricionales personalizados para el control de peso, bienestar digestivo y rendimiento deportivo real.</p>
             </article>
             <article className="tcard" data-reveal data-delay="3">
-              <div className="pic"><img src="/assets/carmen.webp" alt="Dra. Carmen María López" /></div>
-              <h4>Dra. Carmen María López</h4>
-              <div className="role">Medicina Estética Elche</div>
-              <p>Tratamientos faciales, hilos tensores y bioestimulación. Atención cercana y resultados naturales en cada paciente.</p>
-            </article>
-            <article className="tcard" data-reveal data-delay="4">
               <div className="pic"><img src="/assets/carmenbelmonte.webp" alt="Dra. Mª Carmen Belmonte" /></div>
               <h4>Dra. Mª Carmen Belmonte</h4>
               <div className="role">Medicina Estética Alicante</div>
               <p>Especialista en dermatología clínica y estética, hilos tensores y rejuvenecimiento facial avanzado.</p>
             </article>
-            <article className="tcard" data-reveal data-delay="1">
+            <article className="tcard" data-reveal data-delay="4">
               <div className="pic"><img src="/assets/carmengonzalez.webp" alt="Dra. M. Carmen González" /></div>
               <h4>Dra. M. Carmen González</h4>
               <div className="role">Medicina Estética Elche</div>
               <p>Experta en armonización facial no invasiva, rellenos dérmicos, ácido hialurónico y rejuvenecimiento labial natural.</p>
             </article>
+            <article className="tcard" data-reveal data-delay="1">
+              <div className="pic"><img src="/assets/neusalmarcha.webp" alt="Dra. Neus Almarcha" /></div>
+              <h4>Dra. Neus Almarcha</h4>
+              <div className="role">Médico Estético</div>
+              <p>Especializada en medicina estética y tratamientos de última generación. Armonización sutil y regeneración celular para resultados elegantes y naturales.</p>
+            </article>
             <article className="tcard" data-reveal data-delay="2">
-              <div className="pic"><img src="/assets/carmennavarro.webp" alt="Dra. M. Carmen Navarro" /></div>
-              <h4>Dra. M. Carmen Navarro</h4>
-              <div className="role">Medicina Estética Elche</div>
-              <p>Especialista en medicina estética corporal, flacidez, tratamiento vascular superficial y eliminación de varices.</p>
-            </article>
-            <article className="tcard" data-reveal data-delay="3">
-              <div className="pic"><img src="/assets/patricia.webp" alt="Patricia Torreblanca" /></div>
-              <h4>Patricia Torreblanca</h4>
-              <div className="role">Medicina Estética Alicante</div>
-              <p>Gestión y coordinación de la estancia del paciente en clínicas, asegurando una experiencia agradable de principio a fin.</p>
-            </article>
-            <article className="tcard" data-reveal data-delay="4">
-              <div className="pic"><img src="/assets/noelia.webp" alt="Noelia Alonso" /></div>
-              <h4>Noelia Alonso</h4>
-              <div className="role">Medicina Estética Elche</div>
-              <p>Asistencia médica en cabina, experta en aparatología médico-estética avanzada y tratamientos láser de alta precisión.</p>
+              <div className="pic"><img src="/assets/leandrafenollar.webp" alt="Leandra Fenollar" /></div>
+              <h4>Leandra Fenollar</h4>
+              <div className="role">Personal Auxiliar</div>
+              <p>Soporte asistencial e instrumentación médica avanzada en cabina, garantizando una excelente experiencia y la máxima tranquilidad.</p>
             </article>
           </div>
 

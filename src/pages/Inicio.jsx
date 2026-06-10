@@ -10,13 +10,11 @@ import skincareCreamSmear from '../assets/images/skincare_cream_smear_1780479081
 
 const TEAM = [
   { img: '/assets/antonio.webp', alt: 'Dr. Antonio J. Icardo', name: 'Dr. Antonio J. Icardo García', shortName: 'Dr. Antonio Icardo', role: 'Director Médico · desde 1992', desc: 'Más de 40 años de práctica clínica continuada. Especialista en medicina estética facial y corporal, varices y rejuvenecimiento.' },
-  { img: '/assets/sergio.webp',  alt: 'Dr. Sergio Icardo', name: 'Dr. Sergio Icardo', shortName: 'Dr. Sergio Icardo', role: 'Nutrición y Dietética', desc: 'Planes nutricionales personalizados para el control de peso, bienestar digestivo y rendimiento deportivo real.' },
-  { img: '/assets/carmen.webp',  alt: 'Dra. Carmen María López', name: 'Dra. Carmen María López', shortName: 'Dra. Carmen María López', role: 'Medicina Estética Elche', desc: 'Tratamientos faciales, hilos tensores y bioestimulación. Atención cercana y resultados naturales en cada paciente.' },
+  { img: '/assets/sergio.webp',  alt: 'Dr. Sergio Icardo', name: 'Dr. Sergio Icardo', shortName: 'Dr. Sergio Icardo', role: 'Dietética', desc: 'Planes nutricionales personalizados para el control de peso, bienestar digestivo y rendimiento deportivo real.' },
   { img: '/assets/carmenbelmonte.webp', alt: 'Dra. Mª Carmen Belmonte', name: 'Dra. Mª Carmen Belmonte', shortName: 'Dra. Mª Carmen Belmonte', role: 'Medicina Estética Alicante', desc: 'Especialista en dermatología clínica y estética, hilos tensores y rejuvenecimiento facial avanzado.' },
   { img: '/assets/carmengonzalez.webp', alt: 'Dra. M. Carmen González', name: 'Dra. M. Carmen González', shortName: 'Dra. M. Carmen González', role: 'Medicina Estética Elche', desc: 'Experta en armonización facial no invasiva, rellenos dérmicos, ácido hialurónico y rejuvenecimiento labial natural.' },
-  { img: '/assets/carmennavarro.webp', alt: 'Dra. M. Carmen Navarro', name: 'Dra. M. Carmen Navarro', shortName: 'Dra. M. Carmen Navarro', role: 'Medicina Estética Elche', desc: 'Especialista en medicina estética corporal, flacidez, tratamiento vascular superficial y eliminación de varices.' },
-  { img: '/assets/patricia.webp', alt: 'Patricia Torreblanca', name: 'Patricia Torreblanca', shortName: 'Patricia Torreblanca', role: 'Medicina Estética Alicante', desc: 'Gestión y coordinación de la estancia del paciente en clínicas, asegurando una experiencia agradable de principio a fin.' },
-  { img: '/assets/noelia.webp', alt: 'Noelia Alonso', name: 'Noelia Alonso', shortName: 'Noelia Alonso', role: 'Medicina Estética Elche', desc: 'Asistencia médica en cabina, experta en aparatología médico-estética avanzada y tratamientos láser de alta precisión.' },
+  { img: '/assets/neusalmarcha.webp', alt: 'Dra. Neus Almarcha', name: 'Dra. Neus Almarcha', shortName: 'Dra. Neus Almarcha', role: 'Médico Estético', desc: 'Especializada en medicina estética y tratamientos de última generación. Armonización sutil y regeneración celular para resultados elegantes y naturales.' },
+  { img: '/assets/leandrafenollar.webp', alt: 'Leandra Fenollar', name: 'Leandra Fenollar', shortName: 'Leandra Fenollar', role: 'Personal Auxiliar', desc: 'Soporte asistencial e instrumentación médica avanzado en cabina, garantizando una excelente experiencia y la máxima tranquilidad.' },
 ]
 
 export default function Inicio() {
@@ -197,7 +195,7 @@ export default function Inicio() {
             <div>
               <span className="hero-pill">Desde 1992 · Alicante &amp; Elche</span>
               <h1>Tu salud estética,<em>en las mejores manos.</em></h1>
-              <p className="hero-sub">Más de 40 años acompañando a quienes buscan cuidarse con criterio médico. Medicina estética integral, nutrición y dietética bajo dirección del Dr. Antonio Icardo.</p>
+              <p className="hero-sub">Más de 40 años acompañando a quienes buscan cuidarse con criterio médico. Medicina estética integral y dietética bajo dirección del Dr. Antonio Icardo.</p>
               <div className="hero-cta">
                 <a className="btn btn-light" href="#cita">Pedir cita
                   <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
@@ -238,7 +236,7 @@ export default function Inicio() {
                 <span>Rejuvenecimiento facial</span><span className="dot">●</span>
                 <span>Celulitis</span><span className="dot">●</span>
                 <span>Adelgazamiento</span><span className="dot">●</span>
-                <span>Nutrición y dietética</span><span className="dot">●</span>
+                <span>Dietética</span><span className="dot">●</span>
               </div>
             ))}
           </div>

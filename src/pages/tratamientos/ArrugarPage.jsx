@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import { tratamientos } from '../../data/tratamientos'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import BeforeAfterSlider from '../../components/BeforeAfterSlider'
 import {
   TratStatsBar, TratIntro, TratBenefits, TratGallery,
   TratForWho, TratFAQ, TratRelated, TratFinalCTA
@@ -61,17 +62,6 @@ export default function ArrugarPage() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Before/After slider
-  const sliderRef = useRef(null)
-  const [sliderPos, setSliderPos] = useState(50)
-  const dragging = useRef(false)
-
-  function moveSlider(clientX) {
-    if (!sliderRef.current) return
-    const r = sliderRef.current.getBoundingClientRect()
-    setSliderPos(Math.max(5, Math.min(95, ((clientX - r.left) / r.width) * 100)))
-  }
-
   return (
     <>
       <Navbar />
@@ -126,41 +116,14 @@ export default function ArrugarPage() {
 
       {/* BEFORE / AFTER SLIDER */}
       <section className="trat-ba-section">
-        <div className="container">
-          <div className="trat-sec-head" data-reveal>
-            <span className="eyebrow">· Resultados reales</span>
-            <h2>Antes y después</h2>
-            <p style={{ color: 'var(--muted)', fontSize: '15px', marginTop: '8px' }}>Arrastra el control para comparar</p>
-          </div>
-          <div
-            className="ba-slider"
-            ref={sliderRef}
-            onPointerDown={e => { dragging.current = true; sliderRef.current.setPointerCapture(e.pointerId); moveSlider(e.clientX) }}
-            onPointerMove={e => dragging.current && moveSlider(e.clientX)}
-            onPointerUp={() => dragging.current = false}
-            onPointerCancel={() => dragging.current = false}
-            data-reveal
-          >
-            <img src={t.imagenes[0]} alt="Después" className="ba-img-after" draggable={false} />
-            <img
-              src={t.imagenes[2]}
-              alt="Antes"
-              className="ba-img-before"
-              style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
-              draggable={false}
-            />
-            <div className="ba-handle" style={{ left: `${sliderPos}%` }}>
-              <div className="ba-handle-line" />
-              <div className="ba-handle-btn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M9 18l-6-6 6-6M15 6l6 6-6 6" />
-                </svg>
-              </div>
-              <div className="ba-handle-line" />
-            </div>
-            <span className="ba-tag ba-tag-l">Antes</span>
-            <span className="ba-tag ba-tag-r">Después</span>
-          </div>
+        <div className="container" style={{ maxWidth: '900px' }}>
+          <BeforeAfterSlider 
+            antesImg={t.imagenes[2]} 
+            despuesImg={t.imagenes[0]} 
+            aspectRatio="3/2"
+            title="Antes y después"
+            subtitle="Arrastra el control para comparar"
+          />
         </div>
       </section>
 

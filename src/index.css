@@ -63,14 +63,14 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 /* ─── NAV ───────────────────────────────────────────── */
 .nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);background:rgba(250,246,238,.78);border-bottom:1px solid rgba(226,214,190,.6)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;max-width:1400px;margin:0 auto}
-.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1600px;margin:0 auto}
+.nav-logo{display:flex;align-items:center;gap:10px;margin-right:20px}
 .nav-logo img{height:34px;width:auto}
-.nav-links{display:none;gap:30px;font-size:14px;color:var(--ink-soft)}
-.nav-links a{position:relative;padding:6px 0}
+.nav-links{display:none;align-items:center;gap:30px;font-size:15px;color:var(--ink-soft)}
+.nav-links a{position:relative;padding:6px 0;white-space:nowrap}
 .nav-links a:hover{color:var(--terra)}
-.nav-right{display:flex;align-items:center;gap:14px}
-.nav-calls-group{display:none;align-items:center;gap:16px;margin-right:16px}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-calls-group{display:none;align-items:center;gap:14px;margin-right:10px}
 .nav-call{font-size:12px;color:var(--muted);line-height:1.2}
 .nav-call b{color:var(--ink);font-weight:600}
 @media(min-width:900px){
@@ -311,14 +311,16 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 }
 
 /* ─── NAV DROPDOWN ──────────────────────────────────── */
-.nav-drop-wrap{position:relative}
-.nav-drop-wrap > a{display:inline-flex;align-items:center;gap:5px}
-.drop-chevron{width:12px;height:12px;transition:transform .2s ease;opacity:.65}
-.nav-drop-wrap:hover .drop-chevron{transform:rotate(180deg);opacity:1}
+.nav-drop-wrap{position:relative;display:flex;align-items:center}
+.nav-drop-trigger{position:relative;display:inline-flex;align-items:center;cursor:default;white-space:nowrap;padding:6px 0;transition:color .2s ease}
+.nav-drop-wrap:hover .nav-drop-trigger{color:var(--terra)}
+.drop-chevron{width:12px;height:12px;transition:transform .2s ease;opacity:.65;margin-left:1px}
+.nav-drop-trigger .drop-chevron{position:absolute;left:100%;top:50%;transform:translateY(-50%);margin-left:2px}
+.nav-drop-wrap:hover .drop-chevron{transform:translateY(-50%) rotate(180deg);opacity:1}
 .nav-dropdown{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;min-width:248px;box-shadow:0 16px 48px rgba(26,24,22,.1);flex-direction:column;gap:2px;z-index:200;display:none}
 .nav-dropdown::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
 .nav-drop-wrap:hover .nav-dropdown{display:flex}
-.nav-dropdown a{padding:10px 14px;border-radius:8px;font-size:14px;color:var(--ink-soft);display:block;transition:background .15s ease;white-space:nowrap}
+.nav-dropdown a{padding:10px 14px;border-radius:8px;font-size:15px;color:var(--ink-soft);display:block;transition:background .15s ease;white-space:nowrap}
 .nav-dropdown a:hover{background:var(--cream-2);color:var(--terra)}
 .nav-instagram{width:38px;height:38px;border-radius:50%;background:var(--cream);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-soft);transition:all .2s ease;flex-shrink:0}
 .nav-instagram:hover{background:var(--terra);color:#fff;border-color:var(--terra);transform:translateY(-1px)}
@@ -1663,6 +1665,13 @@ section{padding:96px 0}
   color:#fff;
   overflow:hidden;
 }
+.trat-hero.hero-rejcorporal {
+  min-height: 65vh;
+  background-position: center 30%;
+}
+.trat-hero.hero-dermoestetica {
+  background-position: center 25%;
+}
 .trat-hero-overlay{
   position:absolute;inset:0;z-index:1;
   background:linear-gradient(160deg, rgba(0,0,0,.1) 0%, rgba(0,0,0,.2) 40%, rgba(0,0,0,.72) 100%);
@@ -1804,7 +1813,14 @@ section{padding:96px 0}
 .trat-benefits-grid{
   display:grid;grid-template-columns:1fr;gap:20px;
 }
-@media(min-width:600px){.trat-benefits-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:600px){
+  .trat-benefits-grid{grid-template-columns:repeat(2,1fr)}
+  .trat-benefits-grid > *:nth-child(3):last-child {
+    grid-column: span 2;
+    justify-self: center;
+    width: calc(50% - 10px);
+  }
+}
 .trat-benefit-card{
   background:#fff;border:1px solid var(--line);
   border-radius:20px;padding:36px 30px;
@@ -2127,9 +2143,9 @@ html{scroll-behavior:smooth}
 
 /* ─── BEFORE / AFTER SLIDER (arrugas) ──────────────────── */
 .trat-ba-section{padding:80px 0}
-.ba-slider{position:relative;aspect-ratio:16/9;max-width:900px;margin:0 auto;border-radius:22px;overflow:hidden;cursor:col-resize;user-select:none;touch-action:pan-y;box-shadow:0 24px 64px rgba(26,24,22,.12)}
-.ba-img-after,.ba-img-before{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
-.ba-img-before{will-change:clip-path}
+.ba-slider{position:relative;width:100%;aspect-ratio:16/9;max-width:900px;margin:0 auto;border-radius:22px;overflow:hidden;cursor:col-resize;user-select:none;touch-action:pan-y;box-shadow:0 24px 64px rgba(26,24,22,.12)}
+.ba-img-after,.ba-img-before{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;transform:translate3d(0,0,0);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.ba-img-before{will-change:auto}
 .ba-handle{position:absolute;top:0;bottom:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;pointer-events:none;z-index:3}
 .ba-handle-line{flex:1;width:2px;background:rgba(255,255,255,.9)}
 .ba-handle-btn{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 4px 20px rgba(0,0,0,.22);color:var(--ink);flex-shrink:0}

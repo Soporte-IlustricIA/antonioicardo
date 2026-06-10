@@ -32,7 +32,7 @@ const listadoTratamientos = [
     recuperacion: "1–7 días de rojez ligera",
     resultados: "Desde la 1ª sesión",
     imagen: "/assets/rejuvenecimiento.webp",
-    tecnicas: ["Láser CO2 Fraccionado", "Sculptra", "Mesoterapia facial profunda", "Peelings químicos"]
+    tecnicas: ["IPL", "Ultrasonidos focalizados", "Radiofrecuencia", "Hidrafacial", "Exosomas", "Polinucleótidos", "CO2 fraccionado", "Mesoterapia facial", "Peeling químico"]
   },
   {
     slug: "arrugas",
@@ -43,7 +43,7 @@ const listadoTratamientos = [
     recuperacion: "Inmediata",
     resultados: "Efecto visible en 3–7 días",
     imagen: "/assets/arrugas.webp",
-    tecnicas: ["Toxina botulínica de precisión", "Ácido hialurónico biocompatible", "Radiesse estimulador", "Sculptra"]
+    tecnicas: ["Neuromoduladores", "Inductores de colágeno", "Ácido hialurónico"]
   },
   {
     slug: "celulitis",
@@ -68,36 +68,25 @@ const listadoTratamientos = [
     tecnicas: ["Láser vascular de alta potencia", "Esclerosis química selectiva", "Microesclerosis médica"]
   },
   {
-    slug: "depilacion-laser",
-    categoria: "corporal",
-    nombre: "Tratamiento de Depilación Láser",
-    descripcionCorta: "Eliminación permanente del folículo piloso mediante haz de diodo de grado médico, con enfriamiento continuo a -5°C.",
-    duracion: "35–90 min",
-    recuperacion: "Inmediata, hidratación",
-    resultados: "80-90% de reducción permanente",
-    imagen: "/assets/depilacionlaser.webp",
-    tecnicas: ["Láser diodo médico premium", "Sistema de enfriamiento de zafiro integrado"]
-  },
-  {
-    slug: "adelgazamiento",
-    categoria: "nutricion",
-    nombre: "Adelgazamiento",
-    descripcionCorta: "Programa médico integral de reducción adiposa por Sergio Icardo, con soporte metabólico específico para evitar el efecto de rebote.",
-    duracion: "Ciclo 1 a 3 meses",
-    recuperacion: "Vida normal completa",
-    resultados: "Cambio de hábitos y peso sostenible",
-    imagen: "/assets/adelgazamiento.webp",
-    tecnicas: ["Diseño de nutrición metabólica", "Infiltración de mesoterapia lipolítica", "Análisis segmental bioeléctrico"]
+    slug: "aparatologia",
+    categoria: "aparatologia",
+    nombre: "Aparatología",
+    descripcionCorta: "Protocolos basados en la tecnología clínica más avanzada del sector para una precisión absoluta sin cirugía.",
+    duracion: "Variable según pauta",
+    recuperacion: "Inmediata / Sin reposo",
+    resultados: "Alta precisión técnica",
+    imagen: "/assets/aparatologia3.webp",
+    tecnicas: ["Radiofrecuencia", "IPL", "Láser CO2", "Ondas de Choque", "HIFU"]
   },
   {
     slug: "nutricion",
     categoria: "nutricion",
-    nombre: "Nutrición y Dietética",
+    nombre: "Dietética",
     descripcionCorta: "Planes alimenticios a la medida basados en tu perfil biológico y estilo de vida, prescritos por Sergio Icardo Belmonte.",
     duracion: "Consulta inicial 60 min",
     recuperacion: "No requiere",
     resultados: "Visibles desde la 1ª semana",
-    imagen: "/assets/nutricion.webp",
+    imagen: "/assets/adelgazamiento.webp",
     tecnicas: ["Educación metabólica integral", "Planes funcionales de absorción nutricional", "Planes clínicos adaptados"]
   }
 ]
@@ -111,7 +100,7 @@ const listadoPreocupaciones = [
     tituloPreocupacion: "Arquitectura Facial e Hidratación Profunda",
     descripcion: "La pérdida de vectores de soporte facial desdibuja el arco mandibular y forma líneas de expresión. En Clínicas Dr. Icardo corregimos la fatiga cutánea restaurando las almohadillas grasas fisiológicas del rostro, sin aportar volúmenes artificiales que alteren tus rasgos naturales.",
     tratamientosRecomendados: ["rejuvenecimiento-facial", "arrugas"],
-    enfoqueClinico: "Tratamientos combinados de estimuladores de colágeno autólogo (Sculptra) y ácido hialurónico que nutren la dermis, restituyendo la frescura y la tensión originales con total naturalidad."
+    enfoqueClinico: "Tratamientos combinados de inductores de colágeno y ácido hialurónico que nutren la dermis, restituyendo la frescura y la tensión originales con total naturalidad."
   },
   {
     id: "flacidez-celulitis",
@@ -128,7 +117,7 @@ const listadoPreocupaciones = [
     icono: Leaf,
     tituloPreocupacion: "Análisis Clínico y Reajuste de Hábitos Metabólicos",
     descripcion: "Las restricciones calóricas extremas dañan la tasa metabólica y provocan pérdidas severas de masa magra. El método del máster nutricional Sergio Icardo combina pautas de asimilación progresiva con una reeducación proteica para un cambio de composición definitivo.",
-    tratamientosRecomendados: ["adelgazamiento", "nutricion"],
+    tratamientosRecomendados: ["nutricion"],
     enfoqueClinico: "Análisis corporal segmentado para discriminar el tejido graso visceral del agua biológica, prescribiendo dietas funcionales de alta saciedad y mesoterapia metabólica de soporte."
   },
   {
@@ -206,6 +195,7 @@ export default function Tratamientos() {
   // Filter treatments
   const tratamientosFacial = listadoTratamientos.filter(t => t.categoria === "facial")
   const tratamientosCorporal = listadoTratamientos.filter(t => t.categoria === "corporal")
+  const tratamientosAparatologia = listadoTratamientos.filter(t => t.categoria === "aparatologia")
   const tratamientosNutricion = listadoTratamientos.filter(t => t.categoria === "nutricion")
 
   const copyContact = () => {
@@ -247,7 +237,8 @@ export default function Tratamientos() {
               {[
                 { tag: 'facial', label: '1. Medicina Facial', target: 'intro-facial', icon: Sparkles },
                 { tag: 'corporal', label: '2. Alta Estética Corporal', target: 'intro-corporal', icon: Activity },
-                { tag: 'nutricion', label: '3. Ciencia de la Nutrición', target: 'intro-nutricion', icon: Leaf }
+                { tag: 'aparatologia', label: '3. Aparatología', target: 'intro-aparatologia', icon: Zap },
+                { tag: 'nutricion', label: '4. Dietética', target: 'intro-nutricion', icon: Leaf }
               ].map((pill, idx) => {
                 const IconComponent = pill.icon
                 return (
@@ -676,7 +667,140 @@ export default function Tratamientos() {
         </div>
       </section>
 
-      {/* ─── SECCIÓN 3 INTRO CORTE: CIENCIA DE LA NUTRICIÓN ─────────────────── */}
+      {/* ─── SECCIÓN 3 INTRO CORTE: APARATOLOGÍA MÉDICA ─────────────────────── */}
+      <section id="intro-aparatologia" className="py-24 bg-white relative overflow-hidden scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          
+          <div className="border border-[#E5DFD3] bg-[#FAF6EE]/50 rounded-3xl p-6 md:p-12 mb-16 relative overflow-hidden">
+            <div className="absolute top-8 right-8 text-[11px] font-mono tracking-[0.3em] text-[#C07B5C]/80 font-bold hidden md:block">
+              PILLAR III · PLATAFORMA DE VANGUARDIA
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7">
+                <span className="px-3 py-1 bg-white border border-[#E9DFC9] rounded-full text-[10px] font-mono tracking-widest uppercase text-[#C07B5C] font-semibold mb-6 inline-block">
+                  Excelencia Tecnológica
+                </span>
+                <h2 className="font-serif text-3xl md:text-5xl font-light tracking-tight text-[#1C1A18] leading-tight mb-4">
+                  Aparatología: <br />
+                  <span className="italic font-serif font-normal text-[#C07B5C]">Precisión clínica al milímetro</span>
+                </h2>
+                <p className="text-sm md:text-base text-[#554E46] leading-relaxed font-light mb-8 max-w-xl">
+                  Disponemos de la tecnología electromédica certificada más avanzada para abordar de forma integral la salud y estética de nuestros pacientes. Equipos de última generación operados por especialistas para garantizar resultados óptimos con la máxima seguridad.
+                </p>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-2 text-[10px] font-mono tracking-wider text-[#554E46]/70 uppercase">
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Radiofrecuencia</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Láser ND:YAG</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> EMSCAPE</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Presoterapia</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> IPL</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Plasmage</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Electroestimulador</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Hidrafacial</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Goldpen</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Láser CO2</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> HIFU</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Ecógrafo</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Ondas de choque</div>
+                  <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-[#C07B5C] rounded-full"></div> Lipoláser</div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 relative">
+                <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/5 bg-[#E9DFC9] border-4 border-white">
+                  <img 
+                    src="/assets/aparatologia2.webp" 
+                    alt="Aparatología Premium" 
+                    className="w-full h-full object-cover grayscale-[15%] transition-all duration-700 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -left-4 bg-white border border-[#E5DFD3] px-4 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-[#1C1A18]/5">
+                  <span className="p-1.5 rounded-lg bg-[#FAF6EE] text-[#C07B5C] block">
+                    <Zap className="w-4 h-4" />
+                  </span>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider block font-mono text-[#554E46]/60">Poder Clínico</span>
+                    <span className="text-xs font-semibold text-[#1C1A18]">Tecnología Certificada</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            {tratamientosAparatologia.map((t) => (
+              <div 
+                key={t.slug}
+                className="group border border-[#E5DFD3] hover:border-[#1C1A18]/30 rounded-3xl overflow-hidden bg-[#FAF6EE]/10 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-[#1C1A18]/5 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="relative aspect-[16/9] overflow-hidden bg-[#E9DFC9]">
+                    <img 
+                      src={t.imagen} 
+                      alt={t.nombre} 
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1C1A18]/20 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  <div className="p-6 md:p-8">
+                    <h3 className="font-serif text-2xl text-[#1C1A18] font-light tracking-tight group-hover:text-[#C07B5C] transition-colors mb-3">
+                      {t.nombre}
+                    </h3>
+                    <p className="text-xs md:text-sm text-[#554E46] leading-relaxed font-light mb-6">
+                      {t.descripcionCorta}
+                    </p>
+
+                    <div className="mb-6">
+                      <span className="text-[10px] text-[#554E46]/70 uppercase tracking-widest font-mono font-bold block mb-2">
+                        EQUIPAMIENTO DE SERIE:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {t.tecnicas.map(tec => (
+                          <span key={tec} className="px-2.5 py-1 bg-[#FAF6EE] text-[10px] font-sans font-medium text-[#554E46] border border-[#E5DFD3]/80 rounded">
+                            {tec}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="px-6 pb-6 md:px-8 md:pb-8">
+                  <div className="grid grid-cols-3 gap-2 border-t border-b border-[#E5DFD3]/60 py-4 mb-6 font-mono text-[10px] text-[#554E46]/70 text-center">
+                    <div>
+                      <span className="text-[9px] text-[#C07B5C] block mb-0.5">DURACIÓN</span>
+                      <span className="font-semibold text-[#1C1A18]">{t.duracion}</span>
+                    </div>
+                    <div className="border-l border-r border-[#E5DFD3]/60">
+                      <span className="text-[9px] text-[#C07B5C] block mb-0.5 font-sans uppercase">RECUPERACIÓN</span>
+                      <span className="font-semibold text-[#1C1A18] block truncate px-1">{t.recuperacion}</span>
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-[#C07B5C] block mb-0.5">RESULTADO</span>
+                      <span className="font-semibold text-[#1C1A18] block truncate px-1">{t.resultados}</span>
+                    </div>
+                  </div>
+
+                  <Link 
+                    to={`/tratamientos/${t.slug}`}
+                    className="w-full py-3.5 bg-[#A73E3E] text-white hover:bg-[#8B3333] text-xs font-semibold uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-md shadow-[#A73E3E]/10"
+                  >
+                    Ver detalles clínicos
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECCIÓN 4 INTRO CORTE: CIENCIA DE LA NUTRICIÓN ─────────────────── */}
       <section id="intro-nutricion" className="py-24 bg-white relative scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           
@@ -684,7 +808,7 @@ export default function Tratamientos() {
           <div className="border border-[#E5DFD3] bg-[#FAF6EE]/50 rounded-3xl p-6 md:p-12 mb-16 relative overflow-hidden">
             <div className="absolute -right-16 -bottom-16 w-64 h-64 border border-[#E9DFC9]/40 rounded-full pointer-events-none" />
             <div className="absolute top-8 right-8 text-[11px] font-mono tracking-[0.3em] text-[#C07B5C]/80 font-bold hidden md:block">
-              PILLAR III · REEDUCACIÓN METABÓLICA
+              PILLAR IV · REEDUCACIÓN METABÓLICA
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -693,7 +817,7 @@ export default function Tratamientos() {
                   Sergio Icardo · Nutrición Clínica
                 </span>
                 <h2 className="font-serif text-3xl md:text-5xl font-light tracking-tight text-[#1C1A18] leading-tight mb-4">
-                  Nutrición Científica: <br />
+                  Dietética: <br />
                   <span className="italic font-serif font-normal text-[#C07B5C]">El único cambio sostenible a largo plazo</span>
                 </h2>
                 <p className="text-sm md:text-base text-[#554E46] leading-relaxed font-light mb-8 max-w-xl">
@@ -708,7 +832,7 @@ export default function Tratamientos() {
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/5 bg-[#E9DFC9] border-4 border-white">
                   <img 
                     src="/assets/nutricion.webp" 
-                    alt="Nutrición y Dietética Avanzada" 
+                    alt="Dietética" 
                     className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
                     loading="lazy"
                   />
@@ -728,11 +852,11 @@ export default function Tratamientos() {
           </div>
 
           {/* Grid de Tratamientos de la categoría Nutrición */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          <div className="flex justify-center">
             {tratamientosNutricion.map((t) => (
               <div 
                 key={t.slug}
-                className="group border border-[#E5DFD3] hover:border-[#1C1A18]/30 rounded-3xl overflow-hidden bg-[#FAF6EE]/10 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-[#1C1A18]/5 flex flex-col justify-between"
+                className="group border border-[#E5DFD3] hover:border-[#1C1A18]/30 rounded-3xl overflow-hidden bg-[#FAF6EE]/10 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-[#1C1A18]/5 flex flex-col justify-between w-full max-w-2xl"
               >
                 <div>
                   <div className="relative aspect-[16/9] overflow-hidden bg-[#E9DFC9]">
@@ -745,22 +869,22 @@ export default function Tratamientos() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1C1A18]/20 via-transparent to-transparent pointer-events-none" />
                   </div>
 
-                  <div className="p-6 md:p-8">
+                  <div className="p-6 md:p-8 text-center flex flex-col items-center">
                     <span className="text-[10px] font-mono tracking-widest text-[#C07B5C] uppercase font-bold block mb-1">
                       Nutrición & Composición Corporal
                     </span>
                     <h3 className="font-serif text-2xl text-[#1C1A18] font-light tracking-tight group-hover:text-[#C07B5C] transition-colors mb-3">
                       {t.nombre}
                     </h3>
-                    <p className="text-xs md:text-sm text-[#554E46] leading-relaxed font-light mb-6">
+                    <p className="text-xs md:text-sm text-[#554E46] leading-relaxed font-light mb-6 mx-auto">
                       {t.descripcionCorta}
                     </p>
 
-                    <div className="mb-6">
+                    <div className="mb-6 w-full flex flex-col items-center">
                       <span className="text-[9px] text-[#554E46]/70 uppercase tracking-widest font-mono font-bold block mb-2">
                         TÉCNICAS INTEGRADAS:
                       </span>
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-1.5 justify-center">
                         {t.tecnicas.map(tec => (
                           <span key={tec} className="px-2.5 py-1 bg-[#FAF6EE] text-[10px] font-sans font-medium text-[#554E46] border border-[#E5DFD3]/80 rounded">
                             {tec}
@@ -771,13 +895,13 @@ export default function Tratamientos() {
                   </div>
                 </div>
 
-                <div className="px-6 pb-6 md:px-8 md:pb-8">
-                  <div className="grid grid-cols-2 gap-2 border-t border-[#E5DFD3]/60 pt-4 mb-6 font-mono text-[10px] text-[#554E46]/70">
+                <div className="px-6 pb-6 md:px-8 md:pb-8 flex flex-col items-center">
+                  <div className="flex justify-center gap-8 border-t border-[#E5DFD3]/60 pt-4 mb-6 font-mono text-[10px] text-[#554E46]/70 w-full">
                     <div className="flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5 text-[#C07B5C]" />
                       <span>{t.duracion}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 justify-end text-right">
+                    <div className="flex items-center gap-1.5">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#C07B5C]" />
                       <span>{t.recuperacion}</span>
                     </div>
@@ -785,7 +909,7 @@ export default function Tratamientos() {
 
                   <Link 
                     to={`/tratamientos/${t.slug}`}
-                    className="w-full py-3.5 bg-[#A73E3E] text-white hover:bg-[#8B3333] text-xs font-semibold uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-md shadow-[#A73E3E]/10"
+                    className="w-full max-w-sm py-3.5 bg-[#A73E3E] text-white hover:bg-[#8B3333] text-xs font-semibold uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-md shadow-[#A73E3E]/10"
                   >
                     Ver pauta nutricional
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

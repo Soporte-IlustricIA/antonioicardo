@@ -26,7 +26,7 @@ export default function NutricionPage() {
             Todos los tratamientos
           </Link>
           <div className="trat-hero-text" data-reveal>
-            <span className="trat-eyebrow nutri-eyebrow">Clínicas Icardo · Nutrición</span>
+            <span className="trat-eyebrow nutri-eyebrow">Clínicas Dr. Icardo · Dietética</span>
             <h1>{t.nombre}</h1>
             <p>{t.descripcionCorta}</p>
             <div className="trat-hero-ctas">
