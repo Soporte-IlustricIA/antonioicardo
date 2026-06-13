@@ -9,11 +9,11 @@ import aestheticSplitLeft from '../assets/images/aesthetic_skincare_split_left_1
 import skincareCreamSmear from '../assets/images/skincare_cream_smear_1780479081100.png'
 
 const TEAM = [
-  { img: '/assets/antonio.webp', alt: 'Dr. Antonio J. Icardo', name: 'Dr. Antonio J. Icardo García', shortName: 'Dr. Antonio Icardo', role: 'Director Médico · desde 1992', desc: 'Más de 40 años de práctica clínica continuada. Especialista en medicina estética facial y corporal, varices y rejuvenecimiento.' },
-  { img: '/assets/sergio.webp',  alt: 'Dr. Sergio Icardo', name: 'Dr. Sergio Icardo', shortName: 'Dr. Sergio Icardo', role: 'Dietética', desc: 'Planes nutricionales personalizados para el control de peso, bienestar digestivo y rendimiento deportivo real.' },
-  { img: '/assets/carmenbelmonte.webp', alt: 'Dra. Mª Carmen Belmonte', name: 'Dra. Mª Carmen Belmonte', shortName: 'Dra. Mª Carmen Belmonte', role: 'Medicina Estética Alicante', desc: 'Especialista en dermatología clínica y estética, hilos tensores y rejuvenecimiento facial avanzado.' },
-  { img: '/assets/carmengonzalez.webp', alt: 'Dra. M. Carmen González', name: 'Dra. M. Carmen González', shortName: 'Dra. M. Carmen González', role: 'Medicina Estética Elche', desc: 'Experta en armonización facial no invasiva, rellenos dérmicos, ácido hialurónico y rejuvenecimiento labial natural.' },
-  { img: '/assets/neusalmarcha.webp', alt: 'Dra. Neus Almarcha', name: 'Dra. Neus Almarcha', shortName: 'Dra. Neus Almarcha', role: 'Médico Estético', desc: 'Especializada en medicina estética y tratamientos de última generación. Armonización sutil y regeneración celular para resultados elegantes y naturales.' },
+  { img: '/assets/antonio.webp', alt: 'Dr. Antonio J. Icardo', name: 'Dr. Antonio J. Icardo García', shortName: 'Dr. Antonio Icardo', role: 'Director Médico · Medicina Estética', desc: 'Más de 40 años de práctica clínica continuada. Director médico y especialista en medicina estética facial y corporal.' },
+  { img: '/assets/sergio.webp',  alt: 'Dr. Sergio Icardo', name: 'Dr. Sergio Icardo', shortName: 'Dr. Sergio Icardo', role: 'Especialista en Nutrición y Dietética', desc: 'Planes nutricionales personalizados para el control de peso, bienestar digestivo y rendimiento deportivo real.' },
+  { img: '/assets/neusalmarcha.webp', alt: 'Dra. Neus Almarcha', name: 'Dra. Neus Almarcha', shortName: 'Dra. Neus Almarcha', role: 'Medicina Estética', desc: 'Especializada en medicina estética y tratamientos de última generación. Armonización sutil y regeneración celular para resultados elegantes y naturales.' },
+  { img: '/assets/carmenbelmonte.webp', alt: 'Mª Carmen Belmonte', name: 'Mª Carmen Belmonte', shortName: 'Mª Carmen Belmonte', role: 'Personal Auxiliar', desc: 'Soporte asistencial especializado, garantizando una atención al paciente cálida y una experiencia de cabina de primer nivel.' },
+  { img: '/assets/carmengonzalez.webp', alt: 'M. Carmen González', name: 'M. Carmen González', shortName: 'M. Carmen González', role: 'Personal Auxiliar', desc: 'Atención y acompañamiento al paciente con profesionalidad y cercanía en todas las etapas del tratamiento.' },
   { img: '/assets/leandrafenollar.webp', alt: 'Leandra Fenollar', name: 'Leandra Fenollar', shortName: 'Leandra Fenollar', role: 'Personal Auxiliar', desc: 'Soporte asistencial e instrumentación médica avanzado en cabina, garantizando una excelente experiencia y la máxima tranquilidad.' },
 ]
 
@@ -197,9 +197,9 @@ export default function Inicio() {
               <h1>Tu salud estética,<em>en las mejores manos.</em></h1>
               <p className="hero-sub">Más de 40 años acompañando a quienes buscan cuidarse con criterio médico. Medicina estética integral y dietética bajo dirección del Dr. Antonio Icardo.</p>
               <div className="hero-cta">
-                <a className="btn btn-light" href="#cita">Pedir cita
+                <Link className="btn btn-light" to="/contacto">Pedir cita
                   <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-                </a>
+                </Link>
                 <a className="btn" style={{ color: '#fff', border: '1px solid rgba(255,255,255,.4)' }} href="#tratamientos">Ver tratamientos</a>
               </div>
             </div>
@@ -232,7 +232,6 @@ export default function Inicio() {
               <div key={copy} className="cats-track">
                 <span>Arrugas</span><span className="dot">●</span>
                 <span>Varices</span><span className="dot">●</span>
-                <span>Depilación Láser</span><span className="dot">●</span>
                 <span>Rejuvenecimiento facial</span><span className="dot">●</span>
                 <span>Celulitis</span><span className="dot">●</span>
                 <span>Adelgazamiento</span><span className="dot">●</span>

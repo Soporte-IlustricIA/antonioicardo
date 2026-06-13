@@ -76,6 +76,21 @@ export default function QuienesSomos() {
   }
 
   useEffect(() => {
+    function updateStackHeight() {
+      if (window.innerWidth >= 768) return
+      const stack = outerRef.current?.querySelector('.vs-stack')
+      if (!stack) return
+      const cards = Array.from(stack.querySelectorAll('.vs-card'))
+      const maxH = Math.max(...cards.map(c => c.offsetHeight))
+      if (maxH > 0) stack.style.height = maxH + 'px'
+    }
+    updateStackHeight()
+    window.addEventListener('resize', updateStackHeight)
+    document.fonts.ready.then(updateStackHeight)
+    return () => window.removeEventListener('resize', updateStackHeight)
+  }, [])
+
+  useEffect(() => {
     const outer = outerRef.current
     if (!outer) return
 
@@ -90,12 +105,6 @@ export default function QuienesSomos() {
     }
 
     function update() {
-      if (window.innerWidth < 768) {
-        cards.forEach(c => { c.dataset.state = 'active' })
-        dots.forEach(d => d.classList.add('on'))
-        return
-      }
-
       const rect = outer.getBoundingClientRect()
       const scrollable = outer.offsetHeight - window.innerHeight
       if (scrollable <= 0) {
@@ -265,32 +274,32 @@ export default function QuienesSomos() {
             <article className="tcard" data-reveal data-delay="1">
               <div className="pic"><img src="/assets/antonio.webp" alt="Dr. Antonio J. Icardo" /></div>
               <h4>Dr. Antonio J. Icardo García</h4>
-              <div className="role">Director Médico · desde 1992</div>
-              <p>Más de 40 años de práctica clínica continuada. Especialista en medicina estética facial y corporal, varices y rejuvenecimiento.</p>
+              <div className="role">Director Médico · Medicina Estética</div>
+              <p>Más de 40 años de práctica clínica continuada. Director médico y especialista en medicina estética facial y corporal.</p>
             </article>
             <article className="tcard" data-reveal data-delay="2">
               <div className="pic"><img src="/assets/sergio.webp" alt="Dr. Sergio Icardo" /></div>
               <h4>Dr. Sergio Icardo</h4>
-              <div className="role">Nutrición y Dietética</div>
+              <div className="role">Especialista en Nutrición y Dietética</div>
               <p>Planes nutricionales personalizados para el control de peso, bienestar digestivo y rendimiento deportivo real.</p>
             </article>
             <article className="tcard" data-reveal data-delay="3">
-              <div className="pic"><img src="/assets/carmenbelmonte.webp" alt="Dra. Mª Carmen Belmonte" /></div>
-              <h4>Dra. Mª Carmen Belmonte</h4>
-              <div className="role">Medicina Estética Alicante</div>
-              <p>Especialista en dermatología clínica y estética, hilos tensores y rejuvenecimiento facial avanzado.</p>
-            </article>
-            <article className="tcard" data-reveal data-delay="4">
-              <div className="pic"><img src="/assets/carmengonzalez.webp" alt="Dra. M. Carmen González" /></div>
-              <h4>Dra. M. Carmen González</h4>
-              <div className="role">Medicina Estética Elche</div>
-              <p>Experta en armonización facial no invasiva, rellenos dérmicos, ácido hialurónico y rejuvenecimiento labial natural.</p>
-            </article>
-            <article className="tcard" data-reveal data-delay="1">
               <div className="pic"><img src="/assets/neusalmarcha.webp" alt="Dra. Neus Almarcha" /></div>
               <h4>Dra. Neus Almarcha</h4>
-              <div className="role">Médico Estético</div>
+              <div className="role">Medicina Estética</div>
               <p>Especializada en medicina estética y tratamientos de última generación. Armonización sutil y regeneración celular para resultados elegantes y naturales.</p>
+            </article>
+            <article className="tcard" data-reveal data-delay="4">
+              <div className="pic"><img src="/assets/carmenbelmonte.webp" alt="Mª Carmen Belmonte" /></div>
+              <h4>Mª Carmen Belmonte</h4>
+              <div className="role">Personal Auxiliar</div>
+              <p>Soporte asistencial especializado, garantizando una atención al paciente cálida y una experiencia de cabina de primer nivel.</p>
+            </article>
+            <article className="tcard" data-reveal data-delay="1">
+              <div className="pic"><img src="/assets/carmengonzalez.webp" alt="M. Carmen González" /></div>
+              <h4>M. Carmen González</h4>
+              <div className="role">Personal Auxiliar</div>
+              <p>Atención y acompañamiento al paciente con profesionalidad y cercanía en todas las etapas del tratamiento.</p>
             </article>
             <article className="tcard" data-reveal data-delay="2">
               <div className="pic"><img src="/assets/leandrafenollar.webp" alt="Leandra Fenollar" /></div>

@@ -11,8 +11,7 @@ const resultMap = {
   'B-A':   'nutricion',
   'B-B':   'celulitis',
   'B-C':   'nutricion',
-  'C-A':   'depilacion-laser',
-  'C-B':   'varices',
+  'C':     'varices',
   'D':     'nutricion',
 }
 
@@ -21,7 +20,7 @@ const p1 = {
   opciones: [
     { id: 'A', texto: 'Eliminar arrugas y rejuvenecer mi cara' },
     { id: 'B', texto: 'Perder peso o reducir medidas' },
-    { id: 'C', texto: 'Eliminar vello o varices' },
+    { id: 'C', texto: 'Eliminar varices o arañas vasculares' },
     { id: 'D', texto: 'Mejorar mi alimentación y salud' },
   ],
 }
@@ -43,13 +42,6 @@ const p2ByP1 = {
       { id: 'C', texto: 'Mejorar hábitos con un nutricionista' },
     ],
   },
-  C: {
-    texto: '¿Qué quieres tratar?',
-    opciones: [
-      { id: 'A', texto: 'Vello no deseado' },
-      { id: 'B', texto: 'Varices o arañas vasculares' },
-    ],
-  },
 }
 
 const p3 = {
@@ -63,7 +55,7 @@ const p3 = {
 function getCurrentQuestion(answers) {
   if (answers.length === 0) return p1
   const first = answers[0]
-  if (answers.length === 1 && first !== 'D') return p2ByP1[first]
+  if (answers.length === 1 && first !== 'D' && first !== 'C') return p2ByP1[first]
   if (answers.length === 2 && first === 'A' && (answers[1] === 'A' || answers[1] === 'B')) return p3
   return null
 }
@@ -72,7 +64,7 @@ function getMaxSteps(answers) {
   if (answers.length === 0) return 3
   const first = answers[0]
   if (first === 'D') return 1
-  if (first === 'C') return 2
+  if (first === 'C') return 1
   if (first === 'B') return 2
   if (first === 'A') {
     if (answers.length > 1 && answers[1] === 'C') return 2

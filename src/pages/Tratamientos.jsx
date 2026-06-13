@@ -597,7 +597,7 @@ export default function Tratamientos() {
           </div>
 
           {/* Grid de Tratamientos de la categoría Corporal */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
             {tratamientosCorporal.map((t) => (
               <div 
                 key={t.slug}
@@ -729,11 +729,11 @@ export default function Tratamientos() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          <div className="flex justify-center">
             {tratamientosAparatologia.map((t) => (
-              <div 
+              <div
                 key={t.slug}
-                className="group border border-[#E5DFD3] hover:border-[#1C1A18]/30 rounded-3xl overflow-hidden bg-[#FAF6EE]/10 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-[#1C1A18]/5 flex flex-col justify-between"
+                className="group border border-[#E5DFD3] hover:border-[#1C1A18]/30 rounded-3xl overflow-hidden bg-[#FAF6EE]/10 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-[#1C1A18]/5 flex flex-col justify-between w-full max-w-2xl"
               >
                 <div>
                   <div className="relative aspect-[16/9] overflow-hidden bg-[#E9DFC9]">

@@ -1387,14 +1387,13 @@ section{padding:96px 0}
 .vs-card p{color:var(--muted);font-size:15px;line-height:1.6;margin:0}
 .vs-card-num{position:absolute;top:28px;right:32px;font-family:"Cormorant Garamond",serif;font-size:13px;color:var(--muted);letter-spacing:.08em}
 @media(max-width:767px){
-  .vs-outer{height:auto}
-  .vs-pin{position:static;height:auto;padding:64px 0}
-  .vs-layout{grid-template-columns:1fr;gap:40px}
-  .vs-stack{height:auto;position:static}
-  .vs-card{position:static;transform:none!important;opacity:1!important;box-shadow:none!important;margin-bottom:16px}
-  .vs-card:last-child{margin-bottom:0}
+  .vs-outer{height:calc(100vh + 1200px)}
+  .vs-pin{height:100vh;padding:0}
+  .vs-layout{grid-template-columns:1fr;gap:24px;padding:44px 0 0}
+  .vs-stack{height:290px}
+  .vs-card{padding:24px 28px;bottom:auto}
   .vs-card-num{display:none}
-  .vs-sub{max-width:none}
+  .vs-sub{max-width:none;margin-bottom:20px}
 }
 @media(min-width:768px) and (max-width:1100px){
   .vs-layout{gap:48px}
@@ -2174,44 +2173,6 @@ html{scroll-behavior:smooth}
 .vstep-body h3{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:500;margin:0 0 10px}
 .vstep-body p{color:var(--muted);font-size:15px;line-height:1.65;margin:0}
 
-/* ─── LASER HERO (depilacion-laser) ─────────────────────── */
-.laser-hero{background-color:var(--dark)!important}
-.laser-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(22,20,18,.85) 0%,rgba(22,20,18,.5) 60%,rgba(22,20,18,.75) 100%)}
-.laser-beam{position:absolute;top:-10%;left:50%;width:2px;height:120%;z-index:1;opacity:0;transform-origin:top center;background:linear-gradient(180deg,transparent 0%,rgba(167,62,62,.6) 40%,rgba(232,184,157,.9) 50%,rgba(167,62,62,.6) 60%,transparent 100%);filter:blur(2px);animation:laserSweep 6s ease-in-out infinite}
-.laser-beam-1{animation-delay:0s}
-.laser-beam-2{animation-delay:2s;left:35%}
-.laser-beam-3{animation-delay:4s;left:65%}
-@keyframes laserSweep{0%,100%{opacity:0;transform:rotate(-25deg)}20%{opacity:.7}50%{opacity:.5;transform:rotate(0deg)}80%{opacity:.7}90%{opacity:0;transform:rotate(25deg)}}
-@media(prefers-reduced-motion:reduce){.laser-beam{display:none}}
-
-/* ─── ZONE SELECTOR (depilacion-laser) ─────────────────── */
-.zona-section{padding:104px 0;background:var(--cream-2)}
-.zona-selector{display:grid;grid-template-columns:1fr;gap:24px}
-@media(min-width:900px){.zona-selector{grid-template-columns:1fr 1.2fr}}
-.zona-list{display:flex;flex-direction:column;gap:8px}
-.zona-btn{display:flex;align-items:center;gap:12px;padding:16px 20px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:15px;font-weight:500;color:var(--ink);cursor:pointer;transition:all .18s;text-align:left}
-.zona-btn:hover{border-color:var(--terra);color:var(--terra)}
-.zona-btn.active{background:var(--terra);color:#fff;border-color:var(--terra)}
-.zona-dot{width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0;opacity:.6}
-.zona-arrow{margin-left:auto;flex-shrink:0;transition:transform .18s}
-.zona-btn.active .zona-arrow{transform:translateX(4px)}
-.zona-detail{background:var(--dark);color:#F4ECDD;border-radius:20px;padding:48px;display:flex;flex-direction:column;justify-content:center}
-.zona-detail-icon{font-size:32px;margin-bottom:20px;opacity:.6}
-.zona-detail h3{font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:500;margin:0 0 16px;color:#E8B89D}
-.zona-detail p{color:rgba(244,236,221,.72);font-size:15px;line-height:1.65;margin:0}
-
-/* ─── SESSION TIMELINE (depilacion-laser) ───────────────── */
-.session-timeline-section{padding:104px 0}
-.session-timeline{display:flex;flex-direction:column;gap:0}
-@media(min-width:800px){.session-timeline{flex-direction:row;align-items:flex-start}}
-.session-step{display:flex;flex-direction:column;align-items:center;flex:1;text-align:center;padding:0 16px;position:relative}
-.session-step-num{font-family:"Cormorant Garamond",serif;font-size:48px;font-weight:500;color:rgba(167,62,62,.2);line-height:1}
-.session-step-connector{width:2px;height:24px;background:var(--line);margin:8px auto}
-@media(min-width:800px){.session-step-connector{display:none}}
-@media(min-width:800px){.session-step+.session-step::before{content:"";position:absolute;top:24px;left:-50%;width:100%;height:2px;background:var(--line);z-index:0}}
-.session-step-body{padding:8px 0}
-.session-step-label{font-weight:600;font-size:14px;color:var(--terra);display:block;margin-bottom:6px;letter-spacing:.04em}
-.session-step-desc{font-size:13px;color:var(--muted);line-height:1.5}
 
 /* ─── REJUVENECIMIENTO: TYPEWRITER ──────────────────────── */
 .rejuv-typewriter-line{display:block;font-style:italic;color:#E8B89D;font-size:.7em;margin-top:8px}
