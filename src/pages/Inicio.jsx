@@ -15,6 +15,7 @@ const TEAM = [
   { img: '/assets/carmenbelmonte.webp', alt: 'Mª Carmen Belmonte', name: 'Mª Carmen Belmonte', shortName: 'Mª Carmen Belmonte', role: 'Personal Auxiliar', desc: 'Soporte asistencial especializado, garantizando una atención al paciente cálida y una experiencia de cabina de primer nivel.' },
   { img: '/assets/carmengonzalez.webp', alt: 'M. Carmen González', name: 'M. Carmen González', shortName: 'M. Carmen González', role: 'Personal Auxiliar', desc: 'Atención y acompañamiento al paciente con profesionalidad y cercanía en todas las etapas del tratamiento.' },
   { img: '/assets/leandrafenollar.webp', alt: 'Leandra Fenollar', name: 'Leandra Fenollar', shortName: 'Leandra Fenollar', role: 'Personal Auxiliar', desc: 'Soporte asistencial e instrumentación médica avanzado en cabina, garantizando una excelente experiencia y la máxima tranquilidad.' },
+  { img: '/assets/carolina.webp', alt: 'Carolina Ferrando Navarro', name: 'Carolina Ferrando Navarro', shortName: 'Carolina Ferrando', role: 'Personal Auxiliar', desc: 'Atención cercana y soporte asistencial en cabina, cuidando cada detalle para garantizar el bienestar del paciente.' },
 ]
 
 export default function Inicio() {
@@ -234,7 +235,6 @@ export default function Inicio() {
                 <span>Varices</span><span className="dot">●</span>
                 <span>Rejuvenecimiento facial</span><span className="dot">●</span>
                 <span>Celulitis</span><span className="dot">●</span>
-                <span>Adelgazamiento</span><span className="dot">●</span>
                 <span>Dietética</span><span className="dot">●</span>
               </div>
             ))}

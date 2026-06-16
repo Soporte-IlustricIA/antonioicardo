@@ -307,6 +307,12 @@ export default function QuienesSomos() {
               <div className="role">Personal Auxiliar</div>
               <p>Soporte asistencial e instrumentación médica avanzada en cabina, garantizando una excelente experiencia y la máxima tranquilidad.</p>
             </article>
+            <article className="tcard" data-reveal data-delay="3">
+              <div className="pic"><img src="/assets/carolina.webp" alt="Carolina Ferrando Navarro" /></div>
+              <h4>Carolina Ferrando Navarro</h4>
+              <div className="role">Personal Auxiliar</div>
+              <p>Atención cercana y soporte asistencial en cabina, cuidando cada detalle para garantizar el bienestar del paciente.</p>
+            </article>
           </div>
 
           <div style={{ textAlign: 'center', paddingBottom: '32px' }} data-reveal>

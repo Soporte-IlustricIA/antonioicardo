@@ -15,7 +15,15 @@
       "Read(//c/Users/Javier/AppData/Roaming/npm/node_modules/**)",
       "Read(//c/Users/Javier/AppData/Local/Temp/**)",
       "Bash(npx vite *)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(xargs -I{} grep -Hm1 '^description:' {})",
+      "Bash(chromium-cli --help)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(node scripts/screenshot-responsive.cjs)",
+      "Bash(node scripts/crop-check.cjs)",
+      "Bash(node scripts/nav-phone-check.cjs)"
     ]
   }
 }
