@@ -23,7 +23,9 @@
       "Bash(npx --yes playwright --version)",
       "Bash(node scripts/screenshot-responsive.cjs)",
       "Bash(node scripts/crop-check.cjs)",
-      "Bash(node scripts/nav-phone-check.cjs)"
+      "Bash(node scripts/nav-phone-check.cjs)",
+      "Bash(xxd)",
+      "Bash(node scripts/wa-check3.cjs)"
     ]
   }
 }

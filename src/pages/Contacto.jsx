@@ -2,6 +2,27 @@ import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { tratamientos } from '../data/tratamientos'
+import { buildWhatsAppUrl } from '../lib/whatsapp'
+
+const CLINICA_LABELS = { alicante: 'Alicante', elche: 'Elche' }
+
+// Construye el mensaje de WhatsApp con los datos rellenados en el
+// formulario de contacto.
+function buildContactWhatsAppMessage(form) {
+  const clinicaLabel = CLINICA_LABELS[form.clinica] || 'Sin preferencia'
+  const tratamientoObj = tratamientos.find(t => t.slug === form.tratamiento)
+  const tratamientoLabel = tratamientoObj ? tratamientoObj.nombre : 'No especificado'
+
+  let msg = 'Hola, he rellenado el formulario de contacto en vuestra web:\n\n'
+  msg += `👤 Nombre: ${form.nombre}\n`
+  msg += `📞 Teléfono: ${form.telefono}\n`
+  if (form.email) msg += `✉️ Email: ${form.email}\n`
+  msg += `🏥 Clínica preferida: ${clinicaLabel}\n`
+  msg += `💉 Tratamiento de interés: ${tratamientoLabel}\n`
+  if (form.mensaje) msg += `\n📝 Mensaje:\n${form.mensaje}\n`
+  msg += '\n¿Podríais contactarme para más información?'
+  return msg
+}
 
 export default function Contacto() {
   const [sent, setSent] = useState(false)
@@ -18,6 +39,8 @@ export default function Contacto() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    const message = buildContactWhatsAppMessage(form)
+    window.open(buildWhatsAppUrl(message), '_blank', 'noopener,noreferrer')
     setSent(true)
   }
 
@@ -88,9 +111,9 @@ export default function Contacto() {
                 <div style={{ textAlign: 'center', padding: '48px 0' }}>
                   <div style={{ fontSize: '48px', marginBottom: '16px' }}>✓</div>
                   <h3 style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: '28px', margin: '0 0 12px' }}>
-                    ¡Consulta enviada!
+                    ¡Casi listo!
                   </h3>
-                  <p style={{ color: 'var(--muted)' }}>Nos pondremos en contacto contigo pronto.</p>
+                  <p style={{ color: 'var(--muted)' }}>Hemos abierto WhatsApp con tu consulta ya redactada. Solo tienes que pulsar enviar para que nos llegue.</p>
                 </div>
               ) : (
                 <>

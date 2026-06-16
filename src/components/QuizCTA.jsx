@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { tratamientos } from '../data/tratamientos'
+import { buildWhatsAppUrl } from '../lib/whatsapp'
 
 const resultMap = {
   'A-A-A': 'rejuvenecimiento-facial',
@@ -60,6 +61,34 @@ function getCurrentQuestion(answers) {
   return null
 }
 
+// Reconstruye, en orden, la pregunta y la respuesta elegida en cada
+// paso del cuestionario (a partir de los ids guardados en `answers`).
+function buildAnswersSummary(answers) {
+  const steps = []
+  for (let i = 0; i < answers.length; i++) {
+    const q = getCurrentQuestion(answers.slice(0, i))
+    if (!q) break
+    const opcion = q.opciones.find(o => o.id === answers[i])
+    if (opcion) steps.push({ pregunta: q.texto, respuesta: opcion.texto })
+  }
+  return steps
+}
+
+// Construye el mensaje de WhatsApp con todas las respuestas del
+// cuestionario y el tratamiento recomendado resultante.
+function buildQuizWhatsAppMessage(answers, resultData) {
+  const pasos = buildAnswersSummary(answers)
+  let msg = 'Hola, he completado el cuestionario de vuestra web y me gustaría pedir información:\n\n'
+  pasos.forEach((p, i) => {
+    msg += `${i + 1}. ${p.pregunta}\n   → ${p.respuesta}\n`
+  })
+  if (resultData) {
+    msg += `\n✨ Tratamiento recomendado: ${resultData.nombre}\n`
+  }
+  msg += '\n¿Podríais darme más información y disponibilidad para pedir cita?'
+  return msg
+}
+
 function getMaxSteps(answers) {
   if (answers.length === 0) return 3
   const first = answers[0]
@@ -97,6 +126,7 @@ export default function QuizCTA() {
   const progress = resultSlug ? 100 : ((answers.length / maxSteps) * 100)
 
   const resultData = resultSlug ? tratamientos.find(t => t.slug === resultSlug) : null
+  const whatsappUrl = resultData ? buildWhatsAppUrl(buildQuizWhatsAppMessage(answers, resultData)) : null
 
   return (
     <section className="quiz-section" id="cita">
@@ -116,8 +146,8 @@ export default function QuizCTA() {
               <h3>{resultData.nombre}</h3>
               <p>{resultData.descripcionCorta}</p>
               <div className="quiz-result-btns">
-                <a className="btn btn-primary" href="tel:+34966308811">
-                  Pedir cita
+                <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  Pedir cita por WhatsApp
                   <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 12h14M13 5l7 7-7 7" />
                   </svg>
