@@ -2,33 +2,44 @@ import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { tratamientos } from '../data/tratamientos'
-import { buildWhatsAppUrl } from '../lib/whatsapp'
+import { fetchSlots, bookAppointment } from '../lib/appointments'
 
-const CLINICA_LABELS = { alicante: 'Alicante', elche: 'Elche' }
+const Spinner = () => (
+  <div style={{
+    width: 18, height: 18,
+    border: '2px solid rgba(255,255,255,0.3)',
+    borderTopColor: '#fff',
+    borderRadius: '50%',
+    animation: '_spin 0.8s linear infinite',
+    display: 'inline-block',
+    verticalAlign: 'middle',
+  }} />
+)
 
-// Construye el mensaje de WhatsApp con los datos rellenados en el
-// formulario de contacto.
-function buildContactWhatsAppMessage(form) {
-  const clinicaLabel = CLINICA_LABELS[form.clinica] || 'Sin preferencia'
-  const tratamientoObj = tratamientos.find(t => t.slug === form.tratamiento)
-  const tratamientoLabel = tratamientoObj ? tratamientoObj.nombre : 'No especificado'
-
-  let msg = 'Hola, he rellenado el formulario de contacto en vuestra web:\n\n'
-  msg += `👤 Nombre: ${form.nombre}\n`
-  msg += `📞 Teléfono: ${form.telefono}\n`
-  if (form.email) msg += `✉️ Email: ${form.email}\n`
-  msg += `🏥 Clínica preferida: ${clinicaLabel}\n`
-  msg += `💉 Tratamiento de interés: ${tratamientoLabel}\n`
-  if (form.mensaje) msg += `\n📝 Mensaje:\n${form.mensaje}\n`
-  msg += '\n¿Podríais contactarme para más información?'
-  return msg
+const ErrorBox = ({ type }) => {
+  const msg = type === 'no-slots'
+    ? 'No hay citas disponibles en este momento. Por favor, espere e inténtelo de nuevo, o contáctenos directamente:'
+    : 'No se ha podido confirmar la cita. Por favor, espere e inténtelo de nuevo, o llámenos directamente:'
+  return (
+    <div style={{ background: '#fef2f2', border: '1px solid #fca5a5', color: '#7f1d1d', padding: '12px 16px', borderRadius: '8px', marginBottom: '16px', fontSize: '14px', lineHeight: '1.6' }}>
+      {msg}{' '}
+      <a href="tel:+34966308811" style={{ color: '#7f1d1d', fontWeight: 600 }}>Alicante 966 308 811</a>
+      {' · '}
+      <a href="tel:+34965450470" style={{ color: '#7f1d1d', fontWeight: 600 }}>Elche 965 450 470</a>
+    </div>
+  )
 }
 
 export default function Contacto() {
-  const [sent, setSent] = useState(false)
+  const [phase, setPhase] = useState('form')   // 'form' | 'slots' | 'confirmed'
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [slots, setSlots] = useState([])
+  const [selectedSlot, setSelectedSlot] = useState(null)
+  const [confirmedLabel, setConfirmedLabel] = useState('')
   const [form, setForm] = useState({
     nombre: '', telefono: '', email: '',
-    clinica: '', tratamiento: '', mensaje: '',
+    dni: '', clinica: '', tratamiento: '', mensaje: '',
     privacidad: false,
   })
 
@@ -37,15 +48,51 @@ export default function Contacto() {
     setForm(f => ({ ...f, [name]: type === 'checkbox' ? checked : value }))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    const message = buildContactWhatsAppMessage(form)
-    window.open(buildWhatsAppUrl(message), '_blank', 'noopener,noreferrer')
-    setSent(true)
+    setLoading(true)
+    setError(null)
+    const clinica = form.clinica
+      ? form.clinica.charAt(0).toUpperCase() + form.clinica.slice(1)
+      : 'Alicante'
+    const tratamientoObj = tratamientos.find(t => t.slug === form.tratamiento)
+    const tratamiento = tratamientoObj?.nombre || ''
+    try {
+      const data = await fetchSlots(clinica, tratamiento)
+      if (data.ok && data.slots?.length > 0) {
+        setSlots(data.slots)
+        setPhase('slots')
+      } else {
+        setError('no-slots')
+      }
+    } catch {
+      setError('no-slots')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  async function handleConfirm() {
+    setLoading(true)
+    setError(null)
+    try {
+      const data = await bookAppointment(form.nombre, form.telefono, form.dni, selectedSlot.idcalendario)
+      if (data.ok) {
+        setConfirmedLabel(selectedSlot.label)
+        setPhase('confirmed')
+      } else {
+        setError('book-failed')
+      }
+    } catch {
+      setError('book-failed')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
     <>
+      <style>{`@keyframes _spin { to { transform: rotate(360deg) } }`}</style>
       <Navbar />
 
       <section className="page-hero contact-hero">
@@ -107,17 +154,9 @@ export default function Contacto() {
             </div>
 
             <div className="contact-form-card" data-reveal data-delay="2">
-              {sent ? (
-                <div style={{ textAlign: 'center', padding: '48px 0' }}>
-                  <div style={{ fontSize: '48px', marginBottom: '16px' }}>✓</div>
-                  <h3 style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: '28px', margin: '0 0 12px' }}>
-                    ¡Casi listo!
-                  </h3>
-                  <p style={{ color: 'var(--muted)' }}>Hemos abierto WhatsApp con tu consulta ya redactada. Solo tienes que pulsar enviar para que nos llegue.</p>
-                </div>
-              ) : (
+              {phase === 'form' && (
                 <>
-                  <h3>Envíanos tu consulta</h3>
+                  <h3>Pide tu cita</h3>
                   <form onSubmit={handleSubmit}>
                     <div className="form-row two">
                       <div className="form-group">
@@ -136,12 +175,22 @@ export default function Contacto() {
                       </div>
                     </div>
 
-                    <div className="form-group">
-                      <label htmlFor="email">Email (opcional)</label>
-                      <input
-                        id="email" name="email" type="email"
-                        value={form.email} onChange={handleChange}
-                      />
+                    <div className="form-row two">
+                      <div className="form-group">
+                        <label htmlFor="email">Email (opcional)</label>
+                        <input
+                          id="email" name="email" type="email"
+                          value={form.email} onChange={handleChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="dni">DNI *</label>
+                        <input
+                          id="dni" name="dni" type="text"
+                          value={form.dni} onChange={handleChange}
+                          placeholder="12345678A" required
+                        />
+                      </div>
                     </div>
 
                     <div className="form-row two">
@@ -183,14 +232,78 @@ export default function Contacto() {
                       </label>
                     </div>
 
-                    <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                      Enviar consulta
-                      <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14M13 5l7 7-7 7" />
-                      </svg>
+                    {error === 'no-slots' && <ErrorBox type="no-slots" />}
+
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      style={{ width: '100%', justifyContent: 'center' }}
+                      disabled={loading}
+                    >
+                      {loading ? <Spinner /> : (
+                        <>
+                          Ver citas disponibles
+                          <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M5 12h14M13 5l7 7-7 7" />
+                          </svg>
+                        </>
+                      )}
                     </button>
                   </form>
                 </>
+              )}
+
+              {phase === 'slots' && (
+                <>
+                  <h3>Elige tu cita</h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
+                    {slots.map(slot => (
+                      <button
+                        key={slot.idcalendario}
+                        type="button"
+                        onClick={() => setSelectedSlot(slot)}
+                        style={{
+                          padding: '12px 16px',
+                          borderRadius: '8px',
+                          border: selectedSlot?.idcalendario === slot.idcalendario
+                            ? '2px solid var(--terra)'
+                            : '1px solid #e2d9d0',
+                          background: selectedSlot?.idcalendario === slot.idcalendario
+                            ? '#fdf6f1'
+                            : '#fff',
+                          textAlign: 'left',
+                          cursor: 'pointer',
+                          fontSize: '14px',
+                          fontWeight: selectedSlot?.idcalendario === slot.idcalendario ? 600 : 400,
+                          transition: 'border-color 0.15s, background 0.15s',
+                        }}
+                      >
+                        {slot.label}
+                      </button>
+                    ))}
+                  </div>
+
+                  {error === 'book-failed' && <ErrorBox type="book-failed" />}
+
+                  <button
+                    className="btn btn-primary"
+                    onClick={handleConfirm}
+                    disabled={!selectedSlot || loading}
+                    style={{ width: '100%', justifyContent: 'center' }}
+                  >
+                    {loading ? <Spinner /> : 'Confirmar cita'}
+                  </button>
+                </>
+              )}
+
+              {phase === 'confirmed' && (
+                <div style={{ textAlign: 'center', padding: '48px 0' }}>
+                  <div style={{ fontSize: '48px', marginBottom: '16px' }}>✓</div>
+                  <h3 style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: '28px', margin: '0 0 12px' }}>
+                    ¡Cita confirmada!
+                  </h3>
+                  <p style={{ color: 'var(--muted)' }}>Tu cita es el {confirmedLabel}.</p>
+                </div>
               )}
             </div>
           </div>
