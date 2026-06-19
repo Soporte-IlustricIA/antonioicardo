@@ -109,6 +109,7 @@ export default function QuizCTA() {
   const [bookError, setBookError] = useState(null)
   const [slots, setSlots] = useState([])
   const [selectedSlot, setSelectedSlot] = useState(null)
+  const [page, setPage] = useState(0)
   const [bookForm, setBookForm] = useState({ nombre: '', telefono: '', dni: '' })
   const [confirmedLabel, setConfirmedLabel] = useState('')
 
@@ -129,6 +130,7 @@ export default function QuizCTA() {
     setBookError(null)
     setSlots([])
     setSelectedSlot(null)
+    setPage(0)
     setBookForm({ nombre: '', telefono: '', dni: '' })
     setConfirmedLabel('')
   }
@@ -145,6 +147,7 @@ export default function QuizCTA() {
       const data = await fetchSlots('Alicante', resultData.nombre)
       if (data.ok && data.slots?.length > 0) {
         setSlots(data.slots)
+        setPage(0)
         setBookPhase('slots')
       } else {
         setBookError('no-slots')
@@ -225,10 +228,48 @@ export default function QuizCTA() {
                 </div>
               )}
 
-              {bookPhase === 'slots' && (
+              {bookPhase === 'slots' && (() => {
+                const totalPages = Math.ceil(slots.length / 10)
+                const visible = slots.slice(page * 10, page * 10 + 10)
+                const selNotVisible = selectedSlot && !visible.find(s => s.idcalendario === selectedSlot.idcalendario)
+                return (
                 <form onSubmit={handleBookSubmit} style={{ marginTop: '16px' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px' }}>
-                    {slots.map(slot => (
+                  <div className="form-group" style={{ marginBottom: '10px' }}>
+                    <label htmlFor="book-nombre" style={{ color: '#FAF6EE' }}>Nombre</label>
+                    <input
+                      id="book-nombre" name="nombre" type="text"
+                      value={bookForm.nombre} onChange={handleBookChange}
+                      style={{ background: '#FAF6EE', color: '#1A1816' }} required
+                    />
+                  </div>
+                  <div className="form-group" style={{ marginBottom: '10px' }}>
+                    <label htmlFor="book-telefono" style={{ color: '#FAF6EE' }}>Número de teléfono</label>
+                    <input
+                      id="book-telefono" name="telefono" type="tel"
+                      value={bookForm.telefono} onChange={handleBookChange}
+                      style={{ background: '#FAF6EE', color: '#1A1816' }} required
+                    />
+                  </div>
+                  <div className="form-group" style={{ marginBottom: '20px' }}>
+                    <label htmlFor="book-dni" style={{ color: '#FAF6EE' }}>DNI</label>
+                    <input
+                      id="book-dni" name="dni" type="text"
+                      value={bookForm.dni} onChange={handleBookChange}
+                      placeholder="12345678A"
+                      style={{ background: '#FAF6EE', color: '#1A1816' }} required
+                    />
+                  </div>
+
+                  <p style={{ color: 'var(--muted)', fontSize: '13px', marginBottom: selNotVisible ? '2px' : '12px' }}>
+                    Citas {page * 10 + 1}–{Math.min((page + 1) * 10, slots.length)} de {slots.length}
+                  </p>
+                  {selNotVisible && (
+                    <p style={{ color: 'var(--muted)', fontSize: '13px', marginBottom: '12px' }}>
+                      Tienes seleccionado: {selectedSlot.label}
+                    </p>
+                  )}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '8px' }}>
+                    {visible.map(slot => (
                       <button
                         key={slot.idcalendario}
                         type="button"
@@ -242,6 +283,7 @@ export default function QuizCTA() {
                           background: selectedSlot?.idcalendario === slot.idcalendario
                             ? '#fdf6f1'
                             : '#fff',
+                          color: '#1A1816',
                           textAlign: 'left',
                           cursor: 'pointer',
                           fontSize: '14px',
@@ -253,29 +295,12 @@ export default function QuizCTA() {
                       </button>
                     ))}
                   </div>
-
-                  <div className="form-group" style={{ marginBottom: '10px' }}>
-                    <label htmlFor="book-nombre">Nombre *</label>
-                    <input
-                      id="book-nombre" name="nombre" type="text"
-                      value={bookForm.nombre} onChange={handleBookChange} required
-                    />
-                  </div>
-                  <div className="form-group" style={{ marginBottom: '10px' }}>
-                    <label htmlFor="book-telefono">Teléfono *</label>
-                    <input
-                      id="book-telefono" name="telefono" type="tel"
-                      value={bookForm.telefono} onChange={handleBookChange} required
-                    />
-                  </div>
-                  <div className="form-group" style={{ marginBottom: '16px' }}>
-                    <label htmlFor="book-dni">DNI *</label>
-                    <input
-                      id="book-dni" name="dni" type="text"
-                      value={bookForm.dni} onChange={handleBookChange}
-                      placeholder="12345678A" required
-                    />
-                  </div>
+                  {totalPages > 1 && (
+                    <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+                      <button type="button" className="btn btn-terra-outline" onClick={() => setPage(p => p - 1)} disabled={page === 0}>← Anterior</button>
+                      <button type="button" className="btn btn-terra-outline" onClick={() => setPage(p => p + 1)} disabled={page >= totalPages - 1}>Siguiente →</button>
+                    </div>
+                  )}
 
                   {bookError === 'book-failed' && <BookErrorBox type="book-failed" />}
 
@@ -288,7 +313,8 @@ export default function QuizCTA() {
                     {bookLoading ? <Spinner /> : 'Reservar'}
                   </button>
                 </form>
-              )}
+                )
+              })()}
 
               {bookPhase === 'confirmed' && (
                 <div style={{ marginTop: '16px', textAlign: 'center' }}>

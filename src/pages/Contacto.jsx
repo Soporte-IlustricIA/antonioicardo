@@ -36,6 +36,7 @@ export default function Contacto() {
   const [error, setError] = useState(null)
   const [slots, setSlots] = useState([])
   const [selectedSlot, setSelectedSlot] = useState(null)
+  const [page, setPage] = useState(0)
   const [confirmedLabel, setConfirmedLabel] = useState('')
   const [form, setForm] = useState({
     nombre: '', telefono: '', email: '',
@@ -61,6 +62,7 @@ export default function Contacto() {
       const data = await fetchSlots(clinica, tratamiento)
       if (data.ok && data.slots?.length > 0) {
         setSlots(data.slots)
+        setPage(0)
         setPhase('slots')
       } else {
         setError('no-slots')
@@ -253,11 +255,23 @@ export default function Contacto() {
                 </>
               )}
 
-              {phase === 'slots' && (
+              {phase === 'slots' && (() => {
+                const totalPages = Math.ceil(slots.length / 10)
+                const visible = slots.slice(page * 10, page * 10 + 10)
+                const selNotVisible = selectedSlot && !visible.find(s => s.idcalendario === selectedSlot.idcalendario)
+                return (
                 <>
                   <h3>Elige tu cita</h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
-                    {slots.map(slot => (
+                  <p style={{ color: 'var(--muted)', fontSize: '13px', marginBottom: selNotVisible ? '2px' : '12px' }}>
+                    Citas {page * 10 + 1}–{Math.min((page + 1) * 10, slots.length)} de {slots.length}
+                  </p>
+                  {selNotVisible && (
+                    <p style={{ color: 'var(--muted)', fontSize: '13px', marginBottom: '12px' }}>
+                      Tienes seleccionado: {selectedSlot.label}
+                    </p>
+                  )}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
+                    {visible.map(slot => (
                       <button
                         key={slot.idcalendario}
                         type="button"
@@ -271,6 +285,7 @@ export default function Contacto() {
                           background: selectedSlot?.idcalendario === slot.idcalendario
                             ? '#fdf6f1'
                             : '#fff',
+                          color: '#1A1816',
                           textAlign: 'left',
                           cursor: 'pointer',
                           fontSize: '14px',
@@ -282,6 +297,12 @@ export default function Contacto() {
                       </button>
                     ))}
                   </div>
+                  {totalPages > 1 && (
+                    <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
+                      <button className="btn btn-terra-outline" onClick={() => setPage(p => p - 1)} disabled={page === 0}>← Anterior</button>
+                      <button className="btn btn-terra-outline" onClick={() => setPage(p => p + 1)} disabled={page >= totalPages - 1}>Siguiente →</button>
+                    </div>
+                  )}
 
                   {error === 'book-failed' && <ErrorBox type="book-failed" />}
 
@@ -294,7 +315,8 @@ export default function Contacto() {
                     {loading ? <Spinner /> : 'Confirmar cita'}
                   </button>
                 </>
-              )}
+                )
+              })()}
 
               {phase === 'confirmed' && (
                 <div style={{ textAlign: 'center', padding: '48px 0' }}>
