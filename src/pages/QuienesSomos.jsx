@@ -278,8 +278,8 @@ export default function QuienesSomos() {
               <p>Más de 40 años de práctica clínica continuada. Director médico y especialista en medicina estética facial y corporal.</p>
             </article>
             <article className="tcard" data-reveal data-delay="2">
-              <div className="pic"><img src="/assets/sergio.webp" alt="Dr. Sergio Icardo" /></div>
-              <h4>Dr. Sergio Icardo</h4>
+              <div className="pic"><img src="/assets/sergio.webp" alt="Sergio Icardo" /></div>
+              <h4>Sergio Icardo</h4>
               <div className="role">Especialista en Nutrición y Dietética</div>
               <p>Planes nutricionales personalizados para el control de peso, bienestar digestivo y rendimiento deportivo real.</p>
             </article>

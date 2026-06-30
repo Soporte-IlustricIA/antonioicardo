@@ -515,12 +515,8 @@ export default function Tratamientos() {
 
                 {/* Footer specs details card */}
                 <div className="px-6 pb-6 md:px-8 md:pb-8">
-                  <div className="grid grid-cols-3 gap-2 border-t border-b border-[#E5DFD3]/60 py-4 mb-6 font-mono text-[10px] text-[#554E46]/70 text-center">
-                    <div>
-                      <span className="text-[9px] text-[#C07B5C] block mb-0.5">DURACIÓN</span>
-                      <span className="font-semibold text-[#1C1A18]">{t.duracion}</span>
-                    </div>
-                    <div className="border-l border-r border-[#E5DFD3]/60">
+                  <div className="grid grid-cols-2 gap-2 border-t border-b border-[#E5DFD3]/60 py-4 mb-6 font-mono text-[10px] text-[#554E46]/70 text-center">
+                    <div className="border-r border-[#E5DFD3]/60">
                       <span className="text-[9px] text-[#C07B5C] block mb-0.5 font-sans">RECUPERACIÓN</span>
                       <span className="font-semibold text-[#1C1A18] block truncate px-1">{t.recuperacion}</span>
                     </div>
@@ -641,12 +637,8 @@ export default function Tratamientos() {
                 </div>
 
                 <div className="px-6 pb-6 md:px-8 md:pb-8">
-                  <div className="grid grid-cols-2 gap-2 border-t border-[#E5DFD3]/60 pt-4 mb-6 font-mono text-[10px] text-[#554E46]/70">
+                  <div className="flex border-t border-[#E5DFD3]/60 pt-4 mb-6 font-mono text-[10px] text-[#554E46]/70">
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-[#C07B5C]" />
-                      <span>{t.duracion}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 justify-end text-right">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#C07B5C]" />
                       <span>{t.recuperacion}</span>
                     </div>
@@ -770,12 +762,8 @@ export default function Tratamientos() {
                 </div>
 
                 <div className="px-6 pb-6 md:px-8 md:pb-8">
-                  <div className="grid grid-cols-3 gap-2 border-t border-b border-[#E5DFD3]/60 py-4 mb-6 font-mono text-[10px] text-[#554E46]/70 text-center">
-                    <div>
-                      <span className="text-[9px] text-[#C07B5C] block mb-0.5">DURACIÓN</span>
-                      <span className="font-semibold text-[#1C1A18]">{t.duracion}</span>
-                    </div>
-                    <div className="border-l border-r border-[#E5DFD3]/60">
+                  <div className="grid grid-cols-2 gap-2 border-t border-b border-[#E5DFD3]/60 py-4 mb-6 font-mono text-[10px] text-[#554E46]/70 text-center">
+                    <div className="border-r border-[#E5DFD3]/60">
                       <span className="text-[9px] text-[#C07B5C] block mb-0.5 font-sans uppercase">RECUPERACIÓN</span>
                       <span className="font-semibold text-[#1C1A18] block truncate px-1">{t.recuperacion}</span>
                     </div>
@@ -897,10 +885,6 @@ export default function Tratamientos() {
 
                 <div className="px-6 pb-6 md:px-8 md:pb-8 flex flex-col items-center">
                   <div className="flex justify-center gap-8 border-t border-[#E5DFD3]/60 pt-4 mb-6 font-mono text-[10px] text-[#554E46]/70 w-full">
-                    <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-[#C07B5C]" />
-                      <span>{t.duracion}</span>
-                    </div>
                     <div className="flex items-center gap-1.5">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#C07B5C]" />
                       <span>{t.recuperacion}</span>

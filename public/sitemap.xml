@@ -66,6 +66,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://antonio-icardo.com/tratamientos/rinomodelacion</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antonio-icardo.com/tratamientos/inductores-colageno</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://antonio-icardo.com/aviso-legal</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>

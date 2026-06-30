@@ -35,6 +35,13 @@ export default function NutricionPage() {
                 <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
               </a>
               <a className="btn trat-btn-ghost" href="https://wa.me/34680637247" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a
+                className="btn trat-btn-ghost"
+                href="#en-que-consiste"
+                onClick={e => { e.preventDefault(); document.getElementById('en-que-consiste')?.scrollIntoView({ behavior: 'smooth' }) }}
+              >
+                Conocer tratamiento
+              </a>
             </div>
           </div>
         </div>
@@ -42,6 +49,7 @@ export default function NutricionPage() {
 
       <TratStatsBar t={t} />
 
+      <div id="en-que-consiste" />
       <TratForWho t={t} />
 
       <TratBenefits t={t} />

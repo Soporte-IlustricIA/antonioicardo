@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { tratamientos } from '../../data/tratamientos'
+import { TECNICAS_DESC } from '../../data/tecnicasDesc'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import NotFound from '../NotFound'
@@ -11,6 +12,7 @@ export default function TratamientoPage() {
   const t = tratamientos.find(tr => tr.slug === slug)
   const [faqOpen, setFaqOpen] = useState(null)
   const [galleryIdx, setGalleryIdx] = useState(0)
+  const [openTec, setOpenTec] = useState(null)
 
   // Before/After slider
   const sliderRef = useRef(null)
@@ -26,6 +28,7 @@ export default function TratamientoPage() {
   useEffect(() => {
     setFaqOpen(null)
     setGalleryIdx(0)
+    setOpenTec(null)
     window.scrollTo(0, 0)
   }, [slug])
 
@@ -69,6 +72,16 @@ export default function TratamientoPage() {
               >
                 WhatsApp
               </a>
+              <a
+                className="btn trat-btn-ghost"
+                href="#en-que-consiste"
+                onClick={e => {
+                  e.preventDefault()
+                  document.getElementById('en-que-consiste')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                Conocer tratamiento
+              </a>
             </div>
           </div>
         </div>
@@ -105,7 +118,7 @@ export default function TratamientoPage() {
       </div>
 
       {/* 3 · INTRO SPLIT */}
-      <section className="trat-intro">
+      <section className="trat-intro" id="en-que-consiste">
         <div className="container">
           <div className="trat-intro-grid">
             <div className="trat-intro-img-wrap">
@@ -117,9 +130,19 @@ export default function TratamientoPage() {
               <p>{t.descripcionLarga}</p>
               <div className="trat-tecnicas-wrap">
                 {t.tecnicas.map(tec => (
-                  <span key={tec} className="trat-tecnica-pill">{tec}</span>
+                  <button
+                    key={tec}
+                    type="button"
+                    className={`trat-tecnica-pill${openTec === tec ? ' active' : ''}`}
+                    onClick={() => setOpenTec(openTec === tec ? null : tec)}
+                  >
+                    {tec}
+                  </button>
                 ))}
               </div>
+              {openTec && TECNICAS_DESC[openTec] && (
+                <div className="trat-tecnica-desc">{TECNICAS_DESC[openTec]}</div>
+              )}
             </div>
           </div>
         </div>

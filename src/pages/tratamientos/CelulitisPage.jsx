@@ -18,7 +18,7 @@ const FLIP_CARDS = [
   },
   {
     front: 'Carboxiterapia',
-    back: 'Infiltración de CO₂ medicinal que estimula la microcirculación y activa el metabolismo celular. Resultados visibles desde la 3ª sesión.',
+    back: 'Infiltración de CO₂ medicinal que estimula la microcirculación y activa el metabolismo celular. Los primeros cambios suelen apreciarse a partir de la 3ª sesión.',
   },
   {
     front: 'Radiofrecuencia',
@@ -26,7 +26,7 @@ const FLIP_CARDS = [
   },
   {
     front: 'Lipolaser',
-    back: 'Láser de baja intensidad que desintegra los depósitos de grasa localizada. Sin dolor ni recuperación.',
+    back: 'Láser de baja intensidad que desintegra los depósitos de grasa localizada. Bien tolerado y con recuperación mínima.',
   },
 ]
 
@@ -94,6 +94,13 @@ export default function CelulitisPage() {
                 <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
               </a>
               <a className="btn trat-btn-ghost" href="https://wa.me/34680637247" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a
+                className="btn trat-btn-ghost"
+                href="#en-que-consiste"
+                onClick={e => { e.preventDefault(); document.getElementById('en-que-consiste')?.scrollIntoView({ behavior: 'smooth' }) }}
+              >
+                Conocer tratamiento
+              </a>
             </div>
           </div>
         </div>
@@ -135,8 +142,8 @@ export default function CelulitisPage() {
           <div className="cel-progress-grid">
             <div data-reveal>
               <span className="eyebrow">· Efectividad por zona</span>
-              <h2>Resultados comprobados</h2>
-              <p style={{ color: 'var(--muted)', fontSize: '15px', margin: '16px 0 32px' }}>Porcentaje de mejora media tras un ciclo completo de tratamiento.</p>
+              <h2>Mejora media estimada</h2>
+              <p style={{ color: 'var(--muted)', fontSize: '15px', margin: '16px 0 32px' }}>Porcentaje de mejora media orientativo tras un ciclo completo de tratamiento. Los resultados individuales pueden variar.</p>
               <div className="cel-bars">
                 {PROGRESS_BARS.map((b, i) => (
                   <div key={i} className="cel-bar-item">

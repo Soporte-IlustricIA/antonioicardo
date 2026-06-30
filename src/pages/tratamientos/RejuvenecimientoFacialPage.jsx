@@ -18,14 +18,14 @@ const TECNICAS_TABS = [
     label: 'Láser & IPL',
     titulo: 'Láser CO2 Fraccionado e IPL',
     desc: 'Combinamos el poder regenerador del Láser CO2 para textura y arrugas profundas con la Luz Pulsada Intensa (IPL) para eliminar manchas y rojeces, logrando un tono uniforme y rejuvenecido.',
-    beneficios: ['Elimina manchas y pigmentación', 'Mejora drástica de la textura', 'Trata poros abiertos', 'Estimulación profunda de colágeno'],
+    beneficios: ['Reduce manchas y pigmentación', 'Mejora notable de la textura', 'Trata poros abiertos', 'Estimulación profunda de colágeno'],
   },
   {
     id: 'lifting',
     label: 'Lifting sin Cirugía',
     titulo: 'Ultrasonidos (HIFU) & Radiofrecuencia',
     desc: 'Tecnología de última generación para tensar la piel y redefinir el óvalo facial. Los ultrasonidos focalizados y la radiofrecuencia actúan en las capas profundas para combatir la flacidez de forma no invasiva.',
-    beneficios: ['Efecto tensor inmediato', 'Redefinición del arco mandibular', 'Sin cirugía ni agujas', 'Resultados duraderos'],
+    beneficios: ['Efecto tensor progresivo', 'Redefinición del arco mandibular', 'Sin cirugía ni agujas', 'Resultados progresivos y duraderos'],
   },
   {
     id: 'regenerativa',
@@ -39,7 +39,7 @@ const TECNICAS_TABS = [
     label: 'Nutrición & Brillo',
     titulo: 'Hidrafacial, Mesoterapia & Peelings',
     desc: 'Protocolos de limpieza profunda, hidratación y renovación celular. Combinamos la tecnología Hidrafacial con mesoterapia de vitaminas y peelings químicos para una piel radiante y vital.',
-    beneficios: ['Limpieza y detoxificación profunda', 'Luminosidad instantánea', 'Hidratación multicapa', 'Renovación de la superficie cutánea'],
+    beneficios: ['Limpieza y detoxificación profunda', 'Luminosidad visible tras la sesión', 'Hidratación multicapa', 'Renovación de la superficie cutánea'],
   },
 ]
 
@@ -120,6 +120,13 @@ export default function RejuvenecimientoFacialPage() {
                 <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
               </a>
               <a className="btn trat-btn-ghost" href="https://wa.me/34680637247" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a
+                className="btn trat-btn-ghost"
+                href="#en-que-consiste"
+                onClick={e => { e.preventDefault(); document.getElementById('en-que-consiste')?.scrollIntoView({ behavior: 'smooth' }) }}
+              >
+                Conocer tratamiento
+              </a>
             </div>
           </div>
         </div>

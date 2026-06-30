@@ -1855,6 +1855,17 @@ section{padding:96px 0}
 .trat-tecnica-pill:hover{
   background:var(--cream-3);border-color:var(--terra);color:var(--terra);
 }
+.trat-tecnica-pill.active{
+  background:var(--terra);border-color:var(--terra);color:#fff;
+}
+.trat-tecnica-desc{
+  margin-top:14px;padding:14px 18px;
+  background:var(--cream-2);border:1px solid var(--line);
+  border-left:3px solid var(--terra);border-radius:8px;
+  font-size:14px;line-height:1.65;color:var(--ink-soft);
+  animation:fadeIn .18s ease;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
 /* ─── BENEFITS ──────────────────────────────────────────── */
 .trat-benefits{padding:104px 0;background:var(--cream-2)}

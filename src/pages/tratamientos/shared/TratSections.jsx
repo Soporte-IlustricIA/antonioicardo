@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { tratamientos } from '../../../data/tratamientos'
+import { TECNICAS_DESC } from '../../../data/tecnicasDesc'
 
 export function TratStatsBar({ t }) {
   return (
@@ -37,8 +38,9 @@ export function TratStatsBar({ t }) {
 
 export function TratIntro({ t, customImage, imgStyle }) {
   const imgSrc = customImage || (t.imagenes && t.imagenes.length > 0 ? t.imagenes[0] : t.imagenHero)
+  const [openTec, setOpenTec] = useState(null)
   return (
-    <section className="trat-intro">
+    <section className="trat-intro" id="en-que-consiste">
       <div className="container">
         <div className="trat-intro-grid">
           <div className="trat-intro-img-wrap" data-reveal>
@@ -50,9 +52,19 @@ export function TratIntro({ t, customImage, imgStyle }) {
             <p>{t.descripcionLarga}</p>
             <div className="trat-tecnicas-wrap">
               {t.tecnicas.map(tec => (
-                <span key={tec} className="trat-tecnica-pill">{tec}</span>
+                <button
+                  key={tec}
+                  type="button"
+                  className={`trat-tecnica-pill${openTec === tec ? ' active' : ''}`}
+                  onClick={() => setOpenTec(openTec === tec ? null : tec)}
+                >
+                  {tec}
+                </button>
               ))}
             </div>
+            {openTec && TECNICAS_DESC[openTec] && (
+              <div className="trat-tecnica-desc">{TECNICAS_DESC[openTec]}</div>
+            )}
           </div>
         </div>
       </div>

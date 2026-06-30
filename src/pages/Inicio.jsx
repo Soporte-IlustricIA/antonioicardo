@@ -10,7 +10,7 @@ import skincareCreamSmear from '../assets/images/skincare_cream_smear_1780479081
 
 const TEAM = [
   { img: '/assets/antonio.webp', alt: 'Dr. Antonio J. Icardo', name: 'Dr. Antonio J. Icardo García', shortName: 'Dr. Antonio Icardo', role: 'Director Médico · Medicina Estética', desc: 'Más de 40 años de práctica clínica continuada. Director médico y especialista en medicina estética facial y corporal.' },
-  { img: '/assets/sergio.webp',  alt: 'Dr. Sergio Icardo', name: 'Dr. Sergio Icardo', shortName: 'Dr. Sergio Icardo', role: 'Especialista en Nutrición y Dietética', desc: 'Planes nutricionales personalizados para el control de peso, bienestar digestivo y rendimiento deportivo real.' },
+  { img: '/assets/sergio.webp',  alt: 'Sergio Icardo', name: 'Sergio Icardo Belmonte', shortName: 'Sergio Icardo', role: 'Especialista en Nutrición y Dietética', desc: 'Planes nutricionales personalizados para el control de peso, bienestar digestivo y rendimiento deportivo real.' },
   { img: '/assets/neusalmarcha.webp', alt: 'Dra. Neus Almarcha', name: 'Dra. Neus Almarcha', shortName: 'Dra. Neus Almarcha', role: 'Medicina Estética', desc: 'Especializada en medicina estética y tratamientos de última generación. Armonización sutil y regeneración celular para resultados elegantes y naturales.' },
   { img: '/assets/carmenbelmonte.webp', alt: 'Mª Carmen Belmonte', name: 'Mª Carmen Belmonte', shortName: 'Mª Carmen Belmonte', role: 'Personal Auxiliar', desc: 'Soporte asistencial especializado, garantizando una atención al paciente cálida y una experiencia de cabina de primer nivel.' },
   { img: '/assets/carmengonzalez.webp', alt: 'M. Carmen González', name: 'M. Carmen González', shortName: 'M. Carmen González', role: 'Personal Auxiliar', desc: 'Atención y acompañamiento al paciente con profesionalidad y cercanía en todas las etapas del tratamiento.' },
@@ -289,7 +289,7 @@ export default function Inicio() {
               </div>
               <div className="med-benefit-info">
                 <h4>Armonía con tu día a día</h4>
-                <p>Minimizamos todo rastro visual de los procedimientos para garantizarte un retorno discreto e inmediato a tus actividades cotidianas.</p>
+                <p>Minimizamos todo rastro visual de los procedimientos para que puedas reincorporarte a tus actividades cotidianas con la mayor discreción posible.</p>
               </div>
             </div>
 
@@ -362,7 +362,6 @@ export default function Inicio() {
                 <img src={t.imagenHero} alt={t.nombre} loading="lazy" />
                 <div className="treat-car-overlay">
                   <div className="treat-car-top">
-                    <span className="treat-car-tag">{t.duracion}</span>
                     <h3 className="treat-car-title">{t.nombre}</h3>
                     <p className="treat-car-subtitle">{t.descripcionCorta}</p>
                   </div>
