@@ -360,29 +360,6 @@ export default function Inicio() {
                 style={{ cursor: i !== activeSlide ? 'pointer' : 'default' }}
               >
                 <img src={t.imagenHero} alt={t.nombre} loading="lazy" />
-                <div className="treat-car-overlay">
-                  <div className="treat-car-top">
-                    <h3 className="treat-car-title">{t.nombre}</h3>
-                    <p className="treat-car-subtitle">{t.descripcionCorta}</p>
-                  </div>
-                  <div className="treat-car-bottom">
-                    <div className="treat-car-chips">
-                      {t.tecnicas.slice(0, 3).map(tech => (
-                        <span key={tech} className="treat-car-chip">{tech}</span>
-                      ))}
-                    </div>
-                    <Link
-                      className="treat-car-link"
-                      to={`/tratamientos/${t.slug}`}
-                      onClick={e => e.stopPropagation()}
-                    >
-                      Conocer tratamiento
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14M13 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
