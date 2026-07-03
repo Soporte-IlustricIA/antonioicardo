@@ -311,7 +311,7 @@ export const tratamientos = [
     duracion: "30–45 min",
     recuperacion: "Inmediata",
     resultados: "Inmediatos",
-    imagenHero: "/assets/medicinafacial.webp",
+    imagenHero: "/assets/rejuvenecer.webp",
     imagenes: ["/assets/medicinafacial.webp", "/assets/rejuvenecer.webp"],
     beneficios: [
       "Resultado inmediato sin cirugía ni anestesia general",
@@ -342,7 +342,7 @@ export const tratamientos = [
     duracion: "45–60 min",
     recuperacion: "Mínima",
     resultados: "Progresivos desde la 4ª semana",
-    imagenHero: "/assets/arrugas.webp",
+    imagenHero: "/assets/arrugas2.webp",
     imagenes: ["/assets/arrugas.webp", "/assets/rejuvenecimiento.webp"],
     beneficios: [
       "Mejora progresiva y natural de la firmeza cutánea",

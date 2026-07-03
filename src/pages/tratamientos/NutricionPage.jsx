@@ -10,6 +10,29 @@ import {
 
 const t = tratamientos.find(tr => tr.slug === 'nutricion')
 
+const ESPECIALIDADES = [
+  {
+    nombre: 'Nutrición deportiva',
+    desc: 'Pensada para deportistas de moderado/alto rendimiento, focalizada en el desarrollo y mantenimiento de masa muscular mientras se propicia un buen estado de salud.',
+  },
+  {
+    nombre: 'Pérdida de peso',
+    desc: 'Dieta hipocalórica para casos de sobrepeso/obesidad, ajustada a las necesidades de cada paciente.',
+  },
+  {
+    nombre: 'Nutrición clínica',
+    desc: 'Para combatir diversas patologías digestivas o intolerancias ligadas a la alimentación, o patógenos como el helicobácter.',
+  },
+  {
+    nombre: 'Cambios de hábitos',
+    desc: 'Método basado en el cambio paulatino hacia hábitos saludables fáciles de seguir y que perduren en el tiempo, con el fin de mantener el peso deseado.',
+  },
+  {
+    nombre: 'Ganancia de peso',
+    desc: 'Dieta hipercalórica para pacientes que buscan ganancia de masa muscular, incorporando a la dieta grasas y azúcares saludables.',
+  },
+]
+
 export default function NutricionPage() {
   useScrollReveal()
 
@@ -75,11 +98,13 @@ export default function NutricionPage() {
                <p className="nutri-bio">
                  Su filosofía: sin dietas milagro, sin restricciones absurdas. Planes personalizados que encajan con tu vida real y que puedes mantener a largo plazo.
                </p>
-               <div className="nutri-spec-pills">
-                 <span>Nutrición deportiva</span>
-                 <span>Pérdida de peso</span>
-                 <span>Nutrición clínica</span>
-                 <span>Cambio de hábitos</span>
+               <div className="nutri-spec-list">
+                 {ESPECIALIDADES.map((e, i) => (
+                   <div key={i} className="nutri-spec-item">
+                     <strong>{e.nombre}</strong>
+                     <p>{e.desc}</p>
+                   </div>
+                 ))}
                </div>
              </div>
            </div>

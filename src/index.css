@@ -2375,6 +2375,10 @@ html{scroll-behavior:smooth}
 .nutri-bio{color:var(--ink-soft);font-size:16px;line-height:1.75;margin:0 0 16px}
 .nutri-spec-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .nutri-spec-pills span{padding:7px 14px;border-radius:999px;background:var(--cream-2);border:1px solid var(--line);font-size:13px;color:var(--ink-soft)}
+.nutri-spec-list{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.nutri-spec-item{padding:14px 18px;border-radius:12px;background:var(--cream-2);border:1px solid var(--line)}
+.nutri-spec-item strong{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.nutri-spec-item p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0}
 
 /* ─── NUTRICIÓN: UN DÍA EN TU PLAN ──────────────────────── */
 .meal-day-section{padding:104px 0;background:var(--cream-2)}
