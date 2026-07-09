@@ -234,6 +234,44 @@ export function TratRelated({ slug }) {
   )
 }
 
+export function TratCityLinks({ slug, current }) {
+  const ciudades = [
+    { id: 'alicante', nombre: 'Alicante' },
+    { id: 'elche', nombre: 'Elche' },
+  ]
+
+  if (current) {
+    const other = ciudades.find(c => c.id !== current)
+    return (
+      <div className="trat-city-links trat-city-links-cross">
+        <div className="container">
+          <Link to={`/tratamientos/${slug}/${other.id}`} className="trat-city-cross-link">
+            ¿Prefieres nuestra clínica de {other.nombre}?
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="trat-city-links">
+      <div className="container">
+        <div className="trat-city-links-inner">
+          <span className="trat-city-links-label">Disponible en nuestras clínicas de:</span>
+          <div className="trat-city-links-pills">
+            {ciudades.map(c => (
+              <Link key={c.id} to={`/tratamientos/${slug}/${c.id}`} className="trat-city-pill">
+                {c.nombre}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function TratFinalCTA() {
   return (
     <section className="trat-final-cta">

@@ -5,7 +5,7 @@ import Footer from '../../components/Footer'
 import { tratamientos } from '../../data/tratamientos'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import {
-  TratStatsBar, TratIntro, TratBenefits, TratGallery,
+  TratStatsBar, TratCityLinks, TratIntro, TratBenefits, TratGallery,
   TratForWho, TratFAQ, TratRelated, TratFinalCTA
 } from './shared/TratSections'
 
@@ -92,6 +92,7 @@ export default function VaricesPage() {
       </section>
 
       <TratStatsBar t={t} />
+      <TratCityLinks slug={t.slug} />
       <TratIntro t={t} customImage="/assets/varices2.webp" />
       <TratBenefits t={t} />
 

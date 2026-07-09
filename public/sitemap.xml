@@ -41,6 +41,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://antonio-icardo.com/tratamientos/arrugas/alicante</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://antonio-icardo.com/tratamientos/arrugas/elche</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://antonio-icardo.com/tratamientos/rejuvenecimiento-facial/alicante</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://antonio-icardo.com/tratamientos/rejuvenecimiento-facial/elche</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://antonio-icardo.com/tratamientos/varices/alicante</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://antonio-icardo.com/tratamientos/varices/elche</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://antonio-icardo.com/tratamientos/celulitis</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -1,0 +1,101 @@
+export const CLINICAS = {
+  alicante: {
+    nombre: "Alicante",
+    direccion: "Avenida Maisonnave, 27 7º Izq. — 03003 Alicante",
+    telefono: "+34966308811",
+    telefonoDisplay: "+34 966 308 811",
+  },
+  elche: {
+    nombre: "Elche",
+    direccion: "C/ Ángel, 7 Bº — 03203 Elche",
+    telefono: "+34965450470",
+    telefonoDisplay: "+34 965 450 470",
+  },
+}
+
+export const tratamientosCiudad = {
+  "arrugas-alicante": {
+    seoTitle: "Tratamiento de Arrugas en Alicante | Clínicas Icardo",
+    metaDescription: "Trata arrugas y líneas de expresión en nuestra clínica del centro de Alicante. Ácido hialurónico, neuromoduladores e inductores de colágeno. Pide cita.",
+    h1: "Tratamiento de arrugas en Alicante, en el centro de la ciudad",
+    intro: "Si notas que las líneas de expresión se han marcado más este último año y buscas una clínica en Alicante para tratarlas sin pasar por quirófano, en Clínicas Icardo lo valoramos primero en consulta antes de proponer nada. Nuestra clínica está en Avenida Maisonnave 27, a un paso de la Rambla y el Mercado Central, en pleno centro. El Dr. Icardo diseña un plan según tu anatomía y el resultado que buscas, combinando neuromoduladores, ácido hialurónico e inductores de colágeno según el caso.",
+    porQueElegirnos: "Llevamos desde 1992 en Alicante, lo que en esta ciudad significa haber tratado a varias generaciones de la misma familia. La clínica está en Avenida Maisonnave, en el centro, con fácil acceso a pie desde el Mercado Central y aparcamiento cercano en la zona de la Rambla — algo que muchos pacientes valoran cuando vienen tras el trabajo. El Dr. Icardo es quien valora y trata personalmente cada caso, no un protocolo estándar aplicado por distintos profesionales. Si ya conoces la clínica por otros tratamientos, el historial y las revisiones se llevan en el mismo centro.",
+    servicioDetallado: "El tratamiento de arrugas combina tres técnicas según la zona y el tipo de línea a corregir: neuromoduladores para arrugas de expresión (frente, entrecejo, patas de gallo), ácido hialurónico para pérdida de volumen y surcos marcados, e inductores de colágeno cuando el objetivo es una mejora progresiva de la firmeza. La sesión dura entre 30 y 60 minutos según el plan. Aplicamos anestesia tópica si es necesaria. Los neuromoduladores muestran resultado a los 3–7 días y su efecto suele mantenerse entre 4 y 6 meses; los rellenos con ácido hialurónico o inductores de colágeno tienen efecto más inmediato y pueden mantenerse entre 12 y 24 meses según el producto. A las 2 semanas hacemos una revisión de seguimiento.",
+    faq: [
+      { q: "¿La clínica de Alicante tiene aparcamiento cerca?", a: "Estamos en Avenida Maisonnave, junto a la Rambla; hay varios parkings públicos a menos de 5 minutos andando." },
+      { q: "¿Atiende el Dr. Icardo en persona en la clínica de Alicante?", a: "Sí, es quien realiza la valoración y el tratamiento en la sede de Alicante." },
+      { q: "¿Puedo pedir cita para esta semana en Alicante?", a: "Depende de la agenda del momento; llámanos y te confirmamos el primer hueco disponible." },
+    ],
+    ctaText: "Llama y pide tu valoración en nuestra clínica de Alicante",
+  },
+  "arrugas-elche": {
+    seoTitle: "Tratamiento de Arrugas en Elche | Clínicas Icardo",
+    metaDescription: "Trata arrugas y líneas de expresión en nuestra clínica de Elche, junto al Parque Municipal. Ácido hialurónico y neuromoduladores. Pide cita.",
+    h1: "Tratamiento de arrugas en Elche, junto al centro histórico",
+    intro: "Si vives en Elche y llevas tiempo mirando opciones para tratar arrugas o líneas de expresión sin desplazarte hasta Alicante, en nuestra clínica de Elche (Calle Ángel, 7 Bº) puedes hacer la valoración inicial con el mismo equipo médico de Clínicas Icardo. No hace falta cirugía: según el caso, se trabaja con neuromoduladores, ácido hialurónico o inductores de colágeno, siempre partiendo de una consulta previa donde se explica qué técnica encaja con tu piel y tu objetivo.",
+    porQueElegirnos: "La clínica de Elche está en Calle Ángel, en pleno centro, cerca del Parque Municipal — una zona conocida y de fácil acceso para quien vive o trabaja en el centro de la ciudad. Es la misma estructura médica que la clínica de Alicante: mismo criterio clínico, mismos protocolos, mismo equipo detrás. Para quien ya conocía Clínicas Icardo por su trayectoria en Alicante desde 1992 pero no quería desplazarse, la sede de Elche resuelve ese desplazamiento sin renunciar al mismo nivel de valoración médica.",
+    servicioDetallado: "El proceso en Elche es idéntico al de Alicante: valoración inicial, elección de técnica (neuromoduladores, ácido hialurónico o inductores de colágeno) según la zona y el tipo de línea, y aplicación en sesión de 30–60 minutos con anestesia tópica si es necesaria. Los resultados de los neuromoduladores se aprecian en 3–7 días y suelen mantenerse entre 4 y 6 meses; los rellenos tienen efecto más inmediato con una duración de 12 a 24 meses según el producto usado. Se programa una revisión a las 2 semanas para valorar el resultado y ajustar si hiciera falta.",
+    faq: [
+      { q: "¿La clínica de Elche está cerca del centro?", a: "Sí, en Calle Ángel 7 Bº, junto al Parque Municipal, en el centro de Elche." },
+      { q: "¿Es el mismo médico que en Alicante?", a: "El equipo médico es el mismo grupo de Clínicas Icardo; consulta disponibilidad concreta al pedir cita." },
+      { q: "¿Puedo empezar con una valoración sin compromiso en Elche?", a: "Sí, la primera consulta sirve para explicar qué técnica encaja con tu caso antes de decidir nada." },
+    ],
+    ctaText: "Llama y pide tu valoración en nuestra clínica de Elche",
+  },
+  "rejuvenecimiento-facial-alicante": {
+    seoTitle: "Rejuvenecimiento Facial en Alicante | Clínicas Icardo",
+    metaDescription: "Mejora la textura, firmeza y luminosidad de tu piel en nuestra clínica de Alicante. Láser CO2, IPL, exosomas y más. Pide tu valoración.",
+    h1: "Rejuvenecimiento facial en Alicante, protocolos a medida",
+    intro: "Cuando la piel del rostro empieza a perder firmeza o luminosidad y las cremas ya no notan diferencia, muchos pacientes de Alicante buscan una clínica que combine varias técnicas en un solo protocolo en lugar de vender un único tratamiento genérico. En nuestra clínica de Avenida Maisonnave estudiamos el estado de tu piel, tu historial y tu objetivo antes de proponer un protocolo — que puede incluir láser CO2 fraccionado, IPL, radiofrecuencia, mesoterapia o medicina regenerativa con exosomas, según lo que necesite tu piel en concreto.",
+    porQueElegirnos: "No trabajamos con un protocolo único para todo el mundo: el plan se diseña sesión a sesión según cómo evoluciona tu piel. La clínica está en el centro de Alicante, junto a la Rambla, con fácil acceso para quien viene desde cualquier punto de la ciudad o del área metropolitana. Al ser el mismo equipo el que valora y hace el seguimiento, las revisiones y ajustes del protocolo se hacen con quien ya conoce tu caso, no con un profesional distinto cada vez.",
+    servicioDetallado: "El protocolo combina, según el caso, fotorejuvenecimiento con IPL y radiofrecuencia, láser CO2 fraccionado para textura y arrugas más profundas, mesoterapia facial, peelings químicos o medicina regenerativa con exosomas y polinucleótidos. La sesión dura entre 45 y 90 minutos. La recuperación varía de inmediata (mesoterapia, IPL) a 3–7 días de rojez y descamación en el caso del láser CO2. Se recomienda desde los 25-30 años como prevención y a partir de los 35-40 como tratamiento correctivo. Para mantenimiento se suelen plantear entre 2 y 4 sesiones anuales, con mejora progresiva sesión a sesión.",
+    faq: [
+      { q: "¿Puedo combinar el rejuvenecimiento facial con el tratamiento de arrugas en la misma visita a Alicante?", a: "Se valora en consulta; muchos protocolos sí se combinan en la misma sesión." },
+      { q: "¿Cuánto dura la recuperación si trabajo en el centro de Alicante?", a: "Depende de la técnica: la mesoterapia es inmediata, el láser CO2 puede requerir varios días de rojez, algo a tener en cuenta si necesitas volver al trabajo enseguida." },
+      { q: "¿A partir de qué edad tiene sentido empezar en Alicante?", a: "Se valora en consulta según el estado de la piel, no solo la edad; orientativamente desde los 25-30 años como prevención." },
+    ],
+    ctaText: "Llama y pide tu valoración en nuestra clínica de Alicante",
+  },
+  "rejuvenecimiento-facial-elche": {
+    seoTitle: "Rejuvenecimiento Facial en Elche | Clínicas Icardo",
+    metaDescription: "Mejora la firmeza y luminosidad de tu piel en nuestra clínica de Elche. Láser CO2, IPL, exosomas y protocolos a medida. Pide cita.",
+    h1: "Rejuvenecimiento facial en Elche, en el centro de la ciudad",
+    intro: "Si en Elche llevas tiempo notando que la piel pierde firmeza o luminosidad y quieres una valoración médica antes de decidir qué tratamiento tiene sentido en tu caso, en nuestra clínica de Calle Ángel puedes empezar por una consulta donde se estudia tu piel, tu historial y tu objetivo. El protocolo puede combinar láser CO2 fraccionado, IPL, radiofrecuencia, mesoterapia facial o medicina regenerativa con exosomas, según lo que se detecte en esa primera valoración.",
+    porQueElegirnos: "La clínica de Elche está en el centro, junto al Parque Municipal, con el mismo equipo médico y los mismos protocolos que en Alicante. Si vives en Elche y no querías desplazarte hasta Alicante para un tratamiento de este tipo, aquí puedes tener la misma valoración y el mismo seguimiento sin salir de la ciudad. El protocolo no es genérico: se ajusta sesión a sesión según cómo responde tu piel.",
+    servicioDetallado: "Según el caso se combina fotorejuvenecimiento con IPL y radiofrecuencia, láser CO2 fraccionado, mesoterapia facial, peelings químicos o medicina regenerativa con exosomas y polinucleótidos. Las sesiones duran entre 45 y 90 minutos, con recuperación que va de inmediata (mesoterapia, IPL) a varios días de rojez en el caso del láser CO2. Recomendado desde los 25-30 años como prevención y desde los 35-40 como tratamiento correctivo, con mantenimiento habitual de 2 a 4 sesiones anuales y mejora progresiva sesión a sesión.",
+    faq: [
+      { q: "¿La clínica de Elche ofrece las mismas técnicas que la de Alicante?", a: "Sí, mismo equipo médico y mismos protocolos disponibles." },
+      { q: "¿Necesito varias sesiones en Elche o basta con una?", a: "Depende del objetivo; el mantenimiento habitual son 2-4 sesiones al año, se valora en consulta." },
+      { q: "¿Puedo aparcar cerca de la clínica de Elche?", a: "Está en Calle Ángel, junto al Parque Municipal, en el centro de la ciudad." },
+    ],
+    ctaText: "Llama y pide tu valoración en nuestra clínica de Elche",
+  },
+  "varices-alicante": {
+    seoTitle: "Tratamiento de Varices en Alicante | Clínicas Icardo",
+    metaDescription: "Trata varices y arañas vasculares en nuestra clínica de Alicante con esclerosis y láser vascular. Procedimiento no invasivo. Pide cita.",
+    h1: "Tratamiento de varices y arañas vasculares en Alicante",
+    intro: "Si en Alicante te has decidido por fin a tratar esas varices o arañas vasculares que llevas tiempo tapando con maquillaje o evitando enseñar en verano, el primer paso es una exploración clínica que determine el tipo y la extensión antes de elegir entre esclerosis o láser vascular. En nuestra clínica del centro de Alicante hacemos ese diagnóstico antes de proponer nada, y la mayoría de pacientes puede seguir con su día a día justo después de la sesión.",
+    porQueElegirnos: "El diagnóstico vascular se hace mediante exploración clínica especializada, no a ojo. Estamos en el centro de Alicante, con fácil acceso para pacientes de toda la provincia que vienen a valorar varices en piernas o capilares en la cara. Al tratarse de un procedimiento sin cirugía ni hospitalización, muchos pacientes de Alicante lo combinan con su horario laboral sin apenas alterar su semana.",
+    servicioDetallado: "Según el tipo de vaso se aplica esclerosis (prácticamente indolora) o láser vascular (leve sensación de calor momentánea). La sesión dura entre 45 y 60 minutos. Las arañas vasculares suelen resolverse en 1-3 sesiones; varices más extensas pueden requerir más. La recuperación es inmediata — se recomienda usar medias de compresión los primeros días y evitar el sol directo en la zona tratada. Los vasos tratados habitualmente no reaparecen, aunque con el tiempo pueden desarrollarse nuevos vasos en la misma zona, sobre todo si hay predisposición genética.",
+    faq: [
+      { q: "¿Puedo venir a la clínica de Alicante en horario de comida y volver al trabajo?", a: "Sí, la recuperación es inmediata en la mayoría de casos." },
+      { q: "¿Cuántas visitas necesito hacer a la clínica de Alicante?", a: "Depende de la extensión; arañas vasculares suelen resolverse en 1-3 sesiones." },
+      { q: "¿Es doloroso el tratamiento de varices?", a: "La esclerosis es prácticamente indolora; el láser vascular puede dar una sensación de calor momentánea." },
+    ],
+    ctaText: "Llama y pide tu valoración de varices en Alicante",
+  },
+  "varices-elche": {
+    seoTitle: "Tratamiento de Varices en Elche | Clínicas Icardo",
+    metaDescription: "Trata varices y arañas vasculares en nuestra clínica de Elche con esclerosis y láser vascular. Sin cirugía ni hospitalización. Pide cita.",
+    h1: "Tratamiento de varices y arañas vasculares en Elche",
+    intro: "Si vives en Elche y buscas tratar varices o arañas vasculares sin desplazarte a Alicante, en nuestra clínica de Calle Ángel se hace primero una exploración clínica para determinar el tipo y la extensión de los vasos antes de elegir entre esclerosis o láser vascular. Es un procedimiento sin cirugía ni hospitalización, pensado para que puedas seguir con tu semana justo después de la sesión.",
+    porQueElegirnos: "La clínica de Elche está en el centro, junto al Parque Municipal, y aplica el mismo protocolo de diagnóstico vascular que la sede de Alicante. Para pacientes de Elche y alrededores (Crevillente, Santa Pola, Aspe), evita el desplazamiento a Alicante manteniendo el mismo criterio médico y seguimiento.",
+    servicioDetallado: "Según el tipo de vaso se aplica esclerosis o láser vascular, en sesión de 45-60 minutos. Las arañas vasculares suelen resolverse en 1-3 sesiones; varices más extensas pueden necesitar más sesiones. La recuperación es inmediata, con recomendación de medias de compresión los primeros días y evitar el sol directo en la zona. Los vasos tratados habitualmente no reaparecen, aunque pueden aparecer vasos nuevos en la misma zona con el tiempo, especialmente si hay predisposición genética.",
+    faq: [
+      { q: "¿Tratáis varices de pacientes de fuera de Elche (Crevillente, Santa Pola)?", a: "Sí, la clínica de Elche recibe pacientes de toda la comarca." },
+      { q: "¿Cuántas sesiones necesito en Elche?", a: "Depende de la extensión, entre 1 y varias sesiones según el caso." },
+      { q: "¿Hay que guardar reposo tras el tratamiento en Elche?", a: "No, la recuperación es inmediata; solo se recomienda usar medias de compresión los primeros días." },
+    ],
+    ctaText: "Llama y pide tu valoración de varices en Elche",
+  },
+}

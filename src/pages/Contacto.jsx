@@ -1,8 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { tratamientos } from '../data/tratamientos'
-import { fetchSlots, bookAppointment } from '../lib/appointments'
+import { fetchSlots, bookAppointment, fetchTreatments } from '../lib/appointments'
 
 const Spinner = () => (
   <div style={{
@@ -38,11 +37,22 @@ export default function Contacto() {
   const [selectedSlot, setSelectedSlot] = useState(null)
   const [page, setPage] = useState(0)
   const [confirmedLabel, setConfirmedLabel] = useState('')
+  const [tratamientos, setTratamientos] = useState([])
+  const [tratamientosLoading, setTratamientosLoading] = useState(true)
   const [form, setForm] = useState({
     nombre: '', telefono: '', email: '',
-    dni: '', clinica: '', tratamiento: '', mensaje: '',
+    dni: '', clinica: '', tratamiento: '', fecha: '', mensaje: '',
     privacidad: false,
   })
+
+  useEffect(() => {
+    fetchTreatments()
+      .then(data => {
+        if (data.ok) setTratamientos(data.treatments)
+      })
+      .catch(() => {})
+      .finally(() => setTratamientosLoading(false))
+  }, [])
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target
@@ -56,10 +66,8 @@ export default function Contacto() {
     const clinica = form.clinica
       ? form.clinica.charAt(0).toUpperCase() + form.clinica.slice(1)
       : 'Alicante'
-    const tratamientoObj = tratamientos.find(t => t.slug === form.tratamiento)
-    const tratamiento = tratamientoObj?.nombre || ''
     try {
-      const data = await fetchSlots(clinica, tratamiento)
+      const data = await fetchSlots(clinica, form.tratamiento, form.fecha)
       if (data.ok && data.slots?.length > 0) {
         setSlots(data.slots)
         setPage(0)
@@ -207,11 +215,23 @@ export default function Contacto() {
                       <div className="form-group">
                         <label htmlFor="tratamiento">Tratamiento de interés</label>
                         <select id="tratamiento" name="tratamiento" value={form.tratamiento} onChange={handleChange}>
-                          <option value="">Seleccionar...</option>
+                          <option value="">{tratamientosLoading ? 'Cargando...' : 'Seleccionar...'}</option>
                           {tratamientos.map(t => (
-                            <option key={t.slug} value={t.slug}>{t.nombre}</option>
+                            <option key={t.id} value={t.id}>{t.name}</option>
                           ))}
                         </select>
+                      </div>
+                    </div>
+
+                    <div className="form-row two">
+                      <div className="form-group">
+                        <label htmlFor="fecha">Fecha preferida *</label>
+                        <input
+                          id="fecha" name="fecha" type="date"
+                          value={form.fecha} onChange={handleChange}
+                          min={new Date().toISOString().split('T')[0]}
+                          required
+                        />
                       </div>
                     </div>
 

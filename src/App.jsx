@@ -9,6 +9,7 @@ import VaricesPage from './pages/tratamientos/VaricesPage'
 import RejuvenecimientoFacialPage from './pages/tratamientos/RejuvenecimientoFacialPage'
 import CelulitisPage from './pages/tratamientos/CelulitisPage'
 import NutricionPage from './pages/tratamientos/NutricionPage'
+import TratamientoCiudadPage from './pages/tratamientos/TratamientoCiudadPage'
 import NuestrasClinicas from './pages/NuestrasClinicas'
 import QuienesSomos from './pages/QuienesSomos'
 import Contacto from './pages/Contacto'
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/tratamientos/rejuvenecimiento-facial" element={<RejuvenecimientoFacialPage />} />
         <Route path="/tratamientos/celulitis" element={<CelulitisPage />} />
         <Route path="/tratamientos/nutricion" element={<NutricionPage />} />
+        <Route path="/tratamientos/:slug/:ciudad" element={<TratamientoCiudadPage />} />
         <Route path="/tratamientos/:slug" element={<TratamientoPage />} />
         <Route path="/nuestras-clinicas" element={<NuestrasClinicas />} />
         <Route path="/quienes-somos" element={<QuienesSomos />} />

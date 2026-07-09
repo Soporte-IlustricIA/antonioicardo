@@ -5,7 +5,7 @@ import Footer from '../../components/Footer'
 import { tratamientos } from '../../data/tratamientos'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import {
-  TratIntro, TratStatsBar, TratBenefits, TratSteps, TratGallery,
+  TratIntro, TratStatsBar, TratCityLinks, TratBenefits, TratSteps, TratGallery,
   TratForWho, TratFAQ, TratRelated, TratFinalCTA
 } from './shared/TratSections'
 import BeforeAfterSlider from '../../components/BeforeAfterSlider'
@@ -133,6 +133,7 @@ export default function RejuvenecimientoFacialPage() {
       </section>
 
       <TratStatsBar t={t} />
+      <TratCityLinks slug={t.slug} />
 
       <TratIntro t={t} customImage="/assets/rejuvenecer.webp" imgStyle={{ objectPosition: 'top' }} />
 

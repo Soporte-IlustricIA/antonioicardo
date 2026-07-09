@@ -1805,6 +1805,31 @@ section{padding:96px 0}
 .trat-stat-cta{margin-left:auto;flex-shrink:0;white-space:nowrap}
 @media(max-width:640px){.trat-stat-cta{display:none}}
 
+/* ─── CITY LINKS ────────────────────────────────────────── */
+.trat-city-links{background:var(--cream-2);border-bottom:1px solid var(--line);padding:18px 0}
+.trat-city-links-inner{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.trat-city-links-label{font-size:13px;color:var(--muted);letter-spacing:.02em}
+.trat-city-links-pills{display:flex;gap:10px;flex-wrap:wrap}
+.trat-city-pill{padding:7px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--ink-soft);transition:border-color .15s,color .15s,background .15s}
+.trat-city-pill:hover{border-color:var(--terra);color:var(--terra)}
+.trat-city-links-cross{background:transparent;border-bottom:0;padding:14px 0 0}
+.trat-city-cross-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--terra)}
+.trat-city-cross-link svg{transition:transform .15s}
+.trat-city-cross-link:hover svg{transform:translateX(3px)}
+
+/* ─── CITY LANDING SECTIONS ─────────────────────────────── */
+.trat-city-section{padding:72px 0}
+.trat-city-section.alt{background:var(--cream-2)}
+.trat-city-section-inner{max-width:760px;margin:0 auto}
+.trat-city-section-inner .eyebrow{margin-bottom:14px;display:block}
+.trat-city-section-inner h2{
+  font-family:"Cormorant Garamond",serif;font-weight:500;
+  font-size:clamp(30px,3.6vw,42px);line-height:1.08;margin:0 0 18px;
+}
+.trat-city-section-inner p{color:var(--ink-soft);font-size:16px;line-height:1.78;margin:0}
+.trat-city-cta{padding:56px 0;background:var(--dark);text-align:center}
+.trat-city-cta p{color:#F4ECDD;font-size:17px;margin:0 0 20px}
+
 /* ─── INTRO SPLIT ───────────────────────────────────────── */
 .trat-intro{padding:104px 0}
 .trat-intro-grid{
